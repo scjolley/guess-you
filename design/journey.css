@@ -72,3 +72,12 @@ main>.intro{margin-bottom:0;height:192svh}
 #closing>.small,#farewell{text-align:left}
 @media(max-width:700px){.detail-actions{gap:14px}.detail-actions .action{font-size:15px}.hero-cta{bottom:9%}.intro .scrollnote{bottom:calc(9% - 30px);left:0;right:0;font-size:10px}.closing-actions{gap:16px}}
 @media(prefers-reduced-motion:reduce){main>.intro{height:auto}.intro .scrollnote{display:none}}
+
+/* One save control follows the latest open reflection step. */
+.keep-slot:empty{display:none}
+.keep-slot{width:100%;margin:20px 0}
+.keep-slot .keep-reflection{display:block;width:fit-content;margin:0 auto;font-size:14px;padding:12px 24px;text-decoration:none}
+.closing-actions{display:flex;flex-direction:column;align-items:center;gap:12px}
+.closing-actions .keep-slot{margin:16px 0 0}
+.closing-actions #goodbye{order:0}
+.intro .scrollnote{width:175px;max-width:calc(100% - 40px);left:50%;right:auto;transform:translateX(-50%);font-size:10px;letter-spacing:0;white-space:nowrap}

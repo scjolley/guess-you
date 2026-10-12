@@ -1,6 +1,5 @@
 // Set the approved public launch URL here. Never share a localhost preview address.
 const PUBLIC_GUESS_YOU_URL = '';
-const NVC_RESOURCE_URL = 'https://www.cnvc.org/store/feelings-and-needs-inventory';
 function communicationSentence(values){
  const observation=values.observation.trim().replace(/^when\s+/i,'').replace(/[.!?]+$/,'');
  const need=values.need.trim().replace(/^i (?:might )?need\s+/i,'').replace(/[.!?]+$/,'');
@@ -24,4 +23,4 @@ function reflectionText(values,stage){
  if(stage==='closing'&&values.now.trim())lines.push(`Now I feel: ${values.now.trim()}`);
  return lines.length?lines.join('\n\n'):'My Guess You reflection';
 }
-function withResources(text){return text+'\n\nMade with Guess You'+(PUBLIC_GUESS_YOU_URL?'\n'+PUBLIC_GUESS_YOU_URL:'')+'\nFeelings & needs: '+NVC_RESOURCE_URL+(PUBLIC_GUESS_YOU_URL?'\nMore resources: '+new URL('resources.html',PUBLIC_GUESS_YOU_URL).href:'');}
+function withSiteLink(text){return PUBLIC_GUESS_YOU_URL?text+'\n\nMade with Guess You\n'+PUBLIC_GUESS_YOU_URL:text;}

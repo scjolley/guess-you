@@ -1,5 +1,5 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const ctx={URL};vm.createContext(ctx);vm.runInContext(fs.readFileSync('design/reflection-tools.js','utf8')+';this.sentence=communicationSentence;this.reflect=reflectionText;this.links=withResources;',ctx);
+const ctx={URL};vm.createContext(ctx);vm.runInContext(fs.readFileSync('design/reflection-tools.js','utf8')+';this.sentence=communicationSentence;this.reflect=reflectionText;this.links=withSiteLink;',ctx);
 const values={input:'sad',feeling:'heartbroken',bodyNote:'a heaviness',observation:'When plans changed.',need:'I might need consideration.',request:'Would you let me know earlier?',now:'calmer'};
 assert.equal(ctx.sentence(values),'When plans changed, I feel heartbroken because I might need consideration. Would you let me know earlier?');
 assert(!ctx.reflect(values,'checkin').includes('heaviness'));
@@ -9,6 +9,9 @@ assert(ctx.reflect(values,'deep').includes('consideration'));
 assert(!ctx.reflect(values,'deep').includes('calmer'));
 assert(ctx.reflect(values,'closing').includes('calmer'));
 assert(!ctx.links('My reflection').includes('127.0.0.1'));
-assert(ctx.links('My reflection').includes('https://www.cnvc.org/store/feelings-and-needs-inventory'));
+assert.equal(ctx.links('My reflection'),'My reflection');
+const live={URL};vm.createContext(live);vm.runInContext(fs.readFileSync('design/reflection-tools.js','utf8').replace("PUBLIC_GUESS_YOU_URL = ''","PUBLIC_GUESS_YOU_URL = 'https://example.com/'")+';this.links=withSiteLink;',live);
+assert.equal(live.links('My reflection'),'My reflection\n\nMade with Guess You\nhttps://example.com/');
+assert(!live.links('My reflection').includes('cnvc'));
 const empty={...values,observation:'',need:'',request:''};assert.equal(ctx.sentence(empty),'I feel heartbroken.');
 console.log('Sentence composition, step-specific exports, and resource links checked.');

@@ -90,21 +90,23 @@ English copy. `design/journey.css` and `design/journey.js` hold presentation and
 interactions; `design/journey-data.js` is derived from the original `data.json`
 and existing image paths. Fonts and licenses are in `design/fonts/`.
 
-Reflections live only in page memory. Keep my reflection is available at every
-writing stage: copy, save a text file, open an email draft, or use device sharing
-when supported. The deeper prompts also assemble a sentence that can be copied.
+Reflections live only in page memory. One centered Keep my reflection pill moves to the latest open reflection
+stage (selected feeling, deeper prompts, or closing): copy, save a text file, open an email draft, or use device sharing
+when supported. The deeper prompts assemble a sentence included in the saved reflection.
 The original game is unchanged. This is a creative approval proof, not a public
 release. Earlier designs remain recoverable in Git history.
 
 
 The opening begins with the centered title clearing from blur, then rising as
 the copy and six moving cards appear. The title sequence lasts 3.2 seconds,
-including a clear-title pause; reduced-motion visitors skip the animation. Cards enter individually along the scroll path into complete rows:
+including a clear-title pause; reduced-motion visitors skip the animation.
+Scrolling away permanently skips the intro animation for this page visit, so
+returning to the top never restarts it. Cards enter individually along the scroll path into complete rows:
 64 distinct people on desktop and 70 on mobile, drawn from 76 available people.
 Section labels are omitted; shared action circles are 44px beside their labels.
 Button rules: pills for choices and check-in navigation; circular arrows for
-actions; smaller 14px Keep my reflection actions aligned to the right beneath
-reflection fields, only after a feeling is selected. Deeper actions align left,
+actions; one centered 14px Keep my reflection pill beneath the current reflection, only
+after a feeling is selected. Deeper actions align left,
 with the skip action on the right. Controls keep 44px minimum targets and visible
 keyboard focus. Resources disclosure remains left-aligned. The deeper section leads directly to “How do you feel now?”.
 Feeling results start at four and expand by four, without duplicate feelings.
@@ -113,7 +115,8 @@ for all 152 feelings.
 
 `design/resources.html` opens separately and includes US support and NVC resources.
 Set `PUBLIC_GUESS_YOU_URL` in `design/reflection-tools.js` when a public address is
-live; until then exported reflections include the NVC link and never localhost.
+live; until then exported reflections contain no website link. Once configured,
+only the public Guess You URL is included—never NVC resources or localhost.
 No domain has been purchased.
 `design/feeling-language.js` adds 253 editorial everyday phrases to existing
 triggers; matches are possibilities, not diagnoses or fixed meanings.
