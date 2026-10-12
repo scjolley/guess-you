@@ -95,3 +95,10 @@ and 152 existing photo paths. Explanations are proposed family-level editorial
 copy; further word-specific content, translation, final motion tuning, direct
 sharing, and book link remain for review. Video portraits and Apple Health V2.
 Original playable game remains unchanged; previous proofs are in Git history.
+
+
+## Proof 05 — October 12 refinements
+
+Single-line Guess you title in locally licensed Manrope, one opening sentence, and 24 distinct opaque portraits below the title. Softer input and round-stroked arrows. Portraits use a display-only 4:5 crop; source images remain unchanged. A Tile depth toggle compares shallow raised edges with flat cards. Optional deeper reflection and closing sections have return controls.
+
+Background review: design/background-review.html displays all 152 original portraits, ranked by corner-color distance from the set median as a screening aid, not an edit verdict. Backgrounds vary between white, gray and lavender, with differing shadows. User must review and choose a target before any image regeneration or Higgsfield credits are used. No portraits were edited.

@@ -1,0 +1,1531 @@
+{
+  "scope": "152 current 800px feeling exports; source files unchanged",
+  "method": "Median RGB of two top-corner patches; screening only. Hair or objects can contaminate corners. Review visually before edits.",
+  "baseline_rgb": [
+    236,
+    234,
+    238
+  ],
+  "images": [
+    {
+      "file": "kai-inspired-800.webp",
+      "rgb": [
+        202,
+        201,
+        211
+      ],
+      "corner_difference": 29,
+      "distance": 54.5
+    },
+    {
+      "file": "mayumi-pressured-800.webp",
+      "rgb": [
+        208,
+        212,
+        218
+      ],
+      "corner_difference": 2,
+      "distance": 40.8
+    },
+    {
+      "file": "kai-weary-800.webp",
+      "rgb": [
+        214,
+        209,
+        216
+      ],
+      "corner_difference": 32,
+      "distance": 39.9
+    },
+    {
+      "file": "yara-rejuvenated-800.webp",
+      "rgb": [
+        214,
+        215,
+        220
+      ],
+      "corner_difference": 11,
+      "distance": 34.2
+    },
+    {
+      "file": "tayanna-comfortable-800.webp",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "corner_difference": 0,
+      "distance": 33.0
+    },
+    {
+      "file": "fatima-safe-800.webp",
+      "rgb": [
+        216,
+        215,
+        220
+      ],
+      "corner_difference": 24,
+      "distance": 32.9
+    },
+    {
+      "file": "priya-awed-800.webp",
+      "rgb": [
+        216,
+        214,
+        222
+      ],
+      "corner_difference": 17,
+      "distance": 32.5
+    },
+    {
+      "file": "daniel-numb-800.webp",
+      "rgb": [
+        216,
+        214,
+        226
+      ],
+      "corner_difference": 5,
+      "distance": 30.7
+    },
+    {
+      "file": "ellie-ecstatic-800.webp",
+      "rgb": [
+        216,
+        217,
+        222
+      ],
+      "corner_difference": 17,
+      "distance": 30.7
+    },
+    {
+      "file": "yara-annoyed-800.webp",
+      "rgb": [
+        216,
+        218,
+        223
+      ],
+      "corner_difference": 13,
+      "distance": 29.7
+    },
+    {
+      "file": "camila-tickled-800.webp",
+      "rgb": [
+        218,
+        218,
+        222
+      ],
+      "corner_difference": 11,
+      "distance": 28.9
+    },
+    {
+      "file": "minh-clear-headed-800.webp",
+      "rgb": [
+        218,
+        216,
+        225
+      ],
+      "corner_difference": 4,
+      "distance": 28.6
+    },
+    {
+      "file": "duda-interested-800.webp",
+      "rgb": [
+        214,
+        220,
+        228
+      ],
+      "corner_difference": 17,
+      "distance": 27.9
+    },
+    {
+      "file": "ellie-bored-800.webp",
+      "rgb": [
+        220,
+        218,
+        224
+      ],
+      "corner_difference": 13,
+      "distance": 26.6
+    },
+    {
+      "file": "camila-melancholy-800.webp",
+      "rgb": [
+        220,
+        219,
+        224
+      ],
+      "corner_difference": 12,
+      "distance": 26.0
+    },
+    {
+      "file": "daniel-loving-800.webp",
+      "rgb": [
+        221,
+        218,
+        224
+      ],
+      "corner_difference": 4,
+      "distance": 26.0
+    },
+    {
+      "file": "rafa-fulfilled-800.webp",
+      "rgb": [
+        221,
+        218,
+        224
+      ],
+      "corner_difference": 3,
+      "distance": 26.0
+    },
+    {
+      "file": "brenda-fascinated-800.webp",
+      "rgb": [
+        220,
+        220,
+        224
+      ],
+      "corner_difference": 12,
+      "distance": 25.5
+    },
+    {
+      "file": "taina-warm-800.webp",
+      "rgb": [
+        222,
+        219,
+        224
+      ],
+      "corner_difference": 20,
+      "distance": 24.8
+    },
+    {
+      "file": "seu-hiro-outraged-800.webp",
+      "rgb": [
+        221,
+        220,
+        225
+      ],
+      "corner_difference": 6,
+      "distance": 24.3
+    },
+    {
+      "file": "taina-depleted-800.webp",
+      "rgb": [
+        224,
+        220,
+        224
+      ],
+      "corner_difference": 13,
+      "distance": 23.2
+    },
+    {
+      "file": "gloria-detached-800.webp",
+      "rgb": [
+        223,
+        221,
+        224
+      ],
+      "corner_difference": 2,
+      "distance": 23.1
+    },
+    {
+      "file": "dona-cida-stressed-800.webp",
+      "rgb": [
+        222,
+        222,
+        226
+      ],
+      "corner_difference": 7,
+      "distance": 22.0
+    },
+    {
+      "file": "jun-helpless-800.webp",
+      "rgb": [
+        224,
+        220,
+        226
+      ],
+      "corner_difference": 17,
+      "distance": 22.0
+    },
+    {
+      "file": "raimundo-grounded-800.webp",
+      "rgb": [
+        222,
+        222,
+        226
+      ],
+      "corner_difference": 25,
+      "distance": 22.0
+    },
+    {
+      "file": "andres-exasperated-800.webp",
+      "rgb": [
+        223,
+        222,
+        227
+      ],
+      "corner_difference": 6,
+      "distance": 20.8
+    },
+    {
+      "file": "fatima-self-conscious-800.webp",
+      "rgb": [
+        224,
+        224,
+        228
+      ],
+      "corner_difference": 17,
+      "distance": 18.5
+    },
+    {
+      "file": "rafa-suspicious-800.webp",
+      "rgb": [
+        224,
+        224,
+        228
+      ],
+      "corner_difference": 7,
+      "distance": 18.5
+    },
+    {
+      "file": "pedro-enthusiastic-800.webp",
+      "rgb": [
+        224,
+        224,
+        229
+      ],
+      "corner_difference": 18,
+      "distance": 18.0
+    },
+    {
+      "file": "ana-insecure-800.webp",
+      "rgb": [
+        246,
+        245,
+        248
+      ],
+      "corner_difference": 0,
+      "distance": 17.9
+    },
+    {
+      "file": "malu-trusting-800.webp",
+      "rgb": [
+        224,
+        224,
+        230
+      ],
+      "corner_difference": 16,
+      "distance": 17.5
+    },
+    {
+      "file": "pedro-hopeless-800.webp",
+      "rgb": [
+        224,
+        225,
+        230
+      ],
+      "corner_difference": 15,
+      "distance": 17.0
+    },
+    {
+      "file": "mayumi-invigorated-800.webp",
+      "rgb": [
+        224,
+        226,
+        230
+      ],
+      "corner_difference": 2,
+      "distance": 16.5
+    },
+    {
+      "file": "elias-frazzled-800.webp",
+      "rgb": [
+        244,
+        245,
+        247
+      ],
+      "corner_difference": 21,
+      "distance": 16.3
+    },
+    {
+      "file": "andres-amused-800.webp",
+      "rgb": [
+        226,
+        226,
+        228
+      ],
+      "corner_difference": 6,
+      "distance": 16.2
+    },
+    {
+      "file": "ana-appreciative-800.webp",
+      "rgb": [
+        244,
+        242,
+        248
+      ],
+      "corner_difference": 3,
+      "distance": 15.1
+    },
+    {
+      "file": "kaua-bitter-800.webp",
+      "rgb": [
+        244,
+        244,
+        246
+      ],
+      "corner_difference": 7,
+      "distance": 15.1
+    },
+    {
+      "file": "dev-quiet-800.webp",
+      "rgb": [
+        245,
+        244,
+        244
+      ],
+      "corner_difference": 2,
+      "distance": 14.7
+    },
+    {
+      "file": "duda-burnt-out-800.webp",
+      "rgb": [
+        224,
+        228,
+        232
+      ],
+      "corner_difference": 13,
+      "distance": 14.7
+    },
+    {
+      "file": "marta-playful-800.webp",
+      "rgb": [
+        228,
+        224,
+        231
+      ],
+      "corner_difference": 12,
+      "distance": 14.6
+    },
+    {
+      "file": "neide-disappointed-800.webp",
+      "rgb": [
+        226,
+        226,
+        232
+      ],
+      "corner_difference": 10,
+      "distance": 14.1
+    },
+    {
+      "file": "priya-betrayed-800.webp",
+      "rgb": [
+        228,
+        227,
+        230
+      ],
+      "corner_difference": 11,
+      "distance": 13.3
+    },
+    {
+      "file": "liam-relaxed-800.webp",
+      "rgb": [
+        228,
+        226,
+        232
+      ],
+      "corner_difference": 3,
+      "distance": 12.8
+    },
+    {
+      "file": "linh-glad-800.webp",
+      "rgb": [
+        242,
+        242,
+        246
+      ],
+      "corner_difference": 1,
+      "distance": 12.8
+    },
+    {
+      "file": "samir-blissful-800.webp",
+      "rgb": [
+        228,
+        228,
+        230
+      ],
+      "corner_difference": 1,
+      "distance": 12.8
+    },
+    {
+      "file": "sofia-isolated-800.webp",
+      "rgb": [
+        242,
+        242,
+        246
+      ],
+      "corner_difference": 2,
+      "distance": 12.8
+    },
+    {
+      "file": "mei-ignored-800.webp",
+      "rgb": [
+        228,
+        227,
+        232
+      ],
+      "corner_difference": 0,
+      "distance": 12.2
+    },
+    {
+      "file": "caio-irritated-800.webp",
+      "rgb": [
+        242,
+        242,
+        244
+      ],
+      "corner_difference": 2,
+      "distance": 11.7
+    },
+    {
+      "file": "kenji-judged-800.webp",
+      "rgb": [
+        242,
+        242,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 11.7
+    },
+    {
+      "file": "mateo-hopeful-800.webp",
+      "rgb": [
+        242,
+        242,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 11.7
+    },
+    {
+      "file": "ezequiel-embarrassed-800.webp",
+      "rgb": [
+        242,
+        240,
+        245
+      ],
+      "corner_difference": 3,
+      "distance": 11.0
+    },
+    {
+      "file": "wagner-harmonious-800.webp",
+      "rgb": [
+        242,
+        241,
+        244
+      ],
+      "corner_difference": 2,
+      "distance": 11.0
+    },
+    {
+      "file": "amina-envious-800.webp",
+      "rgb": [
+        229,
+        229,
+        232
+      ],
+      "corner_difference": 1,
+      "distance": 10.5
+    },
+    {
+      "file": "dalia-lonely-800.webp",
+      "rgb": [
+        241,
+        240,
+        245
+      ],
+      "corner_difference": 2,
+      "distance": 10.5
+    },
+    {
+      "file": "mei-touched-800.webp",
+      "rgb": [
+        230,
+        228,
+        232
+      ],
+      "corner_difference": 1,
+      "distance": 10.4
+    },
+    {
+      "file": "rizwan-misunderstood-800.webp",
+      "rgb": [
+        241,
+        241,
+        243
+      ],
+      "corner_difference": 0,
+      "distance": 9.9
+    },
+    {
+      "file": "dona-cida-balanced-800.webp",
+      "rgb": [
+        230,
+        228,
+        233
+      ],
+      "corner_difference": 5,
+      "distance": 9.8
+    },
+    {
+      "file": "kaua-surprised-800.webp",
+      "rgb": [
+        240,
+        240,
+        244
+      ],
+      "corner_difference": 9,
+      "distance": 9.4
+    },
+    {
+      "file": "sofia-free-800.webp",
+      "rgb": [
+        230,
+        228,
+        234
+      ],
+      "corner_difference": 5,
+      "distance": 9.4
+    },
+    {
+      "file": "walter-calm-800.webp",
+      "rgb": [
+        230,
+        228,
+        234
+      ],
+      "corner_difference": 3,
+      "distance": 9.4
+    },
+    {
+      "file": "wellington-thrilled-800.webp",
+      "rgb": [
+        230,
+        228,
+        234
+      ],
+      "corner_difference": 8,
+      "distance": 9.4
+    },
+    {
+      "file": "valentina-guilty-800.webp",
+      "rgb": [
+        241,
+        241,
+        241
+      ],
+      "corner_difference": 0,
+      "distance": 9.1
+    },
+    {
+      "file": "bruno-empowered-800.webp",
+      "rgb": [
+        232,
+        229,
+        232
+      ],
+      "corner_difference": 14,
+      "distance": 8.8
+    },
+    {
+      "file": "jefferson-exuberant-800.webp",
+      "rgb": [
+        230,
+        229,
+        234
+      ],
+      "corner_difference": 4,
+      "distance": 8.8
+    },
+    {
+      "file": "joao-relieved-800.webp",
+      "rgb": [
+        240,
+        239,
+        244
+      ],
+      "corner_difference": 2,
+      "distance": 8.8
+    },
+    {
+      "file": "wagner-let-down-800.webp",
+      "rgb": [
+        240,
+        239,
+        244
+      ],
+      "corner_difference": 0,
+      "distance": 8.8
+    },
+    {
+      "file": "hugo-gloomy-800.webp",
+      "rgb": [
+        238,
+        240,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 8.7
+    },
+    {
+      "file": "nadia-ambivalent-800.webp",
+      "rgb": [
+        238,
+        240,
+        244
+      ],
+      "corner_difference": 0,
+      "distance": 8.7
+    },
+    {
+      "file": "theo-unheard-800.webp",
+      "rgb": [
+        238,
+        240,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 8.7
+    },
+    {
+      "file": "tomas-abandoned-800.webp",
+      "rgb": [
+        238,
+        240,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 8.7
+    },
+    {
+      "file": "rodrigo-hurt-800.webp",
+      "rgb": [
+        238,
+        238,
+        245
+      ],
+      "corner_difference": 1,
+      "distance": 8.3
+    },
+    {
+      "file": "arjun-used-800.webp",
+      "rgb": [
+        240,
+        240,
+        242
+      ],
+      "corner_difference": 2,
+      "distance": 8.2
+    },
+    {
+      "file": "bruno-jealous-800.webp",
+      "rgb": [
+        232,
+        230,
+        232
+      ],
+      "corner_difference": 5,
+      "distance": 8.2
+    },
+    {
+      "file": "seu-hiro-secure-800.webp",
+      "rgb": [
+        230,
+        230,
+        234
+      ],
+      "corner_difference": 3,
+      "distance": 8.2
+    },
+    {
+      "file": "yasmin-torn-800.webp",
+      "rgb": [
+        240,
+        240,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 8.2
+    },
+    {
+      "file": "zainab-lively-800.webp",
+      "rgb": [
+        240,
+        238,
+        244
+      ],
+      "corner_difference": 1,
+      "distance": 8.2
+    },
+    {
+      "file": "jun-passionate-800.webp",
+      "rgb": [
+        233,
+        228,
+        234
+      ],
+      "corner_difference": 15,
+      "distance": 7.8
+    },
+    {
+      "file": "amara-worn-out-800.webp",
+      "rgb": [
+        240,
+        240,
+        240
+      ],
+      "corner_difference": 1,
+      "distance": 7.5
+    },
+    {
+      "file": "juma-distressed-800.webp",
+      "rgb": [
+        238,
+        240,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 7.5
+    },
+    {
+      "file": "liam-attacked-800.webp",
+      "rgb": [
+        240,
+        238,
+        243
+      ],
+      "corner_difference": 1,
+      "distance": 7.5
+    },
+    {
+      "file": "marcus-puzzled-800.webp",
+      "rgb": [
+        240,
+        239,
+        242
+      ],
+      "corner_difference": 0,
+      "distance": 7.5
+    },
+    {
+      "file": "mateo-worried-800.webp",
+      "rgb": [
+        240,
+        240,
+        240
+      ],
+      "corner_difference": 1,
+      "distance": 7.5
+    },
+    {
+      "file": "winona-hesitant-800.webp",
+      "rgb": [
+        240,
+        239,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 7.5
+    },
+    {
+      "file": "winona-open-800.webp",
+      "rgb": [
+        241,
+        238,
+        242
+      ],
+      "corner_difference": 5,
+      "distance": 7.5
+    },
+    {
+      "file": "jefferson-fragile-800.webp",
+      "rgb": [
+        231,
+        230,
+        235
+      ],
+      "corner_difference": 4,
+      "distance": 7.1
+    },
+    {
+      "file": "minh-sorrowful-800.webp",
+      "rgb": [
+        239,
+        238,
+        243
+      ],
+      "corner_difference": 1,
+      "distance": 7.1
+    },
+    {
+      "file": "bianca-engrossed-800.webp",
+      "rgb": [
+        232,
+        230,
+        234
+      ],
+      "corner_difference": 1,
+      "distance": 6.9
+    },
+    {
+      "file": "karim-compassionate-800.webp",
+      "rgb": [
+        240,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.9
+    },
+    {
+      "file": "karim-lost-800.webp",
+      "rgb": [
+        240,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.9
+    },
+    {
+      "file": "omar-cranky-800.webp",
+      "rgb": [
+        240,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.9
+    },
+    {
+      "file": "bianca-controlled-800.webp",
+      "rgb": [
+        240,
+        239,
+        240
+      ],
+      "corner_difference": 3,
+      "distance": 6.7
+    },
+    {
+      "file": "ji-woo-disrespected-800.webp",
+      "rgb": [
+        234,
+        238,
+        243
+      ],
+      "corner_difference": 2,
+      "distance": 6.7
+    },
+    {
+      "file": "neide-optimistic-800.webp",
+      "rgb": [
+        231,
+        230,
+        237
+      ],
+      "corner_difference": 10,
+      "distance": 6.5
+    },
+    {
+      "file": "arjun-centered-800.webp",
+      "rgb": [
+        239,
+        238,
+        242
+      ],
+      "corner_difference": 3,
+      "distance": 6.4
+    },
+    {
+      "file": "ezequiel-confident-800.webp",
+      "rgb": [
+        239,
+        238,
+        242
+      ],
+      "corner_difference": 7,
+      "distance": 6.4
+    },
+    {
+      "file": "imani-edgy-800.webp",
+      "rgb": [
+        230,
+        232,
+        237
+      ],
+      "corner_difference": 2,
+      "distance": 6.4
+    },
+    {
+      "file": "juma-encouraged-800.webp",
+      "rgb": [
+        239,
+        239,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 6.2
+    },
+    {
+      "file": "brenda-manipulated-800.webp",
+      "rgb": [
+        232,
+        230,
+        236
+      ],
+      "corner_difference": 9,
+      "distance": 6.0
+    },
+    {
+      "file": "dolores-frustrated-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 3,
+      "distance": 6.0
+    },
+    {
+      "file": "dolores-present-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 4,
+      "distance": 6.0
+    },
+    {
+      "file": "jordan-at-ease-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 4,
+      "distance": 6.0
+    },
+    {
+      "file": "keisha-confused-800.webp",
+      "rgb": [
+        232,
+        232,
+        234
+      ],
+      "corner_difference": 5,
+      "distance": 6.0
+    },
+    {
+      "file": "nour-exhausted-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.0
+    },
+    {
+      "file": "reza-ashamed-800.webp",
+      "rgb": [
+        232,
+        230,
+        236
+      ],
+      "corner_difference": 1,
+      "distance": 6.0
+    },
+    {
+      "file": "theo-giddy-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.0
+    },
+    {
+      "file": "ubirata-scared-800.webp",
+      "rgb": [
+        238,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 6.0
+    },
+    {
+      "file": "yasmin-tender-800.webp",
+      "rgb": [
+        232,
+        232,
+        234
+      ],
+      "corner_difference": 1,
+      "distance": 6.0
+    },
+    {
+      "file": "ji-woo-grateful-800.webp",
+      "rgb": [
+        236,
+        238,
+        242
+      ],
+      "corner_difference": 0,
+      "distance": 5.7
+    },
+    {
+      "file": "nadia-moved-800.webp",
+      "rgb": [
+        236,
+        238,
+        242
+      ],
+      "corner_difference": 1,
+      "distance": 5.7
+    },
+    {
+      "file": "rodrigo-radiant-800.webp",
+      "rgb": [
+        236,
+        238,
+        242
+      ],
+      "corner_difference": 2,
+      "distance": 5.7
+    },
+    {
+      "file": "caio-tranquil-800.webp",
+      "rgb": [
+        238,
+        237,
+        242
+      ],
+      "corner_difference": 3,
+      "distance": 5.4
+    },
+    {
+      "file": "luana-nervous-800.webp",
+      "rgb": [
+        238,
+        237,
+        242
+      ],
+      "corner_difference": 0,
+      "distance": 5.4
+    },
+    {
+      "file": "marta-furious-800.webp",
+      "rgb": [
+        233,
+        230,
+        236
+      ],
+      "corner_difference": 10,
+      "distance": 5.4
+    },
+    {
+      "file": "walter-uneasy-800.webp",
+      "rgb": [
+        238,
+        237,
+        242
+      ],
+      "corner_difference": 0,
+      "distance": 5.4
+    },
+    {
+      "file": "dalia-elated-800.webp",
+      "rgb": [
+        232,
+        232,
+        236
+      ],
+      "corner_difference": 1,
+      "distance": 4.9
+    },
+    {
+      "file": "dev-taken-for-granted-800.webp",
+      "rgb": [
+        238,
+        238,
+        240
+      ],
+      "corner_difference": 1,
+      "distance": 4.9
+    },
+    {
+      "file": "joao-rejected-800.webp",
+      "rgb": [
+        232,
+        232,
+        236
+      ],
+      "corner_difference": 1,
+      "distance": 4.9
+    },
+    {
+      "file": "omar-happy-800.webp",
+      "rgb": [
+        238,
+        238,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 4.9
+    },
+    {
+      "file": "reza-affectionate-800.webp",
+      "rgb": [
+        232,
+        232,
+        236
+      ],
+      "corner_difference": 1,
+      "distance": 4.9
+    },
+    {
+      "file": "tayanna-panicky-800.webp",
+      "rgb": [
+        233,
+        232,
+        235
+      ],
+      "corner_difference": 5,
+      "distance": 4.7
+    },
+    {
+      "file": "wellington-heartbroken-800.webp",
+      "rgb": [
+        232,
+        232,
+        238
+      ],
+      "corner_difference": 8,
+      "distance": 4.5
+    },
+    {
+      "file": "elias-cozy-800.webp",
+      "rgb": [
+        238,
+        237,
+        240
+      ],
+      "corner_difference": 3,
+      "distance": 4.1
+    },
+    {
+      "file": "hugo-delighted-800.webp",
+      "rgb": [
+        232,
+        234,
+        238
+      ],
+      "corner_difference": 3,
+      "distance": 4.0
+    },
+    {
+      "file": "imani-excited-800.webp",
+      "rgb": [
+        237,
+        236,
+        241
+      ],
+      "corner_difference": 2,
+      "distance": 3.7
+    },
+    {
+      "file": "linh-distant-800.webp",
+      "rgb": [
+        233,
+        232,
+        237
+      ],
+      "corner_difference": 2,
+      "distance": 3.7
+    },
+    {
+      "file": "nour-revived-800.webp",
+      "rgb": [
+        237,
+        236,
+        241
+      ],
+      "corner_difference": 2,
+      "distance": 3.7
+    },
+    {
+      "file": "raimundo-withdrawn-800.webp",
+      "rgb": [
+        237,
+        236,
+        241
+      ],
+      "corner_difference": 10,
+      "distance": 3.7
+    },
+    {
+      "file": "valentina-proud-800.webp",
+      "rgb": [
+        234,
+        233,
+        235
+      ],
+      "corner_difference": 2,
+      "distance": 3.7
+    },
+    {
+      "file": "rizwan-content-800.webp",
+      "rgb": [
+        234,
+        234,
+        235
+      ],
+      "corner_difference": 2,
+      "distance": 3.6
+    },
+    {
+      "file": "amina-whole-800.webp",
+      "rgb": [
+        234,
+        232,
+        236
+      ],
+      "corner_difference": 1,
+      "distance": 3.5
+    },
+    {
+      "file": "gloria-rested-800.webp",
+      "rgb": [
+        238,
+        236,
+        240
+      ],
+      "corner_difference": 7,
+      "distance": 3.5
+    },
+    {
+      "file": "keoni-restored-800.webp",
+      "rgb": [
+        237,
+        236,
+        240
+      ],
+      "corner_difference": 3,
+      "distance": 3.0
+    },
+    {
+      "file": "tomas-friendly-800.webp",
+      "rgb": [
+        234,
+        233,
+        236
+      ],
+      "corner_difference": 2,
+      "distance": 3.0
+    },
+    {
+      "file": "ubirata-cheerful-800.webp",
+      "rgb": [
+        237,
+        236,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 3.0
+    },
+    {
+      "file": "greta-curious-800.webp",
+      "rgb": [
+        236,
+        236,
+        240
+      ],
+      "corner_difference": 3,
+      "distance": 2.8
+    },
+    {
+      "file": "malu-discouraged-800.webp",
+      "rgb": [
+        236,
+        236,
+        240
+      ],
+      "corner_difference": 9,
+      "distance": 2.8
+    },
+    {
+      "file": "greta-left-out-800.webp",
+      "rgb": [
+        235,
+        235,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 2.4
+    },
+    {
+      "file": "river-apathetic-800.webp",
+      "rgb": [
+        237,
+        236,
+        239
+      ],
+      "corner_difference": 2,
+      "distance": 2.4
+    },
+    {
+      "file": "luana-amazed-800.webp",
+      "rgb": [
+        236,
+        235,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 2.2
+    },
+    {
+      "file": "luiza-invisible-800.webp",
+      "rgb": [
+        234,
+        233,
+        238
+      ],
+      "corner_difference": 1,
+      "distance": 2.2
+    },
+    {
+      "file": "luiza-serene-800.webp",
+      "rgb": [
+        236,
+        235,
+        240
+      ],
+      "corner_difference": 2,
+      "distance": 2.2
+    },
+    {
+      "file": "marcus-refreshed-800.webp",
+      "rgb": [
+        236,
+        235,
+        236
+      ],
+      "corner_difference": 3,
+      "distance": 2.2
+    },
+    {
+      "file": "river-mellow-800.webp",
+      "rgb": [
+        237,
+        236,
+        238
+      ],
+      "corner_difference": 4,
+      "distance": 2.2
+    },
+    {
+      "file": "samir-unappreciated-800.webp",
+      "rgb": [
+        234,
+        233,
+        238
+      ],
+      "corner_difference": 2,
+      "distance": 2.2
+    },
+    {
+      "file": "ana-clara-restless-800.webp",
+      "rgb": [
+        234,
+        234,
+        238
+      ],
+      "corner_difference": 1,
+      "distance": 2.0
+    },
+    {
+      "file": "ana-clara-vibrant-800.webp",
+      "rgb": [
+        234,
+        234,
+        238
+      ],
+      "corner_difference": 1,
+      "distance": 2.0
+    },
+    {
+      "file": "kenji-light-800.webp",
+      "rgb": [
+        236,
+        236,
+        238
+      ],
+      "corner_difference": 0,
+      "distance": 2.0
+    },
+    {
+      "file": "zainab-overwhelmed-800.webp",
+      "rgb": [
+        236,
+        234,
+        240
+      ],
+      "corner_difference": 1,
+      "distance": 2.0
+    },
+    {
+      "file": "amara-eager-800.webp",
+      "rgb": [
+        236,
+        234,
+        237
+      ],
+      "corner_difference": 3,
+      "distance": 1.0
+    },
+    {
+      "file": "jordan-anxious-800.webp",
+      "rgb": [
+        236,
+        234,
+        239
+      ],
+      "corner_difference": 7,
+      "distance": 1.0
+    },
+    {
+      "file": "keisha-energetic-800.webp",
+      "rgb": [
+        236,
+        234,
+        239
+      ],
+      "corner_difference": 3,
+      "distance": 1.0
+    },
+    {
+      "file": "keoni-resentful-800.webp",
+      "rgb": [
+        236,
+        234,
+        238
+      ],
+      "corner_difference": 5,
+      "distance": 0.0
+    }
+  ]
+}

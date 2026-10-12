@@ -83,7 +83,7 @@ No photos were regenerated or replaced with new imagery.
 Run `python3 scripts/preview.py --port 8001` and open
 http://127.0.0.1:8001/design/proof.html.
 
-Proof 04 explores the October 12 journey: scroll introduction, four feeling
+Proof 05 explores the October 12 journey: scroll introduction, four feeling
 matches with See more, selected-feeling reflection, optional NVC prompts, and
 a closing check-in. It uses existing portraits and vocabulary, with proposed
 English copy. `design/journey.css` and `design/journey.js` hold presentation and
