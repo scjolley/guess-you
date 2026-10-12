@@ -98,3 +98,8 @@ body.compact-logo header nav{visibility:visible;opacity:1;pointer-events:auto}
 #suggestions button{flex:1;min-width:0;padding:10px 12px;overflow-wrap:anywhere}
 #checkin .vocabulary-note{margin-top:28px}
 @media(max-width:700px){#suggestions{gap:6px}#suggestions button{padding:10px 6px;font-size:13px}}
+/* Comfortable keyboard and touch targets for the public release. */
+header .mini{display:grid;place-items:center;min-width:44px;min-height:44px}
+header nav a,header>a:last-child{display:inline-flex;align-items:center;min-height:44px}
+.pill input{min-height:44px}
+summary{min-height:44px;padding:12px 0}
