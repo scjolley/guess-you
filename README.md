@@ -97,9 +97,11 @@ The original game is unchanged. This is a creative approval proof, not a public
 release. Earlier designs remain recoverable in Git history.
 
 
-The opening shows the title above six moving cards immediately, with a blur-to-clear
-title effect. Cards enter individually along the scroll path into complete rows:
+The opening begins with the centered title clearing from blur, then rising as
+the copy and six moving cards appear. Cards enter individually along the scroll path into complete rows:
 64 distinct people on desktop and 70 on mobile, drawn from 76 available people.
+Section labels are omitted; shared action circles are 44px and centered with their
+labels. The deeper section leads directly to “How do you feel now?”.
 Feeling results start at four and expand by four, without duplicate feelings.
 `design/feeling-descriptions.js` contains tentative, word-specific editorial copy
 for all 152 feelings.
