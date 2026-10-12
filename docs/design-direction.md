@@ -79,3 +79,19 @@ Folding and opening feelings now have separate controls; needs can be selected
 and the sentence updates from editable situation/request fields. Six sample
 feelings remain; full matching and bilingual integration belong to the actual
 game implementation after creative approval. Original game unchanged.
+
+
+## Journey proof 04 — October 12
+Sam authorized a new journey proof using the existing project and portraits.
+White base; bold printed typography; compact ?U mark; no handwriting, sleeve,
+keychain, eyes motif, color picker, or tile-elimination mechanic. Pale family
+colors accent buttons. Scroll rearranges opening portraits into a grid. Four
+matching words appear first; See more adds four and reduces grid width.
+Selection opens recognition/reflection, followed by optional Dive deeper with
+three blank blocks (observation, need, request), separate examples, CNVC resources,
+and a closing check-in. Keep my reflection explicitly copies locally.
+Current proof is English-only, using derived source vocabulary/trigger mappings
+and 152 existing photo paths. Explanations are proposed family-level editorial
+copy; further word-specific content, translation, final motion tuning, direct
+sharing, and book link remain for review. Video portraits and Apple Health V2.
+Original playable game remains unchanged; previous proofs are in Git history.

@@ -80,12 +80,16 @@ No photos were regenerated or replaced with new imagery.
 
 ## Separate design approval proof
 
-The proposed typography and layout live in `design/proof.html`, separate from the
-working game. It uses six existing cast portraits and self-hosted open-source
-fonts; their licenses are in `design/fonts/`. This proposal has not been approved
-or applied to the game.
-
 Run `python3 scripts/preview.py --port 8001` and open
-http://127.0.0.1:8001/design/proof.html. Review the blur-to-clear Caslon title and Caveat entries, fold tiles backward,
-open a feeling, select a need, and edit the situation/request to build a sentence.
-The Guess button only previews the board; this page is an appearance proof.
+http://127.0.0.1:8001/design/proof.html.
+
+Proof 04 explores the October 12 journey: scroll introduction, four feeling
+matches with See more, selected-feeling reflection, optional NVC prompts, and
+a closing check-in. It uses existing portraits and vocabulary, with proposed
+English copy. `design/journey.css` and `design/journey.js` hold presentation and
+interactions; `design/journey-data.js` is derived from the original `data.json`
+and existing image paths. Fonts and licenses are in `design/fonts/`.
+
+Reflections live only in page memory; Keep my reflection copies to the clipboard.
+The original game is unchanged. This is a creative approval proof, not a public
+release. Earlier designs remain recoverable in Git history.
