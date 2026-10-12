@@ -90,3 +90,5 @@ main>section:not(.intro){padding-top:var(--section-space);padding-bottom:var(--s
 header nav{visibility:hidden;opacity:0;pointer-events:none}
 body.compact-logo header nav{visibility:visible;opacity:1;pointer-events:auto}
 @media(max-width:700px){:root{--section-space:35px;--title-copy-gap:32px}}
+
+.vocabulary-note{max-width:520px;margin:12px auto 22px;line-height:1.6}

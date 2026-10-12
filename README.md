@@ -140,3 +140,18 @@ Layout rhythm: section padding is 50px on desktop and 35px on mobile, with a
 tighter 18px transition into the first check-in. The title/subtitle gap is
 36px (32px on mobile). Header links appear alongside ?U after the large title
 leaves; Check in has no directional arrow.
+
+### Final vocabulary review
+
+The six hero portraits represent distinct groups: joyful, angry, afraid,
+peaceful, sad, and confused. They remain still images with CSS movement;
+character videos are out of scope.
+
+Open `design/vocabulary-review.html` from About this proof to review unmatched
+searches from this browser, sorted by count, and export JSON for V2. Only searches
+with no matches are recorded; blank searches, matching searches, and reflection
+fields are excluded. Phrases are normalized, limited to 80 characters, deduplicated,
+and capped at 500 unique entries. Storage restrictions do not block the journey.
+This local browser list is not shared across visitors or devices. Public aggregate
+collection requires a launch backend and an updated collection notice; none is
+silently enabled by this proof. The vocabulary is explicitly described as growing.

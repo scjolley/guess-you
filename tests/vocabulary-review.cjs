@@ -1,0 +1,16 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+let saved=null;
+const ctx={localStorage:{getItem:()=>saved,setItem:(_,v)=>{saved=v;}}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync('design/vocabulary-review.js','utf8')+';this.record=recordUnmatchedWord;this.read=readVocabularyReview;',ctx);
+ctx.record('  Lost   at sea ');ctx.record('lost at sea');
+assert.equal(ctx.read().length,1);assert.equal(ctx.read()[0].word,'lost at sea');assert.equal(ctx.read()[0].count,2);
+ctx.record('');ctx.record('x'.repeat(81));assert.equal(ctx.read().length,1);
+saved='broken';assert.equal(ctx.read().length,0);
+ctx.localStorage.setItem=()=>{throw Error('Storage denied');};assert.doesNotThrow(()=>ctx.record('unfamiliar'));
+const D=vm.runInNewContext(fs.readFileSync('design/journey-data.js','utf8')+';D');
+const source=fs.readFileSync('design/journey.js','utf8');
+const hero=vm.runInNewContext(source.match(/const introFaces=(\[.*?\])\.map/)[1]).map(id=>D.feelings.find(f=>f.id===id));
+assert.equal(new Set(hero.map(f=>f.family)).size,6);
+assert.equal(new Set(hero.map(f=>f.image.replace('-'+f.id+'-800.webp',''))).size,6);
+for(const f of D.feelings)assert(fs.existsSync('design/'+f.image),f.image);
+console.log('Unmatched-word counting, limits, unavailable storage, six unique hero groups, and all portrait paths checked.');
