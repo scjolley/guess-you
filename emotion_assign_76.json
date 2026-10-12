@@ -1,0 +1,306 @@
+{
+ "Marta": {
+  "pos": "playful",
+  "neg": "furious"
+ },
+ "Dona Cida": {
+  "pos": "balanced",
+  "neg": "stressed"
+ },
+ "Rafa": {
+  "pos": "fulfilled",
+  "neg": "suspicious"
+ },
+ "Yara": {
+  "pos": "rejuvenated",
+  "neg": "annoyed"
+ },
+ "Seu Hiro": {
+  "pos": "secure",
+  "neg": "outraged"
+ },
+ "Duda": {
+  "pos": "interested",
+  "neg": "burnt out"
+ },
+ "Bruno": {
+  "pos": "empowered",
+  "neg": "jealous"
+ },
+ "Keisha": {
+  "pos": "energetic",
+  "neg": "confused"
+ },
+ "Camila": {
+  "pos": "tickled",
+  "neg": "melancholy"
+ },
+ "Wellington": {
+  "pos": "thrilled",
+  "neg": "heartbroken"
+ },
+ "Andrés": {
+  "pos": "amused",
+  "neg": "exasperated"
+ },
+ "Priya": {
+  "pos": "awed",
+  "neg": "betrayed"
+ },
+ "Minh": {
+  "pos": "clear-headed",
+  "neg": "sorrowful"
+ },
+ "Jun": {
+  "pos": "passionate",
+  "neg": "helpless"
+ },
+ "Tainá": {
+  "pos": "warm",
+  "neg": "depleted"
+ },
+ "Daniel": {
+  "pos": "loving",
+  "neg": "numb"
+ },
+ "Fátima": {
+  "pos": "safe",
+  "neg": "self-conscious"
+ },
+ "Samir": {
+  "pos": "blissful",
+  "neg": "unappreciated"
+ },
+ "Kai": {
+  "pos": "inspired",
+  "neg": "weary"
+ },
+ "Malu": {
+  "pos": "trusting",
+  "neg": "discouraged"
+ },
+ "Raimundo": {
+  "pos": "grounded",
+  "neg": "withdrawn"
+ },
+ "Neide": {
+  "pos": "optimistic",
+  "neg": "disappointed"
+ },
+ "Pedro": {
+  "pos": "enthusiastic",
+  "neg": "hopeless"
+ },
+ "Ellie": {
+  "pos": "ecstatic",
+  "neg": "bored"
+ },
+ "Greta": {
+  "pos": "curious",
+  "neg": "left out"
+ },
+ "Tomás": {
+  "pos": "friendly",
+  "neg": "abandoned"
+ },
+ "Brenda": {
+  "pos": "fascinated",
+  "neg": "manipulated"
+ },
+ "Liam": {
+  "pos": "relaxed",
+  "neg": "attacked"
+ },
+ "Ana Clara": {
+  "pos": "vibrant",
+  "neg": "restless"
+ },
+ "Walter": {
+  "pos": "calm",
+  "neg": "uneasy"
+ },
+ "João": {
+  "pos": "relieved",
+  "neg": "rejected"
+ },
+ "Amara": {
+  "pos": "eager",
+  "neg": "worn out"
+ },
+ "Jefferson": {
+  "pos": "exuberant",
+  "neg": "fragile"
+ },
+ "Glória": {
+  "pos": "rested",
+  "neg": "detached"
+ },
+ "Marcus": {
+  "pos": "refreshed",
+  "neg": "puzzled"
+ },
+ "Zainab": {
+  "pos": "lively",
+  "neg": "overwhelmed"
+ },
+ "Ezequiel": {
+  "pos": "confident",
+  "neg": "embarrassed"
+ },
+ "Imani": {
+  "pos": "excited",
+  "neg": "edgy"
+ },
+ "Luiza": {
+  "pos": "serene",
+  "neg": "invisible"
+ },
+ "Rodrigo": {
+  "pos": "radiant",
+  "neg": "hurt"
+ },
+ "Dolores": {
+  "pos": "present",
+  "neg": "frustrated"
+ },
+ "Caio": {
+  "pos": "tranquil",
+  "neg": "irritated"
+ },
+ "Valentina": {
+  "pos": "proud",
+  "neg": "guilty"
+ },
+ "Hugo": {
+  "pos": "delighted",
+  "neg": "gloomy"
+ },
+ "Bianca": {
+  "pos": "engrossed",
+  "neg": "controlled"
+ },
+ "Ji-woo": {
+  "pos": "grateful",
+  "neg": "disrespected"
+ },
+ "Arjun": {
+  "pos": "centered",
+  "neg": "used"
+ },
+ "Linh": {
+  "pos": "glad",
+  "neg": "distant"
+ },
+ "Kenji": {
+  "pos": "light",
+  "neg": "judged"
+ },
+ "Mei": {
+  "pos": "touched",
+  "neg": "ignored"
+ },
+ "Rizwan": {
+  "pos": "content",
+  "neg": "misunderstood"
+ },
+ "Mayumi": {
+  "pos": "invigorated",
+  "neg": "pressured"
+ },
+ "Juma": {
+  "pos": "encouraged",
+  "neg": "distressed"
+ },
+ "Kauã": {
+  "pos": "surprised",
+  "neg": "bitter"
+ },
+ "Winona": {
+  "pos": "open",
+  "neg": "hesitant"
+ },
+ "Mateo": {
+  "pos": "hopeful",
+  "neg": "worried"
+ },
+ "Ana": {
+  "pos": "appreciative",
+  "neg": "insecure"
+ },
+ "Ubiratã": {
+  "pos": "cheerful",
+  "neg": "scared"
+ },
+ "Tayanna": {
+  "pos": "comfortable",
+  "neg": "panicky"
+ },
+ "Yasmin": {
+  "pos": "tender",
+  "neg": "torn"
+ },
+ "Karim": {
+  "pos": "compassionate",
+  "neg": "lost"
+ },
+ "Reza": {
+  "pos": "affectionate",
+  "neg": "ashamed"
+ },
+ "Omar": {
+  "pos": "happy",
+  "neg": "cranky"
+ },
+ "Nadia": {
+  "pos": "moved",
+  "neg": "ambivalent"
+ },
+ "Elias": {
+  "pos": "cozy",
+  "neg": "frazzled"
+ },
+ "Dalia": {
+  "pos": "elated",
+  "neg": "lonely"
+ },
+ "Nour": {
+  "pos": "revived",
+  "neg": "exhausted"
+ },
+ "Jordan": {
+  "pos": "at ease",
+  "neg": "anxious"
+ },
+ "Sofia": {
+  "pos": "free",
+  "neg": "isolated"
+ },
+ "Theo": {
+  "pos": "giddy",
+  "neg": "unheard"
+ },
+ "Luana": {
+  "pos": "amazed",
+  "neg": "nervous"
+ },
+ "Dev": {
+  "pos": "quiet",
+  "neg": "taken for granted"
+ },
+ "Amina": {
+  "pos": "whole",
+  "neg": "envious"
+ },
+ "Keoni": {
+  "pos": "restored",
+  "neg": "resentful"
+ },
+ "Wagner": {
+  "pos": "harmonious",
+  "neg": "let down"
+ },
+ "River": {
+  "pos": "mellow",
+  "neg": "apathetic"
+ }
+}

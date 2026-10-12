@@ -1,0 +1,3114 @@
+<title>Guess You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Reenie+Beanie&display=swap">
+<style>
+/* Layout: a design-object world. Screen 1 = keychain tiles piled into a fading mountain,
+   Screen 2 = the survivors hanging on a white matte board, Screen 3 = an ID badge in a clear sleeve.
+   Deliberately single-theme (bright gallery white): every color is set explicitly below. */
+:root {
+  --bg: #F2F2EF;
+  --board: #FFFFFF;
+  --ink: #121212;
+  --muted: #6A6A66;
+  --line: #DCDCD7;
+  --pen: #1F3A8A;
+  --accent: #E8322B;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-hand: "Reenie Beanie", "Bradley Hand", "Segoe Print", cursive;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 16px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+.logo { font-family: var(--font-display); font-weight: 900; font-stretch: 62%; font-variation-settings: "wdth" 62; text-transform: uppercase; letter-spacing: -.01em; line-height: .86; margin: 0; color: var(--ink); }
+.logo-sm { font-size: 1.7rem; background: none; border: 0; padding: 0; }
+.topbar .logo-sm { visibility: hidden; }
+body[data-screen="s2"] .topbar .logo-sm, body[data-screen="s3"] .topbar .logo-sm { visibility: visible; }
+.top-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.mini { display: inline-flex; background: var(--board); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+.mini button { border: 0; background: none; border-radius: 999px; padding: 4px 11px; font-weight: 700; font-size: .8rem; color: var(--muted); }
+.mini button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.gender { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: 14px; color: var(--muted); font-size: .9rem; }
+.ghost { background: var(--board); border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-weight: 700; font-size: .85rem; letter-spacing: .02em; }
+.ghost:hover { border-color: var(--ink); }
+
+/* ---------- Screen 1 ---------- */
+#s1 { text-align: center; padding-block: 4px 0; }
+.hero-title { font-size: clamp(4rem, 17vw, 9.5rem); }
+.tag { color: var(--muted); margin: 16px auto 28px; max-width: 36ch; font-size: 1.02rem; }
+.feel-form { display: flex; align-items: flex-end; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.feel-form label { font: 900 clamp(1.6rem, 5vw, 2.4rem)/1 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; padding-bottom: 8px; }
+.feel-form input {
+  font: 400 clamp(2.2rem, 7vw, 3.2rem)/1 var(--font-hand); color: var(--pen);
+  background: transparent; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0;
+  padding: 2px 4px 4px; width: min(420px, 100%); min-width: 0;
+}
+.feel-form input::placeholder { color: var(--pen); opacity: .32; }
+.feel-form input:focus-visible { outline: none; border-bottom-color: var(--accent); }
+.go { background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 13px 26px; font: 800 1rem/1 var(--font-body); text-transform: uppercase; letter-spacing: .08em; }
+.go:hover { background: var(--accent); }
+.try { margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; align-items: baseline; color: var(--muted); font-size: .9rem; }
+.try button { background: none; border: 0; padding: 0; color: var(--pen); font: 400 1.55rem/1 var(--font-hand); }
+.try button:hover { color: var(--accent); }
+
+.mountain {
+  position: relative; margin-top: 34px; padding-top: 10px; padding-bottom: 10px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%);
+}
+.m-row { display: flex; justify-content: center; gap: var(--g); width: max-content; margin-left: 50%; transform: translateX(-50%); }
+.m-row + .m-row { margin-top: calc(var(--w) * -0.5); }
+.mountain .tile { pointer-events: none; }
+
+/* ---------- Keychain tiles ---------- */
+.tile { width: var(--w, 120px); flex: 0 0 auto; perspective: 700px; position: relative; padding-top: calc(var(--w) * .13); }
+.tile-body {
+  position: relative; transform-origin: 50% 100%; transition: transform .45s cubic-bezier(.3,.7,.3,1.2), filter .45s;
+  background: linear-gradient(140deg, rgb(255 255 255 / .96) 0%, rgb(246 248 250 / .82) 45%, rgb(255 255 255 / .94) 100%);
+  border: 1px solid rgb(0 0 0 / .09); border-radius: calc(var(--w) * .09);
+  padding: calc(var(--w) * .13) calc(var(--w) * .06) calc(var(--w) * .05);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -2px 4px rgb(0 0 0 / .04), 0 8px 18px -6px rgb(0 0 0 / .22), 0 1px 2px rgb(0 0 0 / .12);
+}
+.tile-body::before { /* hole drilled in the acrylic */
+  content: ""; position: absolute; top: calc(var(--w) * .035); left: 50%; transform: translateX(-50%);
+  width: calc(var(--w) * .07); height: calc(var(--w) * .07); border-radius: 50%; background: var(--bg); box-shadow: inset 0 1px 2px rgb(0 0 0 / .35);
+}
+.tile-body::after { /* gloss */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgb(255 255 255 / .55) 42%, transparent 55%);
+}
+.ring {
+  position: absolute; top: calc(var(--w) * -.13); left: 50%; transform: translateX(-50%); z-index: 2;
+  width: calc(var(--w) * .2); height: calc(var(--w) * .2); border-radius: 50%;
+  border: calc(var(--w) * .022) solid #B4B7BD; box-shadow: inset 0 1px 0 #F3F4F6, 0 1px 1.5px rgb(0 0 0 / .3);
+}
+.tile.down .tile-body { transform: rotateX(-76deg); filter: brightness(.88); }
+.tile-window { display: block; width: 100%; aspect-ratio: 4 / 5; border-radius: calc(var(--w) * .035); overflow: hidden; position: relative; border: 0; padding: 0; background: var(--wbg, #ccc); }
+.tile-window svg { display: block; width: 100%; height: 100%; filter: drop-shadow(calc(var(--w) * .035) calc(var(--w) * .02) calc(var(--w) * .015) rgb(0 0 0 / .35)); }
+.tile-window img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.plate {
+  display: block; margin-top: calc(var(--w) * .05); color: var(--pen);
+  font: 400 calc(var(--w) * .2)/1 var(--font-hand); text-align: center;
+  padding: 0 2px; min-height: calc(var(--w) * .2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tile.faux .plate { text-decoration: underline wavy rgb(0 0 0 / .35); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.photo-wash { position: absolute; inset: 0; background: var(--wbg); mix-blend-mode: multiply; opacity: .25; }
+.photo-img { filter: contrast(1.1) saturate(1.05); }
+.sticker { position: absolute; right: 5%; bottom: 5%; width: 34%; aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgb(0 0 0 / .3); overflow: hidden; }
+.sticker svg { width: 100%; height: 100%; filter: none; }
+
+/* ---------- Screen 2 ---------- */
+.said-line { text-align: center; margin: 4px 0 4px; font: 900 clamp(1.6rem, 5vw, 2.4rem)/1.1 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; }
+.said { background: none; border: 0; padding: 0 4px; font: 400 1.5em/1 var(--font-hand); text-transform: none; color: var(--pen); text-decoration: underline wavy var(--accent); text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.said:hover { color: var(--accent); }
+.hint { text-align: center; color: var(--muted); margin: 12px auto 22px; max-width: 48ch; min-height: 3em; }
+.hint strong { color: var(--ink); }
+.tray {
+  background: var(--board); border-radius: 28px; padding: 40px 18px 24px;
+  box-shadow: 0 1px 0 #fff inset, 0 0 0 1px rgb(0 0 0 / .04), 0 40px 70px -30px rgb(0 0 0 / .28), 0 8px 18px -10px rgb(0 0 0 / .12);
+}
+.board { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px 18px; }
+.board .tile { --w: clamp(98px, 27vw, 142px); opacity: 0; animation: rise .5s cubic-bezier(.3,.7,.3,1.25) forwards; animation-delay: calc(var(--i) * 70ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(-18px) rotate(-6deg); } to { opacity: 1; transform: none; } }
+.board .tile-window { cursor: pointer; }
+.board .tile-window:hover { outline: 3px solid var(--ink); outline-offset: -3px; }
+.slot { display: flex; justify-content: center; margin-top: 10px; }
+.flip { background: var(--board); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: .76rem; font-weight: 700; letter-spacing: .03em; }
+.flip:hover { color: var(--ink); border-color: var(--ink); }
+.tile.last .tile-body { animation: glow 1.4s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: 0 0 0 4px var(--ink), 0 14px 26px -8px rgb(0 0 0 / .35); } }
+.below { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 30px 0 40px; }
+
+/* ---------- Screen 3: the badge ---------- */
+.back { background: none; border: 0; padding: 4px 0; font-weight: 700; color: var(--muted); }
+.back:hover { color: var(--ink); }
+.detail { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 44px; align-items: start; margin: 22px 0 48px; }
+.sleeve {
+  position: relative; border-radius: 16px; padding: 46px 14px 16px;
+  background: linear-gradient(155deg, rgb(255 255 255 / .85), rgb(232 236 240 / .7) 55%, rgb(255 255 255 / .9));
+  border: 1px solid rgb(0 0 0 / .12); box-shadow: inset 0 1px 0 #fff, 0 30px 50px -24px rgb(0 0 0 / .4), 0 2px 4px rgb(0 0 0 / .08);
+  transform: rotate(-2deg);
+}
+.sleeve::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(120deg, transparent 35%, rgb(255 255 255 / .5) 45%, transparent 58%); }
+.sleeve-slot { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 76px; height: 12px; border-radius: 6px; background: var(--bg); box-shadow: inset 0 1px 3px rgb(0 0 0 / .4); }
+.sleeve-hole { position: absolute; top: 15px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 1px 3px rgb(0 0 0 / .4); }
+.card { background: #fff; border: 1px solid #D8D8D4; padding: 14px 14px 12px; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.card-head b { font: 900 2rem/.82 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; }
+.card-head small { font-size: .56rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: right; line-height: 1.3; }
+.card-body { display: grid; grid-template-columns: 46% 1fr; gap: 12px; margin-top: 12px; }
+.card-photo { --w: 130px; aspect-ratio: 4 / 5; overflow: hidden; position: relative; background: var(--wbg); }
+.card-photo svg { width: 100%; height: 100%; display: block; filter: drop-shadow(4px 3px 2px rgb(0 0 0 / .35)); }
+.card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card dl { margin: 0; min-width: 0; }
+.card dt { font-size: .56rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3px; }
+.card dt:first-child { border-top: 0; padding-top: 0; }
+.card dd { margin: 0 0 6px; font: 400 1.45rem/1 var(--font-hand); color: var(--pen); overflow-wrap: anywhere; }
+.card-foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; border-top: 2px solid var(--ink); padding-top: 6px; }
+.card-foot .hand { font: 400 1.5rem/1 var(--font-hand); color: var(--pen); }
+.card-foot small { font-size: .62rem; font-weight: 800; letter-spacing: .1em; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 800 .74rem/1 var(--font-body); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--fc); }
+.detail h2 { margin: 10px 0 16px; font: 900 clamp(2.6rem, 8vw, 4.4rem)/.9 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; text-wrap: balance; }
+.detail h2 em { display: block; font: 400 1.15em/1 var(--font-hand); text-transform: none; color: var(--pen); }
+.detail h3 { margin: 28px 0 10px; font: 900 1.2rem/1 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; letter-spacing: .02em; }
+.note { background: var(--board); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; max-width: 62ch; }
+.note p { margin: 0 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--board); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: .93rem; display: inline-flex; gap: 6px; align-items: baseline; }
+.chip small { color: var(--muted); font-weight: 500; font-size: .72rem; }
+.chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.chip[aria-pressed="true"] small { color: inherit; opacity: .7; }
+.chip:hover { border-color: var(--ink); }
+.open-link { background: none; border: 0; padding: 0; color: var(--muted); font-size: .88rem; text-decoration: underline; }
+details.all { margin-top: 12px; }
+details.all summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+.cat { margin-top: 12px; }
+.cat h4 { margin: 0 0 6px; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.say { margin-top: 30px; background: var(--board); border-radius: 18px; padding: 20px; box-shadow: 0 0 0 1px rgb(0 0 0 / .05), 0 24px 40px -26px rgb(0 0 0 / .3); }
+.say h3 { margin-top: 0; }
+.say .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.say label { display: grid; gap: 4px; font-size: .78rem; font-weight: 700; color: var(--muted); }
+.say input { font: 400 1.6rem/1.1 var(--font-hand); color: var(--pen); background: transparent; border: 0; border-bottom: 1.5px solid var(--line); border-radius: 0; padding: 2px 2px 4px; min-width: 0; }
+.say input:focus-visible { outline: none; border-bottom-color: var(--ink); }
+.say input::placeholder { color: var(--pen); opacity: .3; }
+.sentence { font-size: 1.3rem; line-height: 1.45; font-weight: 600; margin: 18px 0 14px; max-width: 60ch; }
+.sentence b { font: 400 1.35em/1 var(--font-hand); color: var(--pen); }
+.sentence .blank { color: var(--muted); font-weight: 500; }
+.copy { background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; }
+.copy:hover { background: var(--accent); }
+
+/* ---------- Sheets ---------- */
+.backdrop { position: fixed; inset: 0; background: rgb(18 18 18 / .45); display: grid; place-items: center; padding: 16px; z-index: 10; }
+.sheet { background: var(--board); color: var(--ink); border-radius: 22px; width: min(560px, 100%); max-height: 88vh; overflow: auto; padding: 22px 22px 26px; box-shadow: 0 30px 60px rgb(0 0 0 / .3); }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sheet h2 { margin: 0; font: 900 1.8rem/1 var(--font-display); font-variation-settings: "wdth" 62; font-stretch: 62%; text-transform: uppercase; }
+.x { background: none; border: 0; font-size: 1.6rem; line-height: 1; padding: 4px 8px; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0; background: var(--bg); padding: 5px; border-radius: 999px; }
+.seg button { border: 0; background: none; border-radius: 999px; padding: 8px 6px; font-weight: 700; font-size: .88rem; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.maker { display: grid; grid-template-columns: 130px 1fr; gap: 20px; align-items: start; }
+.maker .tile { --w: 130px; }
+.opts { display: grid; gap: 12px; }
+.opts h4 { margin: 0 0 6px; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.sw { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgb(0 0 0 / .15); padding: 0; }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--board), 0 0 0 5px var(--ink); }
+.styles button { border: 1px solid var(--line); background: var(--board); border-radius: 999px; padding: 5px 12px; font-size: .84rem; font-weight: 600; text-transform: capitalize; }
+.styles button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.fine { color: var(--muted); font-size: .88rem; }
+.upload { display: inline-block; background: var(--ink); color: #fff; border-radius: 999px; padding: 10px 18px; font-weight: 800; cursor: pointer; }
+.upload input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.res { display: grid; gap: 14px; margin-top: 14px; }
+.res h3 { margin: 0 0 4px; font-size: 1rem; }
+.res p { margin: 0; color: var(--muted); }
+.res a { color: var(--ink); font-weight: 700; }
+.crisis { border-left: 4px solid var(--accent); padding-left: 12px; }
+.credit { color: var(--muted); font-size: .78rem; text-align: center; padding-block: 8px 24px; }
+
+@media (max-width: 720px) {
+  .detail { grid-template-columns: 1fr; gap: 26px; }
+  .sleeve { max-width: 320px; margin: 0 auto; width: 100%; }
+  .say .fields { grid-template-columns: 1fr; }
+  .maker { grid-template-columns: 1fr; }
+  .maker .tile { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="topbar">
+    <button class="logo logo-sm" id="homeBtn" data-t="name">Guess You</button>
+    <div class="top-actions">
+      <div class="mini" id="langSeg" role="group" aria-label="Language / Idioma"><button data-lang="en">EN</button><button data-lang="pt">PT</button></div>
+      <button class="ghost" id="facesBtn" data-t="faces"></button>
+      <button class="ghost" id="resBtn" data-t="resources"></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="s1" aria-labelledby="t1">
+      <h1 class="logo hero-title" id="t1" data-t="name">Guess You</h1>
+      <p class="tag" data-t="tag"></p>
+      <form class="feel-form" id="feelForm" autocomplete="off">
+        <label for="feelInput" data-t="ifeel"></label>
+        <input id="feelInput" name="feel" maxlength="60">
+        <button class="go" type="submit" data-t="guess"></button>
+      </form>
+      <div class="try" id="tryRow"></div>
+      <div class="gender" id="genderRow" hidden><span id="gLabel" data-t="genderLabel"></span>
+        <div class="mini" id="genderSeg" role="group" aria-labelledby="gLabel"><button data-g="a">ela</button><button data-g="o">ele</button><button data-g="e">elu</button><button data-g="ao">sem escolher</button></div>
+      </div>
+      <div class="mountain" id="mountain" aria-hidden="true"></div>
+    </section>
+
+    <section id="s2" hidden aria-labelledby="t2">
+      <p class="said-line" id="t2"><span data-t="ifeel"></span> <button class="said" id="saidBtn"></button></p>
+      <p class="hint" id="hint" aria-live="polite"></p>
+      <div class="tray"><div class="board" id="board"></div></div>
+      <div class="below">
+        <button class="ghost" id="moreBtn" data-t="more"></button>
+        <button class="ghost" id="standBtn" data-t="stand"></button>
+      </div>
+    </section>
+
+    <section id="s3" hidden>
+      <button class="back" id="backBtn" data-t="back"></button>
+      <div class="detail" id="detail"></div>
+    </section>
+  </main>
+  <p class="credit" data-t="credit"></p>
+</div>
+
+<div class="backdrop" id="facesSheet" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="fh">
+    <div class="sheet-head"><h2 id="fh" data-t="facesTitle"></h2><button class="x" data-close>×</button></div>
+    <div class="seg" id="modeSeg">
+      <button data-mode="many" data-t="many"></button>
+      <button data-mode="avatar" data-t="build"></button>
+      <button data-mode="photo" data-t="photo"></button>
+    </div>
+    <div id="modeBody"></div>
+  </div>
+</div>
+
+<div class="backdrop" id="resSheet" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="rh">
+    <div class="sheet-head"><h2 id="rh" data-t="resTitle"></h2><button class="x" data-close>×</button></div>
+    <div class="res" id="resBody"></div>
+  </div>
+</div>
+
+<script>
+const D = {
+ "families": [
+  {
+   "id": "angry",
+   "label": "Angry",
+   "pt": "Raiva",
+   "expr": "angry",
+   "color": "#E8322B"
+  },
+  {
+   "id": "sad",
+   "label": "Sad",
+   "pt": "Tristeza",
+   "expr": "sad",
+   "color": "#2F5BE0"
+  },
+  {
+   "id": "afraid",
+   "label": "Afraid",
+   "pt": "Medo",
+   "expr": "afraid",
+   "color": "#8A5CF6"
+  },
+  {
+   "id": "tense",
+   "label": "Tense",
+   "pt": "Tensão",
+   "expr": "tense",
+   "color": "#FF7A1A"
+  },
+  {
+   "id": "disconnected",
+   "label": "Disconnected",
+   "pt": "Desconexão",
+   "expr": "disconnected",
+   "color": "#9DAA9C"
+  },
+  {
+   "id": "tired",
+   "label": "Tired",
+   "pt": "Cansaço",
+   "expr": "tired",
+   "color": "#A0704A"
+  },
+  {
+   "id": "confused",
+   "label": "Confused",
+   "pt": "Confusão",
+   "expr": "confused",
+   "color": "#11A39A"
+  },
+  {
+   "id": "vulnerable",
+   "label": "Vulnerable",
+   "pt": "Vulnerabilidade",
+   "expr": "vulnerable",
+   "color": "#FF7EB3"
+  },
+  {
+   "id": "joyful",
+   "label": "Joyful",
+   "pt": "Alegria",
+   "expr": "joyful",
+   "color": "#FFC632"
+  },
+  {
+   "id": "peaceful",
+   "label": "Peaceful",
+   "pt": "Paz",
+   "expr": "peaceful",
+   "color": "#3DBB5C"
+  },
+  {
+   "id": "faux",
+   "label": "Thought, not feeling",
+   "pt": "Um pensamento, não um sentimento",
+   "expr": null,
+   "color": "#1C1C1C"
+  }
+ ],
+ "needCategories": {
+  "Connection": [
+   "acceptance",
+   "affection",
+   "appreciation",
+   "belonging",
+   "closeness",
+   "communication",
+   "companionship",
+   "consideration",
+   "cooperation",
+   "empathy",
+   "inclusion",
+   "love",
+   "mutuality",
+   "reassurance",
+   "respect",
+   "security",
+   "stability",
+   "support",
+   "to be heard",
+   "to be seen",
+   "to matter",
+   "trust",
+   "understanding",
+   "warmth"
+  ],
+  "Physical well-being": [
+   "food",
+   "movement",
+   "rest",
+   "safety",
+   "touch"
+  ],
+  "Honesty": [
+   "authenticity",
+   "honesty",
+   "integrity",
+   "presence"
+  ],
+  "Play": [
+   "fun",
+   "joy",
+   "humor"
+  ],
+  "Peace": [
+   "beauty",
+   "ease",
+   "fairness",
+   "harmony",
+   "order",
+   "space"
+  ],
+  "Autonomy": [
+   "choice",
+   "freedom",
+   "independence",
+   "spontaneity"
+  ],
+  "Meaning": [
+   "clarity",
+   "competence",
+   "contribution",
+   "creativity",
+   "effectiveness",
+   "growth",
+   "hope",
+   "learning",
+   "purpose"
+  ]
+ },
+ "feelings": [
+  {
+   "id": "annoyed",
+   "family": "angry",
+   "needs": [
+    "ease",
+    "consideration",
+    "space",
+    "order"
+   ]
+  },
+  {
+   "id": "irritated",
+   "family": "angry",
+   "needs": [
+    "consideration",
+    "respect",
+    "ease",
+    "rest"
+   ]
+  },
+  {
+   "id": "frustrated",
+   "family": "angry",
+   "needs": [
+    "effectiveness",
+    "competence",
+    "support",
+    "clarity",
+    "ease"
+   ]
+  },
+  {
+   "id": "exasperated",
+   "family": "angry",
+   "needs": [
+    "cooperation",
+    "understanding",
+    "rest",
+    "support"
+   ]
+  },
+  {
+   "id": "furious",
+   "family": "angry",
+   "needs": [
+    "respect",
+    "fairness",
+    "safety",
+    "to matter"
+   ]
+  },
+  {
+   "id": "resentful",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "appreciation",
+    "mutuality",
+    "to be heard"
+   ]
+  },
+  {
+   "id": "bitter",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "empathy",
+    "appreciation",
+    "hope"
+   ]
+  },
+  {
+   "id": "outraged",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "integrity",
+    "respect",
+    "safety"
+   ]
+  },
+  {
+   "id": "disappointed",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "trust",
+    "mutuality",
+    "consideration"
+   ]
+  },
+  {
+   "id": "discouraged",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "support",
+    "competence",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "hurt",
+   "family": "sad",
+   "needs": [
+    "respect",
+    "consideration",
+    "empathy",
+    "affection"
+   ]
+  },
+  {
+   "id": "heartbroken",
+   "family": "sad",
+   "needs": [
+    "love",
+    "closeness",
+    "empathy",
+    "support"
+   ]
+  },
+  {
+   "id": "lonely",
+   "family": "sad",
+   "needs": [
+    "companionship",
+    "belonging",
+    "closeness",
+    "to be seen"
+   ]
+  },
+  {
+   "id": "gloomy",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "joy",
+    "purpose",
+    "support"
+   ]
+  },
+  {
+   "id": "hopeless",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "support",
+    "purpose",
+    "clarity"
+   ]
+  },
+  {
+   "id": "sorrowful",
+   "family": "sad",
+   "needs": [
+    "empathy",
+    "support",
+    "space",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "melancholy",
+   "family": "sad",
+   "needs": [
+    "beauty",
+    "purpose",
+    "closeness",
+    "rest"
+   ]
+  },
+  {
+   "id": "anxious",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "reassurance",
+    "clarity",
+    "stability"
+   ]
+  },
+  {
+   "id": "worried",
+   "family": "afraid",
+   "needs": [
+    "reassurance",
+    "safety",
+    "clarity",
+    "trust"
+   ]
+  },
+  {
+   "id": "nervous",
+   "family": "afraid",
+   "needs": [
+    "reassurance",
+    "competence",
+    "support",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "scared",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "security",
+    "support",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "insecure",
+   "family": "afraid",
+   "needs": [
+    "acceptance",
+    "reassurance",
+    "to matter",
+    "belonging"
+   ]
+  },
+  {
+   "id": "uneasy",
+   "family": "afraid",
+   "needs": [
+    "clarity",
+    "trust",
+    "safety",
+    "order"
+   ]
+  },
+  {
+   "id": "panicky",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "ease",
+    "support",
+    "space"
+   ]
+  },
+  {
+   "id": "suspicious",
+   "family": "afraid",
+   "needs": [
+    "trust",
+    "honesty",
+    "safety",
+    "clarity"
+   ]
+  },
+  {
+   "id": "stressed",
+   "family": "tense",
+   "needs": [
+    "ease",
+    "rest",
+    "support",
+    "order",
+    "space"
+   ]
+  },
+  {
+   "id": "overwhelmed",
+   "family": "tense",
+   "needs": [
+    "ease",
+    "support",
+    "clarity",
+    "rest",
+    "space",
+    "order"
+   ]
+  },
+  {
+   "id": "restless",
+   "family": "tense",
+   "needs": [
+    "movement",
+    "space",
+    "purpose",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "cranky",
+   "family": "tense",
+   "needs": [
+    "rest",
+    "food",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "frazzled",
+   "family": "tense",
+   "needs": [
+    "order",
+    "rest",
+    "ease",
+    "support"
+   ]
+  },
+  {
+   "id": "edgy",
+   "family": "tense",
+   "needs": [
+    "safety",
+    "ease",
+    "space",
+    "trust"
+   ]
+  },
+  {
+   "id": "distressed",
+   "family": "tense",
+   "needs": [
+    "support",
+    "empathy",
+    "safety",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "numb",
+   "family": "disconnected",
+   "needs": [
+    "empathy",
+    "space",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "detached",
+   "family": "disconnected",
+   "needs": [
+    "closeness",
+    "purpose",
+    "presence",
+    "safety"
+   ]
+  },
+  {
+   "id": "withdrawn",
+   "family": "disconnected",
+   "needs": [
+    "space",
+    "safety",
+    "acceptance",
+    "trust"
+   ]
+  },
+  {
+   "id": "bored",
+   "family": "disconnected",
+   "needs": [
+    "fun",
+    "creativity",
+    "learning",
+    "purpose"
+   ]
+  },
+  {
+   "id": "apathetic",
+   "family": "disconnected",
+   "needs": [
+    "purpose",
+    "hope",
+    "rest",
+    "contribution"
+   ]
+  },
+  {
+   "id": "distant",
+   "family": "disconnected",
+   "needs": [
+    "closeness",
+    "communication",
+    "trust",
+    "warmth"
+   ]
+  },
+  {
+   "id": "exhausted",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "burnt out",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "purpose",
+    "appreciation",
+    "ease"
+   ]
+  },
+  {
+   "id": "depleted",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "food",
+    "support",
+    "affection"
+   ]
+  },
+  {
+   "id": "weary",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "hope",
+    "support",
+    "ease"
+   ]
+  },
+  {
+   "id": "worn out",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "cooperation",
+    "ease"
+   ]
+  },
+  {
+   "id": "confused",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "understanding",
+    "communication",
+    "order"
+   ]
+  },
+  {
+   "id": "torn",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "choice",
+    "integrity",
+    "support"
+   ]
+  },
+  {
+   "id": "lost",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "purpose",
+    "support",
+    "hope"
+   ]
+  },
+  {
+   "id": "ambivalent",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "choice",
+    "authenticity",
+    "space"
+   ]
+  },
+  {
+   "id": "hesitant",
+   "family": "confused",
+   "needs": [
+    "reassurance",
+    "clarity",
+    "trust",
+    "competence"
+   ]
+  },
+  {
+   "id": "puzzled",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "understanding",
+    "learning"
+   ]
+  },
+  {
+   "id": "embarrassed",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "respect",
+    "reassurance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "ashamed",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "integrity",
+    "empathy",
+    "to matter"
+   ]
+  },
+  {
+   "id": "guilty",
+   "family": "vulnerable",
+   "needs": [
+    "integrity",
+    "contribution",
+    "mutuality",
+    "empathy"
+   ]
+  },
+  {
+   "id": "self-conscious",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "belonging",
+    "reassurance",
+    "ease"
+   ]
+  },
+  {
+   "id": "jealous",
+   "family": "vulnerable",
+   "needs": [
+    "security",
+    "reassurance",
+    "closeness",
+    "to matter",
+    "trust"
+   ]
+  },
+  {
+   "id": "envious",
+   "family": "vulnerable",
+   "needs": [
+    "fairness",
+    "growth",
+    "appreciation",
+    "to matter"
+   ]
+  },
+  {
+   "id": "fragile",
+   "family": "vulnerable",
+   "needs": [
+    "safety",
+    "support",
+    "warmth",
+    "space"
+   ]
+  },
+  {
+   "id": "helpless",
+   "family": "vulnerable",
+   "needs": [
+    "choice",
+    "support",
+    "competence",
+    "effectiveness"
+   ]
+  },
+  {
+   "id": "grateful",
+   "family": "joyful",
+   "needs": [
+    "appreciation",
+    "support",
+    "contribution"
+   ]
+  },
+  {
+   "id": "excited",
+   "family": "joyful",
+   "needs": [
+    "creativity",
+    "growth",
+    "fun",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "hopeful",
+   "family": "joyful",
+   "needs": [
+    "hope",
+    "purpose",
+    "growth"
+   ]
+  },
+  {
+   "id": "proud",
+   "family": "joyful",
+   "needs": [
+    "competence",
+    "contribution",
+    "to matter"
+   ]
+  },
+  {
+   "id": "delighted",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun",
+    "beauty"
+   ]
+  },
+  {
+   "id": "affectionate",
+   "family": "joyful",
+   "needs": [
+    "love",
+    "closeness",
+    "warmth"
+   ]
+  },
+  {
+   "id": "amused",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "humor",
+    "joy"
+   ]
+  },
+  {
+   "id": "inspired",
+   "family": "joyful",
+   "needs": [
+    "creativity",
+    "purpose",
+    "growth"
+   ]
+  },
+  {
+   "id": "curious",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "creativity",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "happy",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun",
+    "ease"
+   ]
+  },
+  {
+   "id": "glad",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "ease"
+   ]
+  },
+  {
+   "id": "thrilled",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "spontaneity",
+    "joy"
+   ]
+  },
+  {
+   "id": "elated",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "hope"
+   ]
+  },
+  {
+   "id": "ecstatic",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun"
+   ]
+  },
+  {
+   "id": "exuberant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "radiant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "beauty"
+   ]
+  },
+  {
+   "id": "blissful",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "ease",
+    "presence"
+   ]
+  },
+  {
+   "id": "enthusiastic",
+   "family": "joyful",
+   "needs": [
+    "purpose",
+    "creativity"
+   ]
+  },
+  {
+   "id": "eager",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "growth"
+   ]
+  },
+  {
+   "id": "energetic",
+   "family": "joyful",
+   "needs": [
+    "movement",
+    "rest"
+   ]
+  },
+  {
+   "id": "lively",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "vibrant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "movement"
+   ]
+  },
+  {
+   "id": "passionate",
+   "family": "joyful",
+   "needs": [
+    "purpose",
+    "love"
+   ]
+  },
+  {
+   "id": "giddy",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "joy"
+   ]
+  },
+  {
+   "id": "amazed",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "learning"
+   ]
+  },
+  {
+   "id": "surprised",
+   "family": "joyful",
+   "needs": [
+    "spontaneity",
+    "learning"
+   ]
+  },
+  {
+   "id": "awed",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "purpose"
+   ]
+  },
+  {
+   "id": "optimistic",
+   "family": "joyful",
+   "needs": [
+    "hope",
+    "clarity"
+   ]
+  },
+  {
+   "id": "encouraged",
+   "family": "joyful",
+   "needs": [
+    "support",
+    "hope"
+   ]
+  },
+  {
+   "id": "confident",
+   "family": "joyful",
+   "needs": [
+    "competence",
+    "effectiveness"
+   ]
+  },
+  {
+   "id": "empowered",
+   "family": "joyful",
+   "needs": [
+    "choice",
+    "competence",
+    "freedom"
+   ]
+  },
+  {
+   "id": "interested",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "understanding"
+   ]
+  },
+  {
+   "id": "fascinated",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "beauty"
+   ]
+  },
+  {
+   "id": "engrossed",
+   "family": "joyful",
+   "needs": [
+    "presence",
+    "creativity"
+   ]
+  },
+  {
+   "id": "compassionate",
+   "family": "joyful",
+   "needs": [
+    "empathy",
+    "contribution"
+   ]
+  },
+  {
+   "id": "friendly",
+   "family": "joyful",
+   "needs": [
+    "companionship",
+    "warmth"
+   ]
+  },
+  {
+   "id": "loving",
+   "family": "joyful",
+   "needs": [
+    "love",
+    "closeness"
+   ]
+  },
+  {
+   "id": "warm",
+   "family": "joyful",
+   "needs": [
+    "warmth",
+    "belonging"
+   ]
+  },
+  {
+   "id": "moved",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "to matter"
+   ]
+  },
+  {
+   "id": "touched",
+   "family": "joyful",
+   "needs": [
+    "empathy",
+    "appreciation"
+   ]
+  },
+  {
+   "id": "appreciative",
+   "family": "joyful",
+   "needs": [
+    "appreciation",
+    "mutuality"
+   ]
+  },
+  {
+   "id": "invigorated",
+   "family": "joyful",
+   "needs": [
+    "movement",
+    "rest"
+   ]
+  },
+  {
+   "id": "playful",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "humor"
+   ]
+  },
+  {
+   "id": "tickled",
+   "family": "joyful",
+   "needs": [
+    "humor",
+    "fun"
+   ]
+  },
+  {
+   "id": "cheerful",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "harmony"
+   ]
+  },
+  {
+   "id": "calm",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "order",
+    "rest"
+   ]
+  },
+  {
+   "id": "relieved",
+   "family": "peaceful",
+   "needs": [
+    "safety",
+    "ease",
+    "support"
+   ]
+  },
+  {
+   "id": "content",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "acceptance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "relaxed",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "centered",
+   "family": "peaceful",
+   "needs": [
+    "presence",
+    "authenticity",
+    "clarity"
+   ]
+  },
+  {
+   "id": "trusting",
+   "family": "peaceful",
+   "needs": [
+    "trust",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "tender",
+   "family": "peaceful",
+   "needs": [
+    "closeness",
+    "warmth",
+    "affection"
+   ]
+  },
+  {
+   "id": "refreshed",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "fulfilled",
+   "family": "peaceful",
+   "needs": [
+    "purpose",
+    "contribution",
+    "competence"
+   ]
+  },
+  {
+   "id": "serene",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "ease"
+   ]
+  },
+  {
+   "id": "tranquil",
+   "family": "peaceful",
+   "needs": [
+    "order",
+    "ease"
+   ]
+  },
+  {
+   "id": "comfortable",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "safety"
+   ]
+  },
+  {
+   "id": "mellow",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "rest"
+   ]
+  },
+  {
+   "id": "rested",
+   "family": "peaceful",
+   "needs": [
+    "rest"
+   ]
+  },
+  {
+   "id": "restored",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "support"
+   ]
+  },
+  {
+   "id": "at ease",
+   "family": "peaceful",
+   "needs": [
+    "acceptance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "secure",
+   "family": "peaceful",
+   "needs": [
+    "security",
+    "safety"
+   ]
+  },
+  {
+   "id": "safe",
+   "family": "peaceful",
+   "needs": [
+    "safety",
+    "trust"
+   ]
+  },
+  {
+   "id": "open",
+   "family": "peaceful",
+   "needs": [
+    "authenticity",
+    "trust"
+   ]
+  },
+  {
+   "id": "clear-headed",
+   "family": "peaceful",
+   "needs": [
+    "clarity",
+    "order"
+   ]
+  },
+  {
+   "id": "quiet",
+   "family": "peaceful",
+   "needs": [
+    "space",
+    "presence"
+   ]
+  },
+  {
+   "id": "rejuvenated",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "growth"
+   ]
+  },
+  {
+   "id": "balanced",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "stability"
+   ]
+  },
+  {
+   "id": "present",
+   "family": "peaceful",
+   "needs": [
+    "presence",
+    "authenticity"
+   ]
+  },
+  {
+   "id": "revived",
+   "family": "peaceful",
+   "needs": [
+    "hope",
+    "rest"
+   ]
+  },
+  {
+   "id": "grounded",
+   "family": "peaceful",
+   "needs": [
+    "stability",
+    "clarity"
+   ]
+  },
+  {
+   "id": "harmonious",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "mutuality"
+   ]
+  },
+  {
+   "id": "cozy",
+   "family": "peaceful",
+   "needs": [
+    "warmth",
+    "safety"
+   ]
+  },
+  {
+   "id": "light",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "freedom"
+   ]
+  },
+  {
+   "id": "free",
+   "family": "peaceful",
+   "needs": [
+    "freedom",
+    "choice"
+   ]
+  },
+  {
+   "id": "whole",
+   "family": "peaceful",
+   "needs": [
+    "integrity",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "disrespected",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "irritated",
+    "resentful",
+    "disappointed"
+   ],
+   "needs": [
+    "respect",
+    "consideration",
+    "to be seen",
+    "fairness",
+    "to matter"
+   ]
+  },
+  {
+   "id": "ignored",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "frustrated",
+    "insecure"
+   ],
+   "needs": [
+    "to be seen",
+    "to be heard",
+    "to matter",
+    "inclusion",
+    "consideration"
+   ]
+  },
+  {
+   "id": "unappreciated",
+   "family": "faux",
+   "underlying": [
+    "disappointed",
+    "resentful",
+    "discouraged",
+    "hurt"
+   ],
+   "needs": [
+    "appreciation",
+    "to matter",
+    "contribution",
+    "mutuality",
+    "consideration"
+   ]
+  },
+  {
+   "id": "taken for granted",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "exhausted",
+    "disappointed",
+    "hurt"
+   ],
+   "needs": [
+    "appreciation",
+    "mutuality",
+    "fairness",
+    "consideration",
+    "rest"
+   ]
+  },
+  {
+   "id": "betrayed",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "furious",
+    "heartbroken",
+    "scared"
+   ],
+   "needs": [
+    "trust",
+    "honesty",
+    "integrity",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "rejected",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "lonely",
+    "insecure",
+    "heartbroken"
+   ],
+   "needs": [
+    "acceptance",
+    "belonging",
+    "love",
+    "to matter"
+   ]
+  },
+  {
+   "id": "abandoned",
+   "family": "faux",
+   "underlying": [
+    "scared",
+    "lonely",
+    "heartbroken",
+    "hopeless"
+   ],
+   "needs": [
+    "support",
+    "belonging",
+    "security",
+    "closeness"
+   ]
+  },
+  {
+   "id": "isolated",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "gloomy",
+    "scared",
+    "withdrawn"
+   ],
+   "needs": [
+    "companionship",
+    "belonging",
+    "closeness",
+    "support",
+    "inclusion"
+   ]
+  },
+  {
+   "id": "left out",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "disappointed",
+    "insecure"
+   ],
+   "needs": [
+    "inclusion",
+    "belonging",
+    "companionship",
+    "to matter"
+   ]
+  },
+  {
+   "id": "misunderstood",
+   "family": "faux",
+   "underlying": [
+    "frustrated",
+    "lonely",
+    "discouraged",
+    "confused"
+   ],
+   "needs": [
+    "understanding",
+    "to be heard",
+    "empathy",
+    "communication"
+   ]
+  },
+  {
+   "id": "unheard",
+   "family": "faux",
+   "underlying": [
+    "frustrated",
+    "lonely",
+    "hurt",
+    "discouraged"
+   ],
+   "needs": [
+    "to be heard",
+    "empathy",
+    "respect",
+    "to matter"
+   ]
+  },
+  {
+   "id": "invisible",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "discouraged",
+    "insecure"
+   ],
+   "needs": [
+    "to be seen",
+    "to matter",
+    "appreciation",
+    "belonging"
+   ]
+  },
+  {
+   "id": "used",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "hurt",
+    "exhausted",
+    "suspicious"
+   ],
+   "needs": [
+    "mutuality",
+    "fairness",
+    "respect",
+    "honesty",
+    "consideration"
+   ]
+  },
+  {
+   "id": "manipulated",
+   "family": "faux",
+   "underlying": [
+    "suspicious",
+    "furious",
+    "confused",
+    "uneasy"
+   ],
+   "needs": [
+    "honesty",
+    "choice",
+    "freedom",
+    "trust",
+    "integrity"
+   ]
+  },
+  {
+   "id": "pressured",
+   "family": "faux",
+   "underlying": [
+    "stressed",
+    "anxious",
+    "overwhelmed",
+    "resentful"
+   ],
+   "needs": [
+    "choice",
+    "space",
+    "freedom",
+    "ease",
+    "respect"
+   ]
+  },
+  {
+   "id": "controlled",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "frustrated",
+    "edgy",
+    "stressed"
+   ],
+   "needs": [
+    "freedom",
+    "choice",
+    "independence",
+    "respect",
+    "space"
+   ]
+  },
+  {
+   "id": "judged",
+   "family": "faux",
+   "underlying": [
+    "embarrassed",
+    "hurt",
+    "insecure",
+    "irritated"
+   ],
+   "needs": [
+    "acceptance",
+    "understanding",
+    "respect",
+    "empathy"
+   ]
+  },
+  {
+   "id": "attacked",
+   "family": "faux",
+   "underlying": [
+    "scared",
+    "furious",
+    "hurt",
+    "edgy"
+   ],
+   "needs": [
+    "safety",
+    "respect",
+    "consideration",
+    "harmony"
+   ]
+  },
+  {
+   "id": "let down",
+   "family": "faux",
+   "underlying": [
+    "disappointed",
+    "hurt",
+    "discouraged",
+    "resentful"
+   ],
+   "needs": [
+    "trust",
+    "support",
+    "consideration",
+    "mutuality"
+   ]
+  }
+ ],
+ "triggers": [
+  {
+   "phrases": [
+    "pissed off",
+    "pissed",
+    "mad",
+    "angry",
+    "fuming",
+    "livid",
+    "raging",
+    "puto",
+    "puta",
+    "bravo",
+    "brava",
+    "com raiva",
+    "puto da vida",
+    "puta da vida",
+    "bolado",
+    "bolada",
+    "p da vida",
+    "furioso",
+    "furiosa"
+   ],
+   "feelings": [
+    "irritated",
+    "frustrated",
+    "furious",
+    "resentful",
+    "disappointed",
+    "hurt",
+    "disrespected",
+    "unappreciated",
+    "taken for granted",
+    "betrayed"
+   ]
+  },
+  {
+   "phrases": [
+    "fed up",
+    "sick of it",
+    "over it",
+    "had enough",
+    "cansei",
+    "de saco cheio"
+   ],
+   "feelings": [
+    "exasperated",
+    "frustrated",
+    "resentful",
+    "exhausted",
+    "burnt out",
+    "discouraged",
+    "taken for granted",
+    "unheard",
+    "used"
+   ]
+  },
+  {
+   "phrases": [
+    "bugged",
+    "irritado",
+    "irritada",
+    "annoyed af",
+    "chato",
+    "chata",
+    "de mau humor",
+    "mal humorado",
+    "mal humorada"
+   ],
+   "feelings": [
+    "annoyed",
+    "irritated",
+    "frustrated",
+    "cranky",
+    "edgy",
+    "stressed",
+    "disrespected",
+    "bored"
+   ]
+  },
+  {
+   "phrases": [
+    "sad",
+    "down",
+    "blue",
+    "low",
+    "depressed",
+    "bummed",
+    "triste",
+    "pra baixo"
+   ],
+   "feelings": [
+    "disappointed",
+    "discouraged",
+    "hurt",
+    "lonely",
+    "gloomy",
+    "heartbroken",
+    "hopeless",
+    "melancholy",
+    "left out",
+    "rejected"
+   ]
+  },
+  {
+   "phrases": [
+    "upset",
+    "crushed",
+    "magoado",
+    "magoada",
+    "chateado",
+    "chateada"
+   ],
+   "feelings": [
+    "hurt",
+    "heartbroken",
+    "disappointed",
+    "sorrowful",
+    "furious",
+    "betrayed",
+    "rejected",
+    "misunderstood",
+    "disrespected"
+   ]
+  },
+  {
+   "phrases": [
+    "alone",
+    "sozinho",
+    "sozinha",
+    "no friends"
+   ],
+   "feelings": [
+    "lonely",
+    "isolated",
+    "left out",
+    "distant",
+    "withdrawn",
+    "sorrowful",
+    "invisible",
+    "abandoned",
+    "ignored"
+   ]
+  },
+  {
+   "phrases": [
+    "stressed out",
+    "swamped",
+    "drowning",
+    "too much",
+    "estressado",
+    "estressada",
+    "sobrecarregado",
+    "sobrecarregada"
+   ],
+   "feelings": [
+    "stressed",
+    "overwhelmed",
+    "frazzled",
+    "anxious",
+    "exhausted",
+    "pressured",
+    "cranky",
+    "restless",
+    "helpless"
+   ]
+  },
+  {
+   "phrases": [
+    "afraid",
+    "freaking out",
+    "panicking",
+    "on edge",
+    "ansioso",
+    "ansiosa",
+    "com medo",
+    "nervoso",
+    "nervosa"
+   ],
+   "feelings": [
+    "anxious",
+    "worried",
+    "nervous",
+    "scared",
+    "panicky",
+    "insecure",
+    "uneasy",
+    "overwhelmed",
+    "helpless"
+   ]
+  },
+  {
+   "phrases": [
+    "tired",
+    "drained",
+    "done",
+    "dead",
+    "cansado",
+    "cansada",
+    "exausto",
+    "exausta"
+   ],
+   "feelings": [
+    "exhausted",
+    "burnt out",
+    "depleted",
+    "weary",
+    "worn out",
+    "numb",
+    "apathetic",
+    "taken for granted",
+    "discouraged"
+   ]
+  },
+  {
+   "phrases": [
+    "meh",
+    "nothing",
+    "empty",
+    "whatever",
+    "blah",
+    "vazio",
+    "vazia",
+    "tanto faz",
+    "sei la"
+   ],
+   "feelings": [
+    "numb",
+    "apathetic",
+    "bored",
+    "detached",
+    "withdrawn",
+    "distant",
+    "gloomy",
+    "weary",
+    "lost"
+   ]
+  },
+  {
+   "phrases": [
+    "fine",
+    "ok",
+    "okay",
+    "alright",
+    "tudo bem",
+    "de boa",
+    "to de boa",
+    "normal"
+   ],
+   "feelings": [
+    "content",
+    "calm",
+    "numb",
+    "weary",
+    "withdrawn",
+    "detached",
+    "stressed",
+    "relieved"
+   ]
+  },
+  {
+   "phrases": [
+    "stuck",
+    "don't know",
+    "dont know",
+    "idk",
+    "unsure",
+    "mixed",
+    "confuso",
+    "confusa",
+    "perdido",
+    "perdida"
+   ],
+   "feelings": [
+    "confused",
+    "torn",
+    "lost",
+    "ambivalent",
+    "hesitant",
+    "puzzled",
+    "frustrated",
+    "overwhelmed"
+   ]
+  },
+  {
+   "phrases": [
+    "awkward",
+    "stupid",
+    "dumb",
+    "cringe",
+    "envergonhado",
+    "envergonhada",
+    "culpado",
+    "culpada"
+   ],
+   "feelings": [
+    "embarrassed",
+    "ashamed",
+    "guilty",
+    "self-conscious",
+    "insecure",
+    "fragile",
+    "judged",
+    "hurt"
+   ]
+  },
+  {
+   "phrases": [
+    "fomo",
+    "com ciúmes",
+    "ciumento",
+    "ciumenta",
+    "com inveja"
+   ],
+   "feelings": [
+    "jealous",
+    "envious",
+    "insecure",
+    "left out",
+    "lonely",
+    "resentful",
+    "scared"
+   ]
+  },
+  {
+   "phrases": [
+    "good",
+    "happy",
+    "great",
+    "amazing",
+    "awesome",
+    "stoked",
+    "feliz",
+    "bem",
+    "ótimo",
+    "otimo"
+   ],
+   "feelings": [
+    "grateful",
+    "excited",
+    "delighted",
+    "hopeful",
+    "proud",
+    "affectionate",
+    "relieved",
+    "content",
+    "amused",
+    "inspired",
+    "curious"
+   ]
+  },
+  {
+   "phrases": [
+    "chill",
+    "peaceful",
+    "zen",
+    "tranquilo",
+    "tranquila",
+    "calmo",
+    "calma",
+    "em paz"
+   ],
+   "feelings": [
+    "calm",
+    "relaxed",
+    "content",
+    "centered",
+    "relieved",
+    "trusting",
+    "tender",
+    "refreshed",
+    "fulfilled"
+   ]
+  }
+ ],
+ "feelingsPt": {
+  "annoyed": "incomodado|incomodada",
+  "irritated": "irritado|irritada",
+  "frustrated": "frustrado|frustrada",
+  "exasperated": "exasperado|exasperada",
+  "furious": "furioso|furiosa",
+  "resentful": "ressentido|ressentida",
+  "bitter": "amargurado|amargurada",
+  "outraged": "indignado|indignada",
+  "disappointed": "decepcionado|decepcionada",
+  "discouraged": "desanimado|desanimada",
+  "hurt": "magoado|magoada",
+  "heartbroken": "de coração partido",
+  "lonely": "solitário|solitária",
+  "gloomy": "abatido|abatida",
+  "hopeless": "sem esperança",
+  "sorrowful": "pesaroso|pesarosa",
+  "melancholy": "melancólico|melancólica",
+  "anxious": "ansioso|ansiosa",
+  "worried": "preocupado|preocupada",
+  "nervous": "nervoso|nervosa",
+  "scared": "com medo",
+  "insecure": "inseguro|insegura",
+  "uneasy": "inquieto|inquieta",
+  "panicky": "em pânico",
+  "suspicious": "desconfiado|desconfiada",
+  "stressed": "estressado|estressada",
+  "overwhelmed": "sobrecarregado|sobrecarregada",
+  "restless": "agitado|agitada",
+  "cranky": "rabugento|rabugenta",
+  "frazzled": "atordoado|atordoada",
+  "edgy": "tenso|tensa",
+  "distressed": "aflito|aflita",
+  "numb": "anestesiado|anestesiada",
+  "detached": "desligado|desligada",
+  "withdrawn": "retraído|retraída",
+  "bored": "entediado|entediada",
+  "apathetic": "apático|apática",
+  "distant": "distante",
+  "exhausted": "exausto|exausta",
+  "burnt out": "esgotado|esgotada",
+  "depleted": "sem energia",
+  "weary": "cansado|cansada",
+  "worn out": "acabado|acabada",
+  "confused": "confuso|confusa",
+  "torn": "dividido|dividida",
+  "lost": "perdido|perdida",
+  "ambivalent": "ambivalente",
+  "hesitant": "hesitante",
+  "puzzled": "intrigado|intrigada",
+  "embarrassed": "envergonhado|envergonhada",
+  "ashamed": "com vergonha",
+  "guilty": "culpado|culpada",
+  "self-conscious": "constrangido|constrangida",
+  "jealous": "com ciúmes",
+  "envious": "com inveja",
+  "fragile": "frágil",
+  "helpless": "impotente",
+  "grateful": "grato|grata",
+  "excited": "animado|animada",
+  "hopeful": "esperançoso|esperançosa",
+  "proud": "orgulhoso|orgulhosa",
+  "delighted": "encantado|encantada",
+  "affectionate": "carinhoso|carinhosa",
+  "calm": "calmo|calma",
+  "relieved": "aliviado|aliviada",
+  "content": "satisfeito|satisfeita",
+  "relaxed": "relaxado|relaxada",
+  "centered": "centrado|centrada",
+  "trusting": "confiante",
+  "disrespected": "desrespeitado|desrespeitada",
+  "ignored": "ignorado|ignorada",
+  "unappreciated": "desvalorizado|desvalorizada",
+  "taken for granted": "sem reconhecimento",
+  "betrayed": "traído|traída",
+  "rejected": "rejeitado|rejeitada",
+  "abandoned": "abandonado|abandonada",
+  "isolated": "isolado|isolada",
+  "left out": "excluído|excluída",
+  "misunderstood": "incompreendido|incompreendida",
+  "unheard": "não ouvido|não ouvida",
+  "invisible": "invisível",
+  "used": "usado|usada",
+  "manipulated": "manipulado|manipulada",
+  "pressured": "pressionado|pressionada",
+  "controlled": "controlado|controlada",
+  "judged": "julgado|julgada",
+  "attacked": "atacado|atacada",
+  "let down": "deixado na mão|deixada na mão",
+  "amused": "divertido|divertida",
+  "inspired": "inspirado|inspirada",
+  "curious": "curioso|curiosa",
+  "tender": "comovido|comovida",
+  "refreshed": "renovado|renovada",
+  "fulfilled": "realizado|realizada",
+  "happy": "feliz",
+  "glad": "contente",
+  "thrilled": "empolgado|empolgada",
+  "elated": "nas nuvens",
+  "ecstatic": "em êxtase",
+  "exuberant": "exuberante",
+  "radiant": "radiante",
+  "blissful": "pleno|plena",
+  "enthusiastic": "entusiasmado|entusiasmada",
+  "eager": "ávido|ávida",
+  "energetic": "cheio de energia|cheia de energia",
+  "lively": "vivaz",
+  "vibrant": "vibrante",
+  "passionate": "apaixonado|apaixonada",
+  "giddy": "eufórico|eufórica",
+  "amazed": "impressionado|impressionada",
+  "surprised": "surpreso|surpresa",
+  "awed": "maravilhado|maravilhada",
+  "optimistic": "otimista",
+  "encouraged": "encorajado|encorajada",
+  "confident": "seguro de si|segura de si",
+  "empowered": "fortalecido|fortalecida",
+  "interested": "interessado|interessada",
+  "fascinated": "fascinado|fascinada",
+  "engrossed": "absorto|absorta",
+  "compassionate": "compassivo|compassiva",
+  "friendly": "amigável",
+  "loving": "amoroso|amorosa",
+  "warm": "acolhedor|acolhedora",
+  "moved": "emocionado|emocionada",
+  "touched": "tocado|tocada",
+  "appreciative": "agradecido|agradecida",
+  "invigorated": "revigorado|revigorada",
+  "playful": "brincalhão|brincalhona",
+  "tickled": "achando graça",
+  "cheerful": "alegre",
+  "serene": "sereno|serena",
+  "tranquil": "tranquilo|tranquila",
+  "comfortable": "confortável",
+  "mellow": "suave",
+  "rested": "descansado|descansada",
+  "restored": "restaurado|restaurada",
+  "at ease": "à vontade",
+  "secure": "protegido|protegida",
+  "safe": "em segurança",
+  "open": "aberto|aberta",
+  "clear-headed": "lúcido|lúcida",
+  "quiet": "quieto|quieta",
+  "rejuvenated": "rejuvenescido|rejuvenescida",
+  "balanced": "equilibrado|equilibrada",
+  "present": "presente",
+  "revived": "reanimado|reanimada",
+  "grounded": "com os pés no chão",
+  "harmonious": "em harmonia",
+  "cozy": "aconchegado|aconchegada",
+  "light": "leve",
+  "free": "livre",
+  "whole": "inteiro|inteira"
+ },
+ "needsPt": {
+  "acceptance": "aceitação",
+  "affection": "afeto",
+  "appreciation": "valorização",
+  "belonging": "pertencimento",
+  "closeness": "proximidade",
+  "communication": "comunicação",
+  "companionship": "companhia",
+  "consideration": "consideração",
+  "cooperation": "cooperação",
+  "empathy": "empatia",
+  "inclusion": "inclusão",
+  "love": "amor",
+  "mutuality": "reciprocidade",
+  "reassurance": "acolhimento",
+  "respect": "respeito",
+  "security": "segurança",
+  "stability": "estabilidade",
+  "support": "apoio",
+  "to be heard": "ser ouvido|ser ouvida",
+  "to be seen": "ser visto|ser vista",
+  "to matter": "sentir que importo",
+  "trust": "confiança",
+  "understanding": "compreensão",
+  "warmth": "calor humano",
+  "food": "alimento",
+  "movement": "movimento",
+  "rest": "descanso",
+  "safety": "proteção",
+  "touch": "toque",
+  "authenticity": "autenticidade",
+  "honesty": "honestidade",
+  "integrity": "integridade",
+  "presence": "presença",
+  "fun": "diversão",
+  "joy": "alegria",
+  "humor": "humor",
+  "beauty": "beleza",
+  "ease": "leveza",
+  "fairness": "justiça",
+  "harmony": "harmonia",
+  "order": "ordem",
+  "space": "espaço",
+  "choice": "escolha",
+  "freedom": "liberdade",
+  "independence": "independência",
+  "spontaneity": "espontaneidade",
+  "clarity": "clareza",
+  "competence": "competência",
+  "contribution": "contribuição",
+  "creativity": "criatividade",
+  "effectiveness": "eficácia",
+  "growth": "crescimento",
+  "hope": "esperança",
+  "learning": "aprendizado",
+  "purpose": "propósito"
+ },
+ "needCategoriesPt": {
+  "Connection": "Conexão",
+  "Physical well-being": "Bem-estar físico",
+  "Honesty": "Honestidade",
+  "Play": "Diversão",
+  "Peace": "Paz",
+  "Autonomy": "Autonomia",
+  "Meaning": "Sentido"
+ }
+};
+const FAM = Object.fromEntries(D.families.map(f => [f.id, f]));
+const FEEL = Object.fromEntries(D.feelings.map(f => [f.id, f]));
+const NEEDCAT = {};
+for (const [c, arr] of Object.entries(D.needCategories)) arr.forEach(n => NEEDCAT[n] = c);
+const REAL = D.feelings.filter(f => f.family !== 'faux');
+const $ = s => document.querySelector(s);
+const strip = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+const A = (h, t) => `<a href="${h}" target="_blank" rel="noopener">${t}</a>`;
+const T = {
+  en: {
+    tag: "Name the feeling. Find the need. A guessing game for what's going on inside.",
+    ifeel: 'I feel', ph: 'pissed off', guess: 'Guess', try: 'Try:', faces: 'Faces', resources: 'Resources',
+    more: 'Show more feelings like these', stand: 'Stand them all back up', back: '← Back to the board',
+    credit: 'Feelings and needs vocabulary adapted from the Center for Nonviolent Communication inventories, cnvc.org. Prototype: faces are placeholders until the photos are ready.',
+    change: 'Change what you said', notMe: 'Not me', standUp: 'Stand up', open: 'Open', name: 'Guess You', home: 'Guess You, back to start', close: 'Close',
+    tries: ['pissed off', 'fed up', 'stressed out', 'isolated', 'meh', 'fine', 'happy'], genderLabel: '',
+    hintOne: w => `<strong>Is it you?</strong> Open <strong>${w}</strong> to see what you might need.`,
+    hintNone: 'All flipped down. Stand some back up, or change what you said.',
+    hintUnknown: (s, n) => `We don't know "${s}" yet, so here is a wide spread. Flip down the ones that aren't you. <strong>${n}</strong> standing.`,
+    hintGender: () => '',
+    hintFixed: w => `Reading that as "<strong>${w}</strong>". `,
+    hintMain: n => `Flip down the ones that aren't you. Open the one that is. <strong>${n}</strong> standing.`,
+    thought: 'A thought, not a feeling', family: l => `${l} family`,
+    fauxNote: w => `"${cap(w)}" tells a story about what someone did to you. The story may be true, and it still makes it harder for the other person to hear you. Underneath it, you might feel:`,
+    openOwn: w => `Open "${w}" on its own →`,
+    met: 'Needs that are being met', unmet: 'Needs that might not be met', seeAll: n => `See every need (${n})`,
+    say: 'Say it', obsL: 'When… (what happened, just the facts)', obsPh: 'you were late again', reqL: 'Would you be willing to… (optional)', reqPh: "text me if you'll be late",
+    copy: 'Copy sentence', copied: 'Copied', selected: 'Selected, press copy', blankObs: '[what happened]', blankNeed: '[pick a need]', and: 'and',
+    sentence: (o, f, n, pos, r) => `When ${o}, I feel <b>${f}</b> because ${pos ? `my need for ${n} is being met` : `I need ${n}`}.${r ? ` Would you be willing to ${r}?` : ''}`,
+    facesTitle: 'Faces on the tiles', many: 'Many faces', build: 'Build mine', photo: 'My photo',
+    manyText: 'Every feeling gets its own stranger, like the classic board. Same person every time you see that feeling.',
+    avatarText: "Every tile becomes you, making a different face. That's the point: all of these could be you.",
+    skin: 'Skin', hair: 'Hair', hairColor: 'Hair color', shirt: 'Shirt', glasses: 'Glasses',
+    styles: { short: 'short', bob: 'bob', long: 'long', curly: 'curly', bun: 'bun', bald: 'bald + beard' },
+    noPhoto: 'No photo yet.', choose: 'Choose a photo', photoNote: 'Use a front-facing photo, head and shoulders. It stays in this browser and is never uploaded anywhere.', remove: 'Remove my photo',
+    resTitle: 'Keep going', cardSub: 'Feelings ID<br>Nonviolent<br>Communication', cardFeeling: 'Feeling', cardFamily: 'Family', cardNeeds: 'Needs', cardThought: 'a thought',
+    res: `<div><h3>Nonviolent Communication</h3><p>The method this game is built on: observations, feelings, needs, requests. ${A('https://www.cnvc.org', 'cnvc.org')}</p></div>
+      <div><h3>The full lists</h3><p>${A('https://www.cnvc.org/training/resource/feelings-inventory', 'Feelings inventory')} and ${A('https://www.cnvc.org/training/resource/needs-inventory', 'Needs inventory')} from CNVC.</p></div>
+      <div><h3>The book</h3><p><em>Nonviolent Communication: A Language of Life</em>, Marshall B. Rosenberg.</p></div>
+      <div><h3>Practice with people</h3><p>Look for an NVC practice group or certified trainer near you through CNVC.</p></div>
+      <div class="crisis"><h3>If you're not safe right now</h3><p>This is a game, not therapy. In the US call or text <strong>988</strong>. In Brazil call <strong>188</strong> (CVV). Anywhere else: ${A('https://findahelpline.com', 'findahelpline.com')}.</p></div>`
+  },
+  pt: {
+    tag: 'Dê nome ao sentimento. Descubra a necessidade. Um jogo de adivinhar o que está acontecendo aí dentro.',
+    ifeel: 'Eu me sinto', ph: 'puta da vida', guess: 'Adivinhar', try: 'Experimente:', faces: 'Rostos', resources: 'Recursos',
+    more: 'Mostrar mais sentimentos parecidos', stand: 'Levantar todas de novo', back: '← Voltar ao tabuleiro',
+    credit: 'Vocabulário de sentimentos e necessidades adaptado dos inventários do Center for Nonviolent Communication, cnvc.org. Protótipo: os rostos são provisórios até as fotos ficarem prontas.',
+    change: 'Mudar o que você disse', notMe: 'Não sou eu', standUp: 'Levantar', open: 'Abrir', name: 'Adivinha Você', home: 'Adivinha Você, voltar ao início', close: 'Fechar',
+    tries: ['puto da vida', 'de saco cheio', 'sobrecarregado|sobrecarregada', 'isolado|isolada', 'tanto faz', 'de boa', 'feliz'], genderLabel: 'Meus pronomes:',
+    hintOne: w => `<strong>É você?</strong> Abra <strong>${w}</strong> para ver do que você talvez precise.`,
+    hintNone: 'Todas abaixadas. Levante algumas de novo ou mude o que você disse.',
+    hintUnknown: (s, n) => `Ainda não conhecemos "${s}", então aqui vai uma mistura. Abaixe as que não são você. <strong>${n}</strong> de pé.`,
+    hintGender: g => ({ a: 'Usando o feminino, como você escreveu. ', o: 'Usando o masculino, como você escreveu. ', e: 'Usando linguagem neutra, como você escreveu. ' })[g],
+    hintFixed: w => `Entendi como "<strong>${w}</strong>". `,
+    hintMain: n => `Abaixe as que não são você. Abra a que é. <strong>${n}</strong> de pé.`,
+    thought: 'Um pensamento, não um sentimento', family: l => `Família: ${l}`,
+    fauxNote: w => `"${cap(w)}" conta uma história sobre o que alguém fez com você. Pode até ser verdade, mas fica mais difícil para a outra pessoa te ouvir. Por baixo disso, talvez você sinta:`,
+    openOwn: w => `Abrir "${w}" →`,
+    met: 'Necessidades que estão sendo atendidas', unmet: 'Necessidades que talvez não estejam sendo atendidas', seeAll: n => `Ver todas as necessidades (${n})`,
+    say: 'Fale assim', obsL: 'Quando… (o que aconteceu, só os fatos)', obsPh: 'você chegou atrasado de novo', reqL: 'Você poderia… (opcional)', reqPh: 'me mandar mensagem se for atrasar',
+    copy: 'Copiar frase', copied: 'Copiada', selected: 'Selecionada, é só copiar', blankObs: '[o que aconteceu]', blankNeed: '[escolha uma necessidade]', and: 'e',
+    sentence: (o, f, n, pos, r) => `Quando ${o}, eu me sinto <b>${f}</b> porque ${pos ? `minha necessidade de ${n} está sendo atendida` : `preciso de ${n}`}.${r ? ` Você poderia ${r}?` : ''}`,
+    facesTitle: 'Rostos nas plaquinhas', many: 'Vários rostos', build: 'Montar o meu', photo: 'Minha foto',
+    manyText: 'Cada sentimento ganha um personagem, como no tabuleiro clássico. É sempre a mesma pessoa para o mesmo sentimento.',
+    avatarText: 'Todas as plaquinhas viram você, fazendo caras diferentes. Essa é a ideia: todas elas podem ser você.',
+    skin: 'Pele', hair: 'Cabelo', hairColor: 'Cor do cabelo', shirt: 'Camiseta', glasses: 'Óculos',
+    styles: { short: 'curto', bob: 'chanel', long: 'longo', curly: 'cacheado', bun: 'coque', bald: 'careca + barba' },
+    noPhoto: 'Nenhuma foto ainda.', choose: 'Escolher uma foto', photoNote: 'Use uma foto de frente, de cabeça e ombros. Ela fica só neste navegador e não é enviada para lugar nenhum.', remove: 'Remover minha foto',
+    resTitle: 'Para continuar', cardSub: 'Carteirinha<br>de sentimentos<br>CNV', cardFeeling: 'Sentimento', cardFamily: 'Família', cardNeeds: 'Precisa de', cardThought: 'um pensamento',
+    res: `<div><h3>Comunicação Não-Violenta</h3><p>O método em que este jogo se baseia: observação, sentimento, necessidade e pedido. ${A('https://www.cnvc.org', 'cnvc.org')}</p></div>
+      <div><h3>As listas completas</h3><p>${A('https://www.cnvc.org/training/resource/feelings-inventory', 'Inventário de sentimentos')} e ${A('https://www.cnvc.org/training/resource/needs-inventory', 'inventário de necessidades')} do CNVC (em inglês).</p></div>
+      <div><h3>O livro</h3><p><em>Comunicação Não-Violenta</em>, Marshall B. Rosenberg.</p></div>
+      <div><h3>Praticar com outras pessoas</h3><p>Procure um grupo de prática de CNV ou um facilitador certificado perto de você pelo CNVC.</p></div>
+      <div class="crisis"><h3>Se você não está bem agora</h3><p>Isto é um jogo, não terapia. No Brasil, ligue <strong>188</strong> (CVV, 24 horas). Nos EUA, ligue ou mande mensagem para <strong>988</strong>. Em outros lugares: ${A('https://findahelpline.com', 'findahelpline.com')}.</p></div>`
+  }
+};
+const t = () => T[state.lang];
+// Neutral Portuguese ("linguagem neutra"): cansado → cansade, apático → apátique, amigo → amigue
+function neu(w) {
+  if (!w.endsWith('o')) return w;
+  let st = w.slice(0, -1);
+  if (st.endsWith('c')) st = st.slice(0, -1) + 'qu'; else if (st.endsWith('g')) st += 'u';
+  return st + 'e';
+}
+function gw(s) {
+  if (!s || !s.includes('|')) return s;
+  const [m, f] = s.split('|');
+  if (state.gender === 'o') return m;
+  if (state.gender === 'a') return f;
+  if (state.gender === 'e') return m.split(' ').map((w, i) => w === f.split(' ')[i] ? w : neu(w)).join(' ');
+  const mw = m.split(' '), fw = f.split(' ');
+  return fw.map((w, i) => { if (w === mw[i]) return w; let k = 0; while (w[k] === mw[i][k]) k++; return w + '/' + mw[i].slice(k); }).join(' ');
+}
+const W = id => state.lang === 'pt' ? gw(D.feelingsPt[id]) : id;
+const N = n => state.lang === 'pt' ? gw(D.needsPt[n]) : n;
+const CAT = c => state.lang === 'pt' ? D.needCategoriesPt[c] : c;
+const FAMLABEL = f => state.lang === 'pt' ? f.pt : f.label;
+// Which words tell us how the person talks about themself: "chata" → a, "chato" → o, "chate" → e
+const GENDERED = {};
+function addPair(m, f) {
+  const n = m.split(' ').map((w, i) => w === f.split(' ')[i] ? w : neu(w)).join(' ');
+  GENDERED[strip(m.toLowerCase())] = 'o'; GENDERED[strip(f.toLowerCase())] = 'a'; GENDERED[strip(n.toLowerCase())] = 'e';
+  return n;
+}
+const ALIAS = {};
+for (const f of D.feelings) { ALIAS[f.id] = f.id; const [m, fm] = D.feelingsPt[f.id].split('|'); const neutral = fm ? addPair(m, fm) : m;
+  for (const w of [m, fm, neutral]) if (w) ALIAS[strip(w.toLowerCase())] = f.id; }
+const TRIG = D.triggers.map(tr => ({ ...tr, phrases: tr.phrases.map(p => strip(p.toLowerCase())) }));
+for (const tr of TRIG) {
+  const extra = [];
+  for (const p of tr.phrases) for (const q of tr.phrases) {
+    const pw = p.split(' '), qw = q.split(' ');
+    if (pw.length !== qw.length) continue;
+    const diff = pw.map((w, i) => w === qw[i] ? null : i).filter(i => i !== null);
+    if (diff.length === 1 && pw[diff[0]].endsWith('o') && qw[diff[0]] === pw[diff[0]].slice(0, -1) + 'a') extra.push(addPair(p, q));
+  }
+  tr.phrases.push(...extra);
+}
+const GKEYS = Object.keys(GENDERED).sort((a, b) => b.length - a.length);
+
+
+/* ---------- state ---------- */
+const SKINS = ['#F6D7BD', '#EDC09A', '#D39B6E', '#B07549', '#8A5634', '#613B24'];
+const HAIRC = ['#2A1C15', '#5B3A21', '#9C5A2E', '#D6A64A', '#9A9A9A', '#B8412B'];
+const SHIRTS = ['#E6B84C', '#5C8FC7', '#D46A5A', '#6BA37A', '#9A7CC0', '#E08F4E'];
+const STYLES = ['short', 'bob', 'long', 'curly', 'bun', 'bald'];
+const state = {
+  mode: 'many', avatar: { skin: SKINS[1], hair: HAIRC[1], style: 'curly', shirt: '#5C8FC7', glasses: false }, photo: null,
+  lang: (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en', gender: 'ao',
+  said: '', shown: [], down: new Set(), current: null, selNeeds: new Set(), selUnder: null
+};
+try {
+  const saved = JSON.parse(localStorage.getItem('guessyou-faces') || 'null');
+  if (saved) Object.assign(state, { mode: saved.mode || 'many', avatar: saved.avatar || state.avatar, photo: saved.photo || null });
+  if (state.mode === 'photo' && !state.photo) state.mode = 'many';
+  const L = JSON.parse(localStorage.getItem('guessyou-lang') || 'null');
+  if (L) { state.lang = L.lang || state.lang; state.gender = L.gender || 'ao'; }
+} catch (e) {}
+function saveFaces() {
+  try { localStorage.setItem('guessyou-faces', JSON.stringify({ mode: state.mode, avatar: state.avatar, photo: state.photo })); } catch (e) {}
+}
+
+/* ---------- faces ---------- */
+function hash(s) { let h = 2166136261; for (const ch of s) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { let a = seed; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function personFor(seed) {
+  if (state.mode === 'avatar') return state.avatar;
+  const r = rng(hash(seed));
+  return { skin: SKINS[r() * 6 | 0], hair: HAIRC[r() * 6 | 0], style: STYLES[r() * 6 | 0], shirt: SHIRTS[r() * 6 | 0], glasses: r() < .18 };
+}
+function tint(hex, amt) {
+  const n = parseInt(hex.slice(1), 16), r = n >> 16, g = n >> 8 & 255, b = n & 255;
+  const m = c => Math.round(c + (255 - c) * (1 - amt)).toString(16).padStart(2, '0');
+  return '#' + m(r) + m(g) + m(b);
+}
+const INK = '#2B2230';
+const S = `stroke="${INK}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`;
+const eyes = (y = 58, dx = 0) => `<circle cx="${41 + dx}" cy="${y}" r="2.3" fill="${INK}"/><circle cx="${59 + dx}" cy="${y}" r="2.3" fill="${INK}"/>`;
+const blush = `<ellipse cx="34" cy="66" rx="4.5" ry="2.6" fill="#EF8A8A" opacity=".55"/><ellipse cx="66" cy="66" rx="4.5" ry="2.6" fill="#EF8A8A" opacity=".55"/>`;
+const EXPR = {
+  angry: () => `<path d="M34 48 L45 53 M66 48 L55 53" ${S} stroke-width="3" fill="none"/>${eyes()}<path d="M42 74 Q50 68 58 74" ${S} fill="none"/>`,
+  sad: () => `<path d="M35 51 L45 47 M65 51 L55 47" ${S} fill="none"/>${eyes(59)}<path d="M42 75 Q50 69 58 75" ${S} fill="none"/><path d="M61 63 q-2.4 4.4 0 5.4 q2.4 -1 0 -5.4z" fill="#7FB6E6" stroke="${INK}" stroke-width="1"/>`,
+  afraid: () => `<path d="M35 47 Q40 42 45 46 M65 47 Q60 42 55 46" ${S} fill="none"/><circle cx="41" cy="58" r="4.2" fill="#fff" ${S} stroke-width="1.5"/><circle cx="59" cy="58" r="4.2" fill="#fff" ${S} stroke-width="1.5"/><circle cx="41" cy="58" r="1.8" fill="${INK}"/><circle cx="59" cy="58" r="1.8" fill="${INK}"/><ellipse cx="50" cy="73" rx="3.5" ry="4.5" fill="${INK}"/><path d="M71 42 q-2 4 0 5 q2 -1 0 -5z" fill="#9FD0F2" stroke="${INK}" stroke-width="1"/>`,
+  tense: () => `<path d="M35 51 L45 51 M55 51 L65 51" ${S} stroke-width="3" fill="none"/>${eyes()}<rect x="41" y="69" width="18" height="7" rx="2.5" fill="#fff" ${S} stroke-width="1.6"/><path d="M45.5 69v7M50 69v7M54.5 69v7" stroke="${INK}" stroke-width="1.1"/>`,
+  disconnected: () => `<path d="M36 52 L45 52 M55 52 L64 52" ${S} stroke-width="1.6" fill="none"/><path d="M37.5 58 H44.5 M55.5 58 H62.5" ${S} fill="none"/><path d="M38.5 58 A2.6 2.6 0 0 0 43.5 58Z M56.5 58 A2.6 2.6 0 0 0 61.5 58Z" fill="${INK}"/><path d="M44 73 H56" ${S}/>`,
+  tired: () => `<path d="M35 51 Q40 50 45 52 M65 51 Q60 50 55 52" ${S} fill="none"/><path d="M37.5 58 Q41 61 44.5 58 M55.5 58 Q59 61 62.5 58" ${S} fill="none"/><path d="M38 63 Q41 64.6 44 63 M56 63 Q59 64.6 62 63" ${S} stroke-width="1" opacity=".55" fill="none"/><ellipse cx="50" cy="74" rx="3.5" ry="2.2" fill="${INK}"/>`,
+  confused: () => `<path d="M35 47 Q40 43 45 47 M55 52 L65 50" ${S} fill="none"/>${eyes()}<path d="M42 73 Q46 70 50 73 Q54 76 58 73" ${S} fill="none"/>`,
+  vulnerable: () => `<path d="M36 51 Q40 48 45 49 M64 51 Q60 48 55 49" ${S} fill="none"/>${eyes(60, -1.5)}${blush}<path d="M45 73 Q47.5 71.5 50 73 Q52.5 74.5 55 73" ${S} fill="none"/>`,
+  joyful: () => `<path d="M35 49 Q40 46 45 49 M55 49 Q60 46 65 49" ${S} fill="none"/><path d="M37.5 59 Q41 55 44.5 59 M55.5 59 Q59 55 62.5 59" ${S} fill="none"/>${blush}<path d="M40 68 Q50 81 60 68 Z" fill="#8E2F2F" ${S}/>`,
+  peaceful: () => `<path d="M35 50 Q40 48.5 45 50 M55 50 Q60 48.5 65 50" ${S} fill="none"/><path d="M37.5 58 Q41 60.5 44.5 58 M55.5 58 Q59 60.5 62.5 58" ${S} fill="none"/><path d="M43 71 Q50 76 57 71" ${S} fill="none"/>`
+};
+function hairParts(p) {
+  const f = `fill="${p.hair}" ${S}`;
+  switch (p.style) {
+    case 'short': return ['', `<path d="M27.5 54 C24 32 38 24 51 24.5 C65 25 77 33 72.5 54 C70 44 62 38 50 38 C40 38 31 44 27.5 54Z" ${f}/>`];
+    case 'bob': return [`<path d="M23 52 C21 25 79 25 77 52 L79 84 Q70 88 66 82 L66 56 L34 56 L34 82 Q30 88 21 84Z" ${f}/>`, `<path d="M27.5 52 C27 30 73 30 72.5 52 C66 43 58 40 50 40 C42 40 33 43 27.5 52Z" ${f}/>`];
+    case 'long': return [`<path d="M22 50 C20 22 80 22 78 50 L84 108 Q50 114 16 108Z" ${f}/>`, `<path d="M27.5 54 C27 30 49 27 50 40 C51 27 73 30 72.5 54 C68 44 58 39 50 41 C42 39 32 44 27.5 54Z" ${f}/>`];
+    case 'curly': {
+      const back = [[27, 50, 9], [73, 50, 9], [26, 63, 7], [74, 63, 7]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" ${f}/>`).join('');
+      const front = [[31, 41, 8], [37, 32, 8], [46, 27, 8.5], [56, 27, 8.5], [64, 32, 8], [70, 41, 8]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" ${f}/>`).join('');
+      return [back, front];
+    }
+    case 'bun': return [`<circle cx="50" cy="23" r="9" ${f}/>`, `<path d="M28 50 C27 32 73 32 72 50 C66 42 58 39 50 39 C42 39 34 42 28 50Z" ${f}/>`];
+    default: return ['', `<path d="M28 60 C29 88 71 88 72 60 C68 72 60 76 50 76 C40 76 32 72 28 60Z" ${f}/>`];
+  }
+}
+function exprKey(f) { return f.family === 'faux' ? FAM[FEEL[f.underlying[0]].family].expr : FAM[f.family].expr; }
+function faceSVG(p, expr, bg) {
+  const [back, front] = hairParts(p);
+  const glasses = p.glasses ? `<g fill="none" ${S} stroke-width="1.6"><circle cx="41" cy="58" r="6"/><circle cx="59" cy="58" r="6"/><path d="M47 58 H53"/></g>` : '';
+  return `<svg viewBox="0 0 100 120" aria-hidden="true">${bg ? `<rect width="100" height="120" fill="${bg}"/>` : ''}${back}
+<rect x="43" y="76" width="14" height="18" fill="${p.skin}" ${S}/>
+<path d="M12 122 C12 99 30 92 50 92 C70 92 88 99 88 122Z" fill="${p.shirt}" ${S}/>
+<ellipse cx="28" cy="58" rx="4" ry="6" fill="${p.skin}" ${S}/><ellipse cx="72" cy="58" rx="4" ry="6" fill="${p.skin}" ${S}/>
+<ellipse cx="50" cy="56" rx="22" ry="26" fill="${p.skin}" ${S}/>${front}${EXPR[expr]()}${glasses}</svg>`;
+}
+function stickerSVG(expr) {
+  return `<svg viewBox="28 36 44 44" aria-hidden="true">${EXPR[expr]()}</svg>`;
+}
+function portrait(f, seed) {
+  const fam = FAM[f.family], expr = exprKey(f);
+  if (state.mode === 'photo' && state.photo) {
+    return `<img class="photo-img" src="${state.photo}" alt=""><span class="photo-wash"></span><span class="sticker">${stickerSVG(expr)}</span>`;
+  }
+  return faceSVG(personFor(seed || f.id), expr, null);
+}
+const bgOf = f => FAM[f.family === 'faux' ? FEEL[f.underlying[0]].family : f.family].color;
+function tileHTML(f, opts = {}) {
+  const color = FAM[f.family].color;
+  const plate = opts.plate === false ? '' : `<span class="plate">${W(f.id)}</span>`;
+  const win = opts.interactive
+    ? `<button class="tile-window" style="--wbg:${bgOf(f)}" data-open="${f.id}" aria-label="${t().open} ${W(f.id)}">${portrait(f, opts.seed)}</button>`
+    : `<span class="tile-window" style="--wbg:${bgOf(f)}">${portrait(f, opts.seed)}</span>`;
+  const slot = opts.interactive ? `<div class="slot"><button class="flip" data-flip="${f.id}">${t().notMe}</button></div>` : '';
+  return `<div class="tile${f.family === 'faux' ? ' faux' : ''}" style="--fc:${color};${opts.style || ''}" data-id="${f.id}"><div class="tile-body"><span class="ring"></span>${win}${plate}</div>${slot}</div>`;
+}
+
+/* ---------- screen 1: the mountain ---------- */
+const ROWS = [7, 9, 11, 13, 15, 17, 19];
+function renderMountain() {
+  const r = rng(7);
+  const narrow = innerWidth < 600;
+  $('#mountain').innerHTML = ROWS.map((count, i) => {
+    const w = Math.round((narrow ? 24 : 32) + i * (narrow ? 6 : 8.5));
+    const op = (0.18 + 0.82 * (i / (ROWS.length - 1)) ** 1.4).toFixed(2);
+    const tiles = Array.from({ length: count }, (_, j) => {
+      const f = REAL[r() * REAL.length | 0];
+      return tileHTML(f, { plate: i === ROWS.length - 1 ? undefined : false, seed: `m${i}-${j}` });
+    }).join('');
+    return `<div class="m-row" style="--w:${w}px;--g:${Math.round(w * .16)}px;opacity:${op}">${tiles}</div>`;
+  }).join('');
+}
+let idle = null;
+function startIdle() {
+  stopIdle();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  idle = setInterval(() => {
+    const tiles = document.querySelectorAll('#mountain .tile:not(.down)');
+    if (!tiles.length) return;
+    const t = tiles[Math.random() * tiles.length | 0];
+    t.classList.add('down');
+    setTimeout(() => t.classList.remove('down'), 1700);
+  }, 420);
+}
+function stopIdle() { clearInterval(idle); idle = null; }
+
+function renderTry() {
+  $('#tryRow').innerHTML = `<span>${t().try}</span>`;
+  t().tries.forEach(w => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = gw(w);
+    b.onclick = () => { $('#feelInput').value = gw(w); guess(gw(w)); };
+    $('#tryRow').append(b);
+  });
+}
+
+/* ---------- matching ---------- */
+function norm(s) {
+  let t = strip(s.toLowerCase()).replace(/[’`]/g, "'").replace(/[^a-z0-9' -]/g, ' ').replace(/\s+/g, ' ').trim();
+  const pre = /^(i'?m feeling|i am feeling|im feeling|i feel|i'?m|i am|im|feeling|eu me sinto|me sinto|eu estou|eu to|eu tou|estou|sinto|to|tou|eu|so)\s+/;
+  while (pre.test(t)) t = t.replace(pre, '');
+  const u = t.replace(/(^|\s)(really|very|super|kinda|kind of|pretty|a bit|a little|totally|so|muito|meio|tao|bem|bastante)(?=\s|$)/g, ' ').replace(/\s+/g, ' ').trim();
+  return u || t;
+}
+function detectGender(t) {
+  for (const k of GKEYS) if ((' ' + t + ' ').includes(' ' + k + ' ')) return GENDERED[k];
+  return null;
+}
+function lev(a, b) {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+const has = (t, p) => (' ' + t + ' ').includes(' ' + p + ' ');
+function forFeeling(id) {
+  const f = FEEL[id];
+  if (f.family === 'faux') return [id, ...f.underlying, ...D.feelings.filter(x => x.family === 'faux' && x.id !== id && x.underlying.some(u => f.underlying.includes(u))).slice(0, 3).map(x => x.id)];
+  const sibs = REAL.filter(x => x.family === f.family && x.id !== id).map(x => x.id).slice(0, 6);
+  const faux = D.feelings.filter(x => x.family === 'faux' && x.underlying.includes(id)).slice(0, 3).map(x => x.id);
+  return [id, ...sibs, ...faux];
+}
+function match(raw) {
+  const t = norm(raw);
+  if (!t) return null;
+  if (ALIAS[t]) return { ids: forFeeling(ALIAS[t]) };
+  for (const tr of TRIG) if (tr.phrases.includes(t)) return { ids: tr.feelings };
+  const phrases = TRIG.flatMap(tr => tr.phrases.map(p => [p, tr])).sort((a, b) => b[0].length - a[0].length);
+  const hitFeel = [...new Set(Object.keys(ALIAS).filter(k => has(t, k)).map(k => ALIAS[k]))];
+  const hitTrig = phrases.filter(([p]) => has(t, p)).map(([, tr]) => tr);
+  if (hitFeel.length || hitTrig.length) {
+    const ids = [...hitFeel.flatMap(forFeeling).slice(0, hitFeel.length > 1 ? 99 : 10), ...hitTrig.flatMap(tr => tr.feelings)];
+    return { ids: [...new Set([...hitFeel, ...ids])].slice(0, 12) };
+  }
+  let best = null, bd = 99;
+  for (const k of [...Object.keys(ALIAS), ...phrases.map(p => p[0])]) {
+    const dd = lev(t, k);
+    if (dd < bd) { bd = dd; best = k; }
+  }
+  if (best && bd <= (t.length > 5 ? 2 : 1)) { const m = match(best); m.fixed = ALIAS[best] ? W(ALIAS[best]) : best; return m; }
+  const r = rng(hash(t));
+  const spread = ['angry', 'sad', 'afraid', 'tense', 'disconnected', 'tired', 'confused', 'vulnerable']
+    .map(fam => { const opts = REAL.filter(x => x.family === fam); return opts[r() * opts.length | 0].id; });
+  return { ids: [...spread, 'misunderstood', 'pressured'], unknown: true };
+}
+
+/* ---------- screen 2: the board ---------- */
+function guess(raw) {
+  const m = match(raw);
+  if (!m) { $('#feelInput').focus(); return; }
+  const g = detectGender(norm(raw));
+  if (g) { m.genderNote = g; if (g !== state.gender || state.lang !== 'pt') { state.gender = g; state.lang = 'pt'; applyLang(); } }
+  state.said = raw.trim(); state.shown = m.ids; state.down = new Set(); state.meta = m;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  stopIdle();
+  const rows = [...document.querySelectorAll('#mountain .m-row')];
+  rows.forEach((row, i) => row.querySelectorAll('.tile').forEach((t, j) => {
+    t.querySelector('.tile-body').style.transitionDelay = `${(rows.length - i) * 55 + (j % 5) * 20}ms`;
+    t.classList.add('down');
+  }));
+  setTimeout(() => {
+    rows.forEach(row => row.querySelectorAll('.tile').forEach(t => { t.classList.remove('down'); t.querySelector('.tile-body').style.transitionDelay = ''; }));
+    renderBoard(); show('s2');
+  }, reduce ? 0 : 650);
+}
+function renderBoard() {
+  $('#saidBtn').textContent = state.said;
+  $('#board').innerHTML = state.shown.map((id, i) => tileHTML(FEEL[id], { interactive: true, style: `--i:${i}` })).join('');
+  const famsShown = new Set(state.shown.map(id => FEEL[id].family));
+  $('#moreBtn').hidden = !REAL.some(f => famsShown.has(f.family) && !state.shown.includes(f.id));
+  updateHint();
+}
+function updateHint() {
+  const standing = state.shown.filter(id => !state.down.has(id));
+  document.querySelectorAll('#board .tile').forEach(t => {
+    const isDown = state.down.has(t.dataset.id);
+    t.classList.toggle('down', isDown);
+    t.classList.toggle('last', standing.length === 1 && !isDown);
+    t.querySelector('.flip').textContent = isDown ? T[state.lang].standUp : T[state.lang].notMe;
+  });
+  const m = state.meta || {};
+  let msg;
+  const L = t();
+  if (standing.length === 1) msg = L.hintOne(W(standing[0]));
+  else if (standing.length === 0) msg = L.hintNone;
+  else if (m.unknown) msg = L.hintUnknown(esc(state.said), standing.length);
+  else msg = (m.genderNote ? L.hintGender(m.genderNote) : '') + (m.fixed ? L.hintFixed(m.fixed) : '') + L.hintMain(standing.length);
+  $('#hint').innerHTML = msg;
+}
+function esc(s) { return s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+$('#board').addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'), fl = e.target.closest('[data-flip]');
+  if (fl) { const id = fl.dataset.flip; state.down.has(id) ? state.down.delete(id) : state.down.add(id); updateHint(); }
+  else if (o) { if (state.down.has(o.dataset.open)) { state.down.delete(o.dataset.open); updateHint(); } else openFeeling(o.dataset.open); }
+});
+$('#moreBtn').onclick = () => {
+  const famsShown = new Set(state.shown.map(id => FEEL[id].family));
+  const extra = REAL.filter(f => famsShown.has(f.family) && !state.shown.includes(f.id)).slice(0, 6).map(f => f.id);
+  state.shown = [...state.shown, ...extra];
+  const keep = new Set(state.down); renderBoard(); state.down = keep; updateHint();
+};
+$('#standBtn').onclick = () => { state.down.clear(); updateHint(); };
+$('#saidBtn').onclick = () => { $('#feelInput').value = state.said; show('s1'); $('#feelInput').focus(); $('#feelInput').select(); };
+
+/* ---------- screen 3: one feeling ---------- */
+const GER = { 'to be heard': 'being heard', 'to be seen': 'being seen', 'to matter': 'mattering' };
+const andList = a => a.length < 2 ? (a[0] || '') : a.slice(0, -1).join(', ') + ` ${t().and} ` + a[a.length - 1];
+function openFeeling(id) {
+  const f = FEEL[id];
+  state.current = id; state.selNeeds = new Set([f.needs[0]]); state.selUnder = f.family === 'faux' ? f.underlying[0] : null;
+  renderDetail(); show('s3');
+}
+function renderDetail() {
+  const f = FEEL[state.current], fam = FAM[f.family], faux = f.family === 'faux';
+  const positive = f.family === 'joyful' || f.family === 'peaceful';
+  const L = t();
+  const needChip = n => `<button class="chip" data-need="${n}" aria-pressed="${state.selNeeds.has(n)}">${N(n)} <small>${CAT(NEEDCAT[n])}</small></button>`;
+  const others = Object.entries(D.needCategories).map(([c, arr]) =>
+    `<div class="cat"><h4>${CAT(c)}</h4><div class="chips">${arr.filter(n => !f.needs.includes(n)).map(needChip).join('')}</div></div>`).join('');
+  $('#detail').style.setProperty('--fc', fam.color);
+  $('#detail').innerHTML = `
+    <div class="sleeve"><span class="sleeve-hole" style="left:22px"></span><span class="sleeve-slot"></span><span class="sleeve-hole" style="right:22px"></span>
+      <div class="card">
+        <div class="card-head"><b>${L.name.replace(' ', '<br>')}.</b><small>${L.cardSub}</small></div>
+        <div class="card-body">
+          <div class="card-photo" style="--wbg:${bgOf(f)}">${portrait(f)}</div>
+          <dl><dt>${L.cardFeeling}</dt><dd>${W(faux ? state.selUnder : f.id)}</dd><dt>${L.cardFamily}</dt><dd>${faux ? L.cardThought : FAMLABEL(fam)}</dd><dt>${L.cardNeeds}</dt><dd id="cardNeeds"></dd></dl>
+        </div>
+        <div class="card-foot"><span class="hand">${faux ? '“' + W(f.id) + '”' : ''}</span><small>${String(D.families.indexOf(fam) + 1).padStart(2, '0')}–${String(D.feelings.indexOf(f) + 1).padStart(3, '0')}</small></div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow"><span class="dot"></span>${faux ? L.thought : L.family(FAMLABEL(fam))}</span>
+      <h2>${L.ifeel} <em>${W(f.id)}</em></h2>
+      ${faux ? `<div class="note"><p>${L.fauxNote(W(f.id))}</p>
+        <div class="chips">${f.underlying.map(u => `<button class="chip" data-under="${u}" aria-pressed="${state.selUnder === u}">${W(u)}</button>`).join('')}</div>
+        <p style="margin:10px 0 0"><button class="open-link" data-go="${state.selUnder}">${L.openOwn(W(state.selUnder))}</button></p></div>` : ''}
+      <h3>${positive ? L.met : L.unmet}</h3>
+      <div class="chips">${f.needs.map(needChip).join('')}</div>
+      <details class="all"><summary>${L.seeAll(Object.keys(NEEDCAT).length)}</summary>${others}</details>
+      <div class="say">
+        <h3>${L.say}</h3>
+        <div class="fields">
+          <label for="obsInput">${L.obsL}<input id="obsInput" placeholder="${L.obsPh}" value="${esc(state.obs || '')}"></label>
+          <label for="reqInput">${L.reqL}<input id="reqInput" placeholder="${L.reqPh}" value="${esc(state.req || '')}"></label>
+        </div>
+        <p class="sentence" id="sentence"></p>
+        <button class="copy" id="copyBtn">${L.copy}</button>
+      </div>
+    </div>`;
+  renderSentence();
+}
+const cap = s => s[0].toUpperCase() + s.slice(1);
+function sentenceParts() {
+  const f = FEEL[state.current], positive = f.family === 'joyful' || f.family === 'peaceful';
+  const feeling = W(f.family === 'faux' ? state.selUnder : f.id);
+  const needs = [...state.selNeeds];
+  const obs = (state.obs || '').trim(), req = (state.req || '').trim().replace(/[?.!]+$/, '');
+  return { feeling, needs, obs, req, positive };
+}
+function renderSentence() {
+  const { feeling, needs, obs, req, positive } = sentenceParts();
+  const L = t();
+  const list = needs.map(x => state.lang === 'en' && positive ? (GER[x] || x) : N(x));
+  const n = needs.length ? `<b>${andList(list)}</b>` : `<span class="blank">${L.blankNeed}</span>`;
+  const cn = $('#cardNeeds'); if (cn) cn.textContent = needs.length ? needs.map(x => N(x)).join(', ') : '—';
+  $('#sentence').innerHTML = L.sentence(obs ? esc(obs) : `<span class="blank">${L.blankObs}</span>`, feeling, n, positive, req ? esc(req) : '');
+}
+$('#detail').addEventListener('click', e => {
+  const n = e.target.closest('[data-need]'), u = e.target.closest('[data-under]'), g = e.target.closest('[data-go]');
+  if (n) { const k = n.dataset.need; state.selNeeds.has(k) ? state.selNeeds.delete(k) : state.selNeeds.add(k); document.querySelectorAll(`[data-need="${k}"]`).forEach(b => b.setAttribute('aria-pressed', state.selNeeds.has(k))); renderSentence(); }
+  if (u) { state.selUnder = u.dataset.under; renderDetail(); }
+  if (g) openFeeling(g.dataset.go);
+  if (e.target.id === 'copyBtn') {
+    const text = $('#sentence').textContent;
+    const btn = e.target;
+    const done = () => { btn.textContent = t().copied; setTimeout(() => btn.textContent = t().copy, 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents($('#sentence')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = t().selected; };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (err) { fallback(); }
+  }
+});
+$('#detail').addEventListener('input', e => {
+  if (e.target.id === 'obsInput') state.obs = e.target.value;
+  if (e.target.id === 'reqInput') state.req = e.target.value;
+  renderSentence();
+});
+$('#backBtn').onclick = () => { show('s2'); };
+
+/* ---------- navigation ---------- */
+function show(id) {
+  ['s1', 's2', 's3'].forEach(s => $('#' + s).hidden = s !== id);
+  document.body.dataset.screen = id;
+  if (id === 's1') startIdle(); else stopIdle();
+  if (id === 's2') updateHint();
+  scrollTo({ top: 0 });
+}
+$('#feelForm').addEventListener('submit', e => { e.preventDefault(); guess($('#feelInput').value); });
+$('#homeBtn').onclick = () => show('s1');
+
+/* ---------- sheets ---------- */
+function openSheet(el) { el.hidden = false; el.querySelector('[data-close]').focus(); }
+document.querySelectorAll('.backdrop').forEach(b => {
+  b.addEventListener('click', e => { if (e.target === b || e.target.closest('[data-close]')) b.hidden = true; });
+});
+addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.backdrop').forEach(b => b.hidden = true); });
+$('#resBtn').onclick = () => openSheet($('#resSheet'));
+$('#facesBtn').onclick = () => { renderFaces(); openSheet($('#facesSheet')); };
+let sheetMode = null;
+function renderFaces() {
+  sheetMode = sheetMode || state.mode;
+  document.querySelectorAll('#modeSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === sheetMode));
+  const sample = FEEL['frustrated'];
+  const body = $('#modeBody'), L = t();
+  if (sheetMode === 'many') {
+    body.innerHTML = `<p class="fine">${L.manyText}</p>`;
+  } else if (sheetMode === 'avatar') {
+    const a = state.avatar;
+    const sw = (key, list) => list.map(c => `<button class="sw" style="background:${c}" data-k="${key}" data-v="${c}" aria-label="${key} ${c}" aria-pressed="${a[key] === c}"></button>`).join('');
+    body.innerHTML = `<div class="maker"><div>${tileHTML(sample)}</div><div class="opts">
+      <div><h4>${L.skin}</h4><div class="swatches">${sw('skin', SKINS)}</div></div>
+      <div><h4>${L.hair}</h4><div class="swatches styles">${STYLES.map(s => `<button data-k="style" data-v="${s}" aria-pressed="${a.style === s}">${L.styles[s]}</button>`).join('')}</div></div>
+      <div><h4>${L.hairColor}</h4><div class="swatches">${sw('hair', HAIRC)}</div></div>
+      <div><h4>${L.shirt}</h4><div class="swatches">${sw('shirt', SHIRTS)}</div></div>
+      <div><h4>${L.glasses}</h4><div class="swatches styles"><button data-k="glasses" data-v="1" aria-pressed="${a.glasses}">${L.glasses.toLowerCase()}</button></div></div>
+    </div></div><p class="fine">${L.avatarText}</p>`;
+  } else {
+    body.innerHTML = `<div class="maker"><div>${state.photo ? tileHTML(sample) : `<p class="fine">${L.noPhoto}</p>`}</div><div class="opts">
+      <label class="upload" for="photoIn">${L.choose}<input type="file" id="photoIn" accept="image/*"></label>
+      <p class="fine">${L.photoNote}</p>
+      ${state.photo ? `<button class="ghost" id="rmPhoto">${L.remove}</button>` : ''}
+    </div></div>`;
+  }
+}
+$('#modeSeg').addEventListener('click', e => {
+  const b = e.target.closest('[data-mode]'); if (!b) return;
+  sheetMode = b.dataset.mode;
+  if (sheetMode !== 'photo' || state.photo) { state.mode = sheetMode; applyFaces(); }
+  renderFaces();
+});
+$('#modeBody').addEventListener('click', e => {
+  const b = e.target.closest('[data-k]');
+  if (b) {
+    const k = b.dataset.k;
+    state.avatar = { ...state.avatar, [k]: k === 'glasses' ? !state.avatar.glasses : b.dataset.v };
+    state.mode = 'avatar'; applyFaces(); renderFaces();
+  }
+  if (e.target.id === 'rmPhoto') { state.photo = null; state.mode = 'many'; sheetMode = 'photo'; applyFaces(); renderFaces(); }
+});
+$('#modeBody').addEventListener('change', e => {
+  if (e.target.id !== 'photoIn' || !e.target.files[0]) return;
+  const img = new Image();
+  img.onload = () => {
+    const W = 200, H = 240, c = document.createElement('canvas'); c.width = W; c.height = H;
+    const s = Math.max(W / img.width, H / img.height), w = img.width * s, h = img.height * s;
+    c.getContext('2d').drawImage(img, (W - w) / 2, Math.min(0, (H - h) * 0.3), w, h);
+    state.photo = c.toDataURL('image/jpeg', .85); state.mode = 'photo';
+    URL.revokeObjectURL(img.src); applyFaces(); renderFaces();
+  };
+  img.src = URL.createObjectURL(e.target.files[0]);
+});
+function refreshAll() {
+  renderMountain();
+  if (state.shown.length) {
+    const keep = new Set(state.down); renderBoard(); state.down = keep; updateHint();
+    document.querySelectorAll('#board .tile').forEach(t => { t.style.animation = 'none'; t.style.opacity = 1; });
+  }
+  if (state.current) renderDetail();
+  if (!$('#facesSheet').hidden) renderFaces();
+}
+function applyFaces() { saveFaces(); refreshAll(); }
+function applyLang() {
+  const L = t();
+  document.documentElement.lang = state.lang;
+  document.querySelectorAll('[data-t]').forEach(el => el.textContent = L[el.dataset.t]);
+  document.title = L.name;
+  $('#feelInput').placeholder = L.ph;
+  $('#saidBtn').title = L.change;
+  $('#homeBtn').setAttribute('aria-label', L.home);
+  document.querySelectorAll('[data-close]').forEach(b => b.setAttribute('aria-label', L.close));
+  $('#resBody').innerHTML = L.res;
+  document.querySelectorAll('#langSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === state.lang));
+  document.querySelectorAll('#genderSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.g === state.gender));
+  $('#genderRow').hidden = state.lang !== 'pt';
+  try { localStorage.setItem('guessyou-lang', JSON.stringify({ lang: state.lang, gender: state.gender })); } catch (e) {}
+  renderTry(); refreshAll();
+}
+$('#langSeg').addEventListener('click', e => { const b = e.target.closest('[data-lang]'); if (b) { state.lang = b.dataset.lang; applyLang(); } });
+$('#genderSeg').addEventListener('click', e => { const b = e.target.closest('[data-g]'); if (b) { state.gender = b.dataset.g; applyLang(); } });
+
+/* ---------- boot ---------- */
+applyLang();
+show('s1');
+let rz, wasNarrow = innerWidth < 600;
+addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { const n = innerWidth < 600; if (n !== wasNarrow) { wasNarrow = n; renderMountain(); } }, 200); });
+</script>

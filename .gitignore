@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.importing
+# Local recovery inventories include machine paths and production history.
+/RECOVERY.json
+/HUMAN_TEAM_IMPORT.json
+# Recovered production history stays local. The original folders are untouched.
+/recovery/
+/personagens/
+/revisao/
+/testes/
+/todos/
+/expressions_ref/
+/website_references/
+/tex/*
+!/tex/site/

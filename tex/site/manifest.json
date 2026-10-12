@@ -1,0 +1,610 @@
+[
+ {
+  "key": "Marta__2-playful",
+  "file": "marta-playful"
+ },
+ {
+  "key": "Marta__3-furious",
+  "file": "marta-furious"
+ },
+ {
+  "key": "Dona_Cida__2-balanced",
+  "file": "dona-cida-balanced"
+ },
+ {
+  "key": "Dona_Cida__3-stressed",
+  "file": "dona-cida-stressed"
+ },
+ {
+  "key": "Rafa__2-fulfilled",
+  "file": "rafa-fulfilled"
+ },
+ {
+  "key": "Rafa__3-suspicious",
+  "file": "rafa-suspicious"
+ },
+ {
+  "key": "Yara__2-rejuvenated",
+  "file": "yara-rejuvenated"
+ },
+ {
+  "key": "Yara__3-annoyed",
+  "file": "yara-annoyed"
+ },
+ {
+  "key": "Seu_Hiro__2-secure",
+  "file": "seu-hiro-secure"
+ },
+ {
+  "key": "Seu_Hiro__3-outraged",
+  "file": "seu-hiro-outraged"
+ },
+ {
+  "key": "Duda__2-interested",
+  "file": "duda-interested"
+ },
+ {
+  "key": "Duda__3-burnt_out",
+  "file": "duda-burnt-out"
+ },
+ {
+  "key": "Bruno__2-empowered",
+  "file": "bruno-empowered"
+ },
+ {
+  "key": "Bruno__3-jealous",
+  "file": "bruno-jealous"
+ },
+ {
+  "key": "Keisha__2-energetic",
+  "file": "keisha-energetic"
+ },
+ {
+  "key": "Keisha__3-confused",
+  "file": "keisha-confused"
+ },
+ {
+  "key": "Camila__2-tickled",
+  "file": "camila-tickled"
+ },
+ {
+  "key": "Camila__3-melancholy",
+  "file": "camila-melancholy"
+ },
+ {
+  "key": "Wellington__2-thrilled",
+  "file": "wellington-thrilled"
+ },
+ {
+  "key": "Wellington__3-heartbroken",
+  "file": "wellington-heartbroken"
+ },
+ {
+  "key": "Andres__2-amused",
+  "file": "andres-amused"
+ },
+ {
+  "key": "Andres__3-exasperated",
+  "file": "andres-exasperated"
+ },
+ {
+  "key": "Priya__2-awed",
+  "file": "priya-awed"
+ },
+ {
+  "key": "Priya__3-betrayed",
+  "file": "priya-betrayed"
+ },
+ {
+  "key": "Minh__2-clear-headed",
+  "file": "minh-clear-headed"
+ },
+ {
+  "key": "Minh__3-sorrowful",
+  "file": "minh-sorrowful"
+ },
+ {
+  "key": "Jun__2-passionate",
+  "file": "jun-passionate"
+ },
+ {
+  "key": "Jun__3-helpless",
+  "file": "jun-helpless"
+ },
+ {
+  "key": "Taina__2-warm",
+  "file": "taina-warm"
+ },
+ {
+  "key": "Taina__3-depleted",
+  "file": "taina-depleted"
+ },
+ {
+  "key": "Daniel__2-loving",
+  "file": "daniel-loving"
+ },
+ {
+  "key": "Daniel__3-numb",
+  "file": "daniel-numb"
+ },
+ {
+  "key": "Fatima__2-safe",
+  "file": "fatima-safe"
+ },
+ {
+  "key": "Fatima__3-self-conscious",
+  "file": "fatima-self-conscious"
+ },
+ {
+  "key": "Samir__2-blissful",
+  "file": "samir-blissful"
+ },
+ {
+  "key": "Samir__3-unappreciated",
+  "file": "samir-unappreciated"
+ },
+ {
+  "key": "Kai__2-inspired",
+  "file": "kai-inspired"
+ },
+ {
+  "key": "Kai__3-weary",
+  "file": "kai-weary"
+ },
+ {
+  "key": "Malu__2-trusting",
+  "file": "malu-trusting"
+ },
+ {
+  "key": "Malu__3-discouraged",
+  "file": "malu-discouraged"
+ },
+ {
+  "key": "Raimundo__2-grounded",
+  "file": "raimundo-grounded"
+ },
+ {
+  "key": "Raimundo__3-withdrawn",
+  "file": "raimundo-withdrawn"
+ },
+ {
+  "key": "Neide__2-optimistic",
+  "file": "neide-optimistic"
+ },
+ {
+  "key": "Neide__3-disappointed",
+  "file": "neide-disappointed"
+ },
+ {
+  "key": "Pedro__2-enthusiastic",
+  "file": "pedro-enthusiastic"
+ },
+ {
+  "key": "Pedro__3-hopeless",
+  "file": "pedro-hopeless"
+ },
+ {
+  "key": "Ellie__2-ecstatic",
+  "file": "ellie-ecstatic"
+ },
+ {
+  "key": "Ellie__3-bored",
+  "file": "ellie-bored"
+ },
+ {
+  "key": "Greta__2-curious",
+  "file": "greta-curious"
+ },
+ {
+  "key": "Greta__3-left_out",
+  "file": "greta-left-out"
+ },
+ {
+  "key": "Tomas__2-friendly",
+  "file": "tomas-friendly"
+ },
+ {
+  "key": "Tomas__3-abandoned",
+  "file": "tomas-abandoned"
+ },
+ {
+  "key": "Brenda__2-fascinated",
+  "file": "brenda-fascinated"
+ },
+ {
+  "key": "Brenda__3-manipulated",
+  "file": "brenda-manipulated"
+ },
+ {
+  "key": "Liam__2-relaxed",
+  "file": "liam-relaxed"
+ },
+ {
+  "key": "Liam__3-attacked",
+  "file": "liam-attacked"
+ },
+ {
+  "key": "Ana_Clara__2-vibrant",
+  "file": "ana-clara-vibrant"
+ },
+ {
+  "key": "Ana_Clara__3-restless",
+  "file": "ana-clara-restless"
+ },
+ {
+  "key": "Walter__2-calm",
+  "file": "walter-calm"
+ },
+ {
+  "key": "Walter__3-uneasy",
+  "file": "walter-uneasy"
+ },
+ {
+  "key": "Joao__2-relieved",
+  "file": "joao-relieved"
+ },
+ {
+  "key": "Joao__3-rejected",
+  "file": "joao-rejected"
+ },
+ {
+  "key": "Amara__2-eager",
+  "file": "amara-eager"
+ },
+ {
+  "key": "Amara__3-worn_out",
+  "file": "amara-worn-out"
+ },
+ {
+  "key": "Jefferson__2-exuberant",
+  "file": "jefferson-exuberant"
+ },
+ {
+  "key": "Jefferson__3-fragile",
+  "file": "jefferson-fragile"
+ },
+ {
+  "key": "Gloria__2-rested",
+  "file": "gloria-rested"
+ },
+ {
+  "key": "Gloria__3-detached",
+  "file": "gloria-detached"
+ },
+ {
+  "key": "Marcus__2-refreshed",
+  "file": "marcus-refreshed"
+ },
+ {
+  "key": "Marcus__3-puzzled",
+  "file": "marcus-puzzled"
+ },
+ {
+  "key": "Zainab__2-lively",
+  "file": "zainab-lively"
+ },
+ {
+  "key": "Zainab__3-overwhelmed",
+  "file": "zainab-overwhelmed"
+ },
+ {
+  "key": "Ezequiel__2-confident",
+  "file": "ezequiel-confident"
+ },
+ {
+  "key": "Ezequiel__3-embarrassed",
+  "file": "ezequiel-embarrassed"
+ },
+ {
+  "key": "Imani__2-excited",
+  "file": "imani-excited"
+ },
+ {
+  "key": "Imani__3-edgy",
+  "file": "imani-edgy"
+ },
+ {
+  "key": "Luiza__2-serene",
+  "file": "luiza-serene"
+ },
+ {
+  "key": "Luiza__3-invisible",
+  "file": "luiza-invisible"
+ },
+ {
+  "key": "Rodrigo__2-radiant",
+  "file": "rodrigo-radiant"
+ },
+ {
+  "key": "Rodrigo__3-hurt",
+  "file": "rodrigo-hurt"
+ },
+ {
+  "key": "Dolores__2-present",
+  "file": "dolores-present"
+ },
+ {
+  "key": "Dolores__3-frustrated",
+  "file": "dolores-frustrated"
+ },
+ {
+  "key": "Caio__2-tranquil",
+  "file": "caio-tranquil"
+ },
+ {
+  "key": "Caio__3-irritated",
+  "file": "caio-irritated"
+ },
+ {
+  "key": "Valentina__2-proud",
+  "file": "valentina-proud"
+ },
+ {
+  "key": "Valentina__3-guilty",
+  "file": "valentina-guilty"
+ },
+ {
+  "key": "Hugo__2-delighted",
+  "file": "hugo-delighted"
+ },
+ {
+  "key": "Hugo__3-gloomy",
+  "file": "hugo-gloomy"
+ },
+ {
+  "key": "Bianca__2-engrossed",
+  "file": "bianca-engrossed"
+ },
+ {
+  "key": "Bianca__3-controlled",
+  "file": "bianca-controlled"
+ },
+ {
+  "key": "Ji-woo__2-grateful",
+  "file": "ji-woo-grateful"
+ },
+ {
+  "key": "Ji-woo__3-disrespected",
+  "file": "ji-woo-disrespected"
+ },
+ {
+  "key": "Arjun__2-centered",
+  "file": "arjun-centered"
+ },
+ {
+  "key": "Arjun__3-used",
+  "file": "arjun-used"
+ },
+ {
+  "key": "Linh__2-glad",
+  "file": "linh-glad"
+ },
+ {
+  "key": "Linh__3-distant",
+  "file": "linh-distant"
+ },
+ {
+  "key": "Kenji__2-light",
+  "file": "kenji-light"
+ },
+ {
+  "key": "Kenji__3-judged",
+  "file": "kenji-judged"
+ },
+ {
+  "key": "Mei__2-touched",
+  "file": "mei-touched"
+ },
+ {
+  "key": "Mei__3-ignored",
+  "file": "mei-ignored"
+ },
+ {
+  "key": "Rizwan__2-content",
+  "file": "rizwan-content"
+ },
+ {
+  "key": "Rizwan__3-misunderstood",
+  "file": "rizwan-misunderstood"
+ },
+ {
+  "key": "Mayumi__2-invigorated",
+  "file": "mayumi-invigorated"
+ },
+ {
+  "key": "Mayumi__3-pressured",
+  "file": "mayumi-pressured"
+ },
+ {
+  "key": "Juma__2-encouraged",
+  "file": "juma-encouraged"
+ },
+ {
+  "key": "Juma__3-distressed",
+  "file": "juma-distressed"
+ },
+ {
+  "key": "Kaua__2-surprised",
+  "file": "kaua-surprised"
+ },
+ {
+  "key": "Kaua__3-bitter",
+  "file": "kaua-bitter"
+ },
+ {
+  "key": "Winona__2-open",
+  "file": "winona-open"
+ },
+ {
+  "key": "Winona__3-hesitant",
+  "file": "winona-hesitant"
+ },
+ {
+  "key": "Mateo__2-hopeful",
+  "file": "mateo-hopeful"
+ },
+ {
+  "key": "Mateo__3-worried",
+  "file": "mateo-worried"
+ },
+ {
+  "key": "Ana__2-appreciative",
+  "file": "ana-appreciative"
+ },
+ {
+  "key": "Ana__3-insecure",
+  "file": "ana-insecure"
+ },
+ {
+  "key": "Ubirata__2-cheerful",
+  "file": "ubirata-cheerful"
+ },
+ {
+  "key": "Ubirata__3-scared",
+  "file": "ubirata-scared"
+ },
+ {
+  "key": "Tayanna__2-comfortable",
+  "file": "tayanna-comfortable"
+ },
+ {
+  "key": "Tayanna__3-panicky",
+  "file": "tayanna-panicky"
+ },
+ {
+  "key": "Yasmin__2-tender",
+  "file": "yasmin-tender"
+ },
+ {
+  "key": "Yasmin__3-torn",
+  "file": "yasmin-torn"
+ },
+ {
+  "key": "Karim__2-compassionate",
+  "file": "karim-compassionate"
+ },
+ {
+  "key": "Karim__3-lost",
+  "file": "karim-lost"
+ },
+ {
+  "key": "Reza__2-affectionate",
+  "file": "reza-affectionate"
+ },
+ {
+  "key": "Reza__3-ashamed",
+  "file": "reza-ashamed"
+ },
+ {
+  "key": "Omar__2-happy",
+  "file": "omar-happy"
+ },
+ {
+  "key": "Omar__3-cranky",
+  "file": "omar-cranky"
+ },
+ {
+  "key": "Nadia__2-moved",
+  "file": "nadia-moved"
+ },
+ {
+  "key": "Nadia__3-ambivalent",
+  "file": "nadia-ambivalent"
+ },
+ {
+  "key": "Elias__2-cozy",
+  "file": "elias-cozy"
+ },
+ {
+  "key": "Elias__3-frazzled",
+  "file": "elias-frazzled"
+ },
+ {
+  "key": "Dalia__2-elated",
+  "file": "dalia-elated"
+ },
+ {
+  "key": "Dalia__3-lonely",
+  "file": "dalia-lonely"
+ },
+ {
+  "key": "Nour__2-revived",
+  "file": "nour-revived"
+ },
+ {
+  "key": "Nour__3-exhausted",
+  "file": "nour-exhausted"
+ },
+ {
+  "key": "Jordan__2-at_ease",
+  "file": "jordan-at-ease"
+ },
+ {
+  "key": "Jordan__3-anxious",
+  "file": "jordan-anxious"
+ },
+ {
+  "key": "Sofia__2-free",
+  "file": "sofia-free"
+ },
+ {
+  "key": "Sofia__3-isolated",
+  "file": "sofia-isolated"
+ },
+ {
+  "key": "Theo__2-giddy",
+  "file": "theo-giddy"
+ },
+ {
+  "key": "Theo__3-unheard",
+  "file": "theo-unheard"
+ },
+ {
+  "key": "Luana__2-amazed",
+  "file": "luana-amazed"
+ },
+ {
+  "key": "Luana__3-nervous",
+  "file": "luana-nervous"
+ },
+ {
+  "key": "Dev__2-quiet",
+  "file": "dev-quiet"
+ },
+ {
+  "key": "Dev__3-taken_for_granted",
+  "file": "dev-taken-for-granted"
+ },
+ {
+  "key": "Amina__2-whole",
+  "file": "amina-whole"
+ },
+ {
+  "key": "Amina__3-envious",
+  "file": "amina-envious"
+ },
+ {
+  "key": "Keoni__2-restored",
+  "file": "keoni-restored"
+ },
+ {
+  "key": "Keoni__3-resentful",
+  "file": "keoni-resentful"
+ },
+ {
+  "key": "Wagner__2-harmonious",
+  "file": "wagner-harmonious"
+ },
+ {
+  "key": "Wagner__3-let_down",
+  "file": "wagner-let-down"
+ },
+ {
+  "key": "River__2-mellow",
+  "file": "river-mellow"
+ },
+ {
+  "key": "River__3-apathetic",
+  "file": "river-apathetic"
+ }
+]

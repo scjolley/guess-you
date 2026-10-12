@@ -1,0 +1,2268 @@
+{
+ "families": [
+  {
+   "id": "angry",
+   "label": "Angry",
+   "pt": "Raiva",
+   "expr": "angry",
+   "color": "#E8322B"
+  },
+  {
+   "id": "sad",
+   "label": "Sad",
+   "pt": "Tristeza",
+   "expr": "sad",
+   "color": "#2F5BE0"
+  },
+  {
+   "id": "afraid",
+   "label": "Afraid",
+   "pt": "Medo",
+   "expr": "afraid",
+   "color": "#8A5CF6"
+  },
+  {
+   "id": "tense",
+   "label": "Tense",
+   "pt": "Tensão",
+   "expr": "tense",
+   "color": "#FF7A1A"
+  },
+  {
+   "id": "disconnected",
+   "label": "Disconnected",
+   "pt": "Desconexão",
+   "expr": "disconnected",
+   "color": "#9DAA9C"
+  },
+  {
+   "id": "tired",
+   "label": "Tired",
+   "pt": "Cansaço",
+   "expr": "tired",
+   "color": "#A0704A"
+  },
+  {
+   "id": "confused",
+   "label": "Confused",
+   "pt": "Confusão",
+   "expr": "confused",
+   "color": "#11A39A"
+  },
+  {
+   "id": "vulnerable",
+   "label": "Vulnerable",
+   "pt": "Vulnerabilidade",
+   "expr": "vulnerable",
+   "color": "#FF7EB3"
+  },
+  {
+   "id": "joyful",
+   "label": "Joyful",
+   "pt": "Alegria",
+   "expr": "joyful",
+   "color": "#FFC632"
+  },
+  {
+   "id": "peaceful",
+   "label": "Peaceful",
+   "pt": "Paz",
+   "expr": "peaceful",
+   "color": "#3DBB5C"
+  },
+  {
+   "id": "faux",
+   "label": "Thought, not feeling",
+   "pt": "Um pensamento, não um sentimento",
+   "expr": null,
+   "color": "#1C1C1C"
+  }
+ ],
+ "needCategories": {
+  "Connection": [
+   "acceptance",
+   "affection",
+   "appreciation",
+   "belonging",
+   "closeness",
+   "communication",
+   "companionship",
+   "consideration",
+   "cooperation",
+   "empathy",
+   "inclusion",
+   "love",
+   "mutuality",
+   "reassurance",
+   "respect",
+   "security",
+   "stability",
+   "support",
+   "to be heard",
+   "to be seen",
+   "to matter",
+   "trust",
+   "understanding",
+   "warmth"
+  ],
+  "Physical well-being": [
+   "food",
+   "movement",
+   "rest",
+   "safety",
+   "touch"
+  ],
+  "Honesty": [
+   "authenticity",
+   "honesty",
+   "integrity",
+   "presence"
+  ],
+  "Play": [
+   "fun",
+   "joy",
+   "humor"
+  ],
+  "Peace": [
+   "beauty",
+   "ease",
+   "fairness",
+   "harmony",
+   "order",
+   "space"
+  ],
+  "Autonomy": [
+   "choice",
+   "freedom",
+   "independence",
+   "spontaneity"
+  ],
+  "Meaning": [
+   "clarity",
+   "competence",
+   "contribution",
+   "creativity",
+   "effectiveness",
+   "growth",
+   "hope",
+   "learning",
+   "purpose"
+  ]
+ },
+ "feelings": [
+  {
+   "id": "annoyed",
+   "family": "angry",
+   "needs": [
+    "ease",
+    "consideration",
+    "space",
+    "order"
+   ]
+  },
+  {
+   "id": "irritated",
+   "family": "angry",
+   "needs": [
+    "consideration",
+    "respect",
+    "ease",
+    "rest"
+   ]
+  },
+  {
+   "id": "frustrated",
+   "family": "angry",
+   "needs": [
+    "effectiveness",
+    "competence",
+    "support",
+    "clarity",
+    "ease"
+   ]
+  },
+  {
+   "id": "exasperated",
+   "family": "angry",
+   "needs": [
+    "cooperation",
+    "understanding",
+    "rest",
+    "support"
+   ]
+  },
+  {
+   "id": "furious",
+   "family": "angry",
+   "needs": [
+    "respect",
+    "fairness",
+    "safety",
+    "to matter"
+   ]
+  },
+  {
+   "id": "resentful",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "appreciation",
+    "mutuality",
+    "to be heard"
+   ]
+  },
+  {
+   "id": "bitter",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "empathy",
+    "appreciation",
+    "hope"
+   ]
+  },
+  {
+   "id": "outraged",
+   "family": "angry",
+   "needs": [
+    "fairness",
+    "integrity",
+    "respect",
+    "safety"
+   ]
+  },
+  {
+   "id": "disappointed",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "trust",
+    "mutuality",
+    "consideration"
+   ]
+  },
+  {
+   "id": "discouraged",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "support",
+    "competence",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "hurt",
+   "family": "sad",
+   "needs": [
+    "respect",
+    "consideration",
+    "empathy",
+    "affection"
+   ]
+  },
+  {
+   "id": "heartbroken",
+   "family": "sad",
+   "needs": [
+    "love",
+    "closeness",
+    "empathy",
+    "support"
+   ]
+  },
+  {
+   "id": "lonely",
+   "family": "sad",
+   "needs": [
+    "companionship",
+    "belonging",
+    "closeness",
+    "to be seen"
+   ]
+  },
+  {
+   "id": "gloomy",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "joy",
+    "purpose",
+    "support"
+   ]
+  },
+  {
+   "id": "hopeless",
+   "family": "sad",
+   "needs": [
+    "hope",
+    "support",
+    "purpose",
+    "clarity"
+   ]
+  },
+  {
+   "id": "sorrowful",
+   "family": "sad",
+   "needs": [
+    "empathy",
+    "support",
+    "space",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "melancholy",
+   "family": "sad",
+   "needs": [
+    "beauty",
+    "purpose",
+    "closeness",
+    "rest"
+   ]
+  },
+  {
+   "id": "anxious",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "reassurance",
+    "clarity",
+    "stability"
+   ]
+  },
+  {
+   "id": "worried",
+   "family": "afraid",
+   "needs": [
+    "reassurance",
+    "safety",
+    "clarity",
+    "trust"
+   ]
+  },
+  {
+   "id": "nervous",
+   "family": "afraid",
+   "needs": [
+    "reassurance",
+    "competence",
+    "support",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "scared",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "security",
+    "support",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "insecure",
+   "family": "afraid",
+   "needs": [
+    "acceptance",
+    "reassurance",
+    "to matter",
+    "belonging"
+   ]
+  },
+  {
+   "id": "uneasy",
+   "family": "afraid",
+   "needs": [
+    "clarity",
+    "trust",
+    "safety",
+    "order"
+   ]
+  },
+  {
+   "id": "panicky",
+   "family": "afraid",
+   "needs": [
+    "safety",
+    "ease",
+    "support",
+    "space"
+   ]
+  },
+  {
+   "id": "suspicious",
+   "family": "afraid",
+   "needs": [
+    "trust",
+    "honesty",
+    "safety",
+    "clarity"
+   ]
+  },
+  {
+   "id": "stressed",
+   "family": "tense",
+   "needs": [
+    "ease",
+    "rest",
+    "support",
+    "order",
+    "space"
+   ]
+  },
+  {
+   "id": "overwhelmed",
+   "family": "tense",
+   "needs": [
+    "ease",
+    "support",
+    "clarity",
+    "rest",
+    "space",
+    "order"
+   ]
+  },
+  {
+   "id": "restless",
+   "family": "tense",
+   "needs": [
+    "movement",
+    "space",
+    "purpose",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "cranky",
+   "family": "tense",
+   "needs": [
+    "rest",
+    "food",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "frazzled",
+   "family": "tense",
+   "needs": [
+    "order",
+    "rest",
+    "ease",
+    "support"
+   ]
+  },
+  {
+   "id": "edgy",
+   "family": "tense",
+   "needs": [
+    "safety",
+    "ease",
+    "space",
+    "trust"
+   ]
+  },
+  {
+   "id": "distressed",
+   "family": "tense",
+   "needs": [
+    "support",
+    "empathy",
+    "safety",
+    "reassurance"
+   ]
+  },
+  {
+   "id": "numb",
+   "family": "disconnected",
+   "needs": [
+    "empathy",
+    "space",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "detached",
+   "family": "disconnected",
+   "needs": [
+    "closeness",
+    "purpose",
+    "presence",
+    "safety"
+   ]
+  },
+  {
+   "id": "withdrawn",
+   "family": "disconnected",
+   "needs": [
+    "space",
+    "safety",
+    "acceptance",
+    "trust"
+   ]
+  },
+  {
+   "id": "bored",
+   "family": "disconnected",
+   "needs": [
+    "fun",
+    "creativity",
+    "learning",
+    "purpose"
+   ]
+  },
+  {
+   "id": "apathetic",
+   "family": "disconnected",
+   "needs": [
+    "purpose",
+    "hope",
+    "rest",
+    "contribution"
+   ]
+  },
+  {
+   "id": "distant",
+   "family": "disconnected",
+   "needs": [
+    "closeness",
+    "communication",
+    "trust",
+    "warmth"
+   ]
+  },
+  {
+   "id": "exhausted",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "burnt out",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "purpose",
+    "appreciation",
+    "ease"
+   ]
+  },
+  {
+   "id": "depleted",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "food",
+    "support",
+    "affection"
+   ]
+  },
+  {
+   "id": "weary",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "hope",
+    "support",
+    "ease"
+   ]
+  },
+  {
+   "id": "worn out",
+   "family": "tired",
+   "needs": [
+    "rest",
+    "support",
+    "cooperation",
+    "ease"
+   ]
+  },
+  {
+   "id": "confused",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "understanding",
+    "communication",
+    "order"
+   ]
+  },
+  {
+   "id": "torn",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "choice",
+    "integrity",
+    "support"
+   ]
+  },
+  {
+   "id": "lost",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "purpose",
+    "support",
+    "hope"
+   ]
+  },
+  {
+   "id": "ambivalent",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "choice",
+    "authenticity",
+    "space"
+   ]
+  },
+  {
+   "id": "hesitant",
+   "family": "confused",
+   "needs": [
+    "reassurance",
+    "clarity",
+    "trust",
+    "competence"
+   ]
+  },
+  {
+   "id": "puzzled",
+   "family": "confused",
+   "needs": [
+    "clarity",
+    "understanding",
+    "learning"
+   ]
+  },
+  {
+   "id": "embarrassed",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "respect",
+    "reassurance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "ashamed",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "integrity",
+    "empathy",
+    "to matter"
+   ]
+  },
+  {
+   "id": "guilty",
+   "family": "vulnerable",
+   "needs": [
+    "integrity",
+    "contribution",
+    "mutuality",
+    "empathy"
+   ]
+  },
+  {
+   "id": "self-conscious",
+   "family": "vulnerable",
+   "needs": [
+    "acceptance",
+    "belonging",
+    "reassurance",
+    "ease"
+   ]
+  },
+  {
+   "id": "jealous",
+   "family": "vulnerable",
+   "needs": [
+    "security",
+    "reassurance",
+    "closeness",
+    "to matter",
+    "trust"
+   ]
+  },
+  {
+   "id": "envious",
+   "family": "vulnerable",
+   "needs": [
+    "fairness",
+    "growth",
+    "appreciation",
+    "to matter"
+   ]
+  },
+  {
+   "id": "fragile",
+   "family": "vulnerable",
+   "needs": [
+    "safety",
+    "support",
+    "warmth",
+    "space"
+   ]
+  },
+  {
+   "id": "helpless",
+   "family": "vulnerable",
+   "needs": [
+    "choice",
+    "support",
+    "competence",
+    "effectiveness"
+   ]
+  },
+  {
+   "id": "grateful",
+   "family": "joyful",
+   "needs": [
+    "appreciation",
+    "support",
+    "contribution"
+   ]
+  },
+  {
+   "id": "excited",
+   "family": "joyful",
+   "needs": [
+    "creativity",
+    "growth",
+    "fun",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "hopeful",
+   "family": "joyful",
+   "needs": [
+    "hope",
+    "purpose",
+    "growth"
+   ]
+  },
+  {
+   "id": "proud",
+   "family": "joyful",
+   "needs": [
+    "competence",
+    "contribution",
+    "to matter"
+   ]
+  },
+  {
+   "id": "delighted",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun",
+    "beauty"
+   ]
+  },
+  {
+   "id": "affectionate",
+   "family": "joyful",
+   "needs": [
+    "love",
+    "closeness",
+    "warmth"
+   ]
+  },
+  {
+   "id": "amused",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "humor",
+    "joy"
+   ]
+  },
+  {
+   "id": "inspired",
+   "family": "joyful",
+   "needs": [
+    "creativity",
+    "purpose",
+    "growth"
+   ]
+  },
+  {
+   "id": "curious",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "creativity",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "happy",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun",
+    "ease"
+   ]
+  },
+  {
+   "id": "glad",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "ease"
+   ]
+  },
+  {
+   "id": "thrilled",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "spontaneity",
+    "joy"
+   ]
+  },
+  {
+   "id": "elated",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "hope"
+   ]
+  },
+  {
+   "id": "ecstatic",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "fun"
+   ]
+  },
+  {
+   "id": "exuberant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "radiant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "beauty"
+   ]
+  },
+  {
+   "id": "blissful",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "ease",
+    "presence"
+   ]
+  },
+  {
+   "id": "enthusiastic",
+   "family": "joyful",
+   "needs": [
+    "purpose",
+    "creativity"
+   ]
+  },
+  {
+   "id": "eager",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "growth"
+   ]
+  },
+  {
+   "id": "energetic",
+   "family": "joyful",
+   "needs": [
+    "movement",
+    "rest"
+   ]
+  },
+  {
+   "id": "lively",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "spontaneity"
+   ]
+  },
+  {
+   "id": "vibrant",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "movement"
+   ]
+  },
+  {
+   "id": "passionate",
+   "family": "joyful",
+   "needs": [
+    "purpose",
+    "love"
+   ]
+  },
+  {
+   "id": "giddy",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "joy"
+   ]
+  },
+  {
+   "id": "amazed",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "learning"
+   ]
+  },
+  {
+   "id": "surprised",
+   "family": "joyful",
+   "needs": [
+    "spontaneity",
+    "learning"
+   ]
+  },
+  {
+   "id": "awed",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "purpose"
+   ]
+  },
+  {
+   "id": "optimistic",
+   "family": "joyful",
+   "needs": [
+    "hope",
+    "clarity"
+   ]
+  },
+  {
+   "id": "encouraged",
+   "family": "joyful",
+   "needs": [
+    "support",
+    "hope"
+   ]
+  },
+  {
+   "id": "confident",
+   "family": "joyful",
+   "needs": [
+    "competence",
+    "effectiveness"
+   ]
+  },
+  {
+   "id": "empowered",
+   "family": "joyful",
+   "needs": [
+    "choice",
+    "competence",
+    "freedom"
+   ]
+  },
+  {
+   "id": "interested",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "understanding"
+   ]
+  },
+  {
+   "id": "fascinated",
+   "family": "joyful",
+   "needs": [
+    "learning",
+    "beauty"
+   ]
+  },
+  {
+   "id": "engrossed",
+   "family": "joyful",
+   "needs": [
+    "presence",
+    "creativity"
+   ]
+  },
+  {
+   "id": "compassionate",
+   "family": "joyful",
+   "needs": [
+    "empathy",
+    "contribution"
+   ]
+  },
+  {
+   "id": "friendly",
+   "family": "joyful",
+   "needs": [
+    "companionship",
+    "warmth"
+   ]
+  },
+  {
+   "id": "loving",
+   "family": "joyful",
+   "needs": [
+    "love",
+    "closeness"
+   ]
+  },
+  {
+   "id": "warm",
+   "family": "joyful",
+   "needs": [
+    "warmth",
+    "belonging"
+   ]
+  },
+  {
+   "id": "moved",
+   "family": "joyful",
+   "needs": [
+    "beauty",
+    "to matter"
+   ]
+  },
+  {
+   "id": "touched",
+   "family": "joyful",
+   "needs": [
+    "empathy",
+    "appreciation"
+   ]
+  },
+  {
+   "id": "appreciative",
+   "family": "joyful",
+   "needs": [
+    "appreciation",
+    "mutuality"
+   ]
+  },
+  {
+   "id": "invigorated",
+   "family": "joyful",
+   "needs": [
+    "movement",
+    "rest"
+   ]
+  },
+  {
+   "id": "playful",
+   "family": "joyful",
+   "needs": [
+    "fun",
+    "humor"
+   ]
+  },
+  {
+   "id": "tickled",
+   "family": "joyful",
+   "needs": [
+    "humor",
+    "fun"
+   ]
+  },
+  {
+   "id": "cheerful",
+   "family": "joyful",
+   "needs": [
+    "joy",
+    "harmony"
+   ]
+  },
+  {
+   "id": "calm",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "order",
+    "rest"
+   ]
+  },
+  {
+   "id": "relieved",
+   "family": "peaceful",
+   "needs": [
+    "safety",
+    "ease",
+    "support"
+   ]
+  },
+  {
+   "id": "content",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "acceptance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "relaxed",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "centered",
+   "family": "peaceful",
+   "needs": [
+    "presence",
+    "authenticity",
+    "clarity"
+   ]
+  },
+  {
+   "id": "trusting",
+   "family": "peaceful",
+   "needs": [
+    "trust",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "tender",
+   "family": "peaceful",
+   "needs": [
+    "closeness",
+    "warmth",
+    "affection"
+   ]
+  },
+  {
+   "id": "refreshed",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "ease",
+    "space"
+   ]
+  },
+  {
+   "id": "fulfilled",
+   "family": "peaceful",
+   "needs": [
+    "purpose",
+    "contribution",
+    "competence"
+   ]
+  },
+  {
+   "id": "serene",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "ease"
+   ]
+  },
+  {
+   "id": "tranquil",
+   "family": "peaceful",
+   "needs": [
+    "order",
+    "ease"
+   ]
+  },
+  {
+   "id": "comfortable",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "safety"
+   ]
+  },
+  {
+   "id": "mellow",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "rest"
+   ]
+  },
+  {
+   "id": "rested",
+   "family": "peaceful",
+   "needs": [
+    "rest"
+   ]
+  },
+  {
+   "id": "restored",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "support"
+   ]
+  },
+  {
+   "id": "at ease",
+   "family": "peaceful",
+   "needs": [
+    "acceptance",
+    "belonging"
+   ]
+  },
+  {
+   "id": "secure",
+   "family": "peaceful",
+   "needs": [
+    "security",
+    "safety"
+   ]
+  },
+  {
+   "id": "safe",
+   "family": "peaceful",
+   "needs": [
+    "safety",
+    "trust"
+   ]
+  },
+  {
+   "id": "open",
+   "family": "peaceful",
+   "needs": [
+    "authenticity",
+    "trust"
+   ]
+  },
+  {
+   "id": "clear-headed",
+   "family": "peaceful",
+   "needs": [
+    "clarity",
+    "order"
+   ]
+  },
+  {
+   "id": "quiet",
+   "family": "peaceful",
+   "needs": [
+    "space",
+    "presence"
+   ]
+  },
+  {
+   "id": "rejuvenated",
+   "family": "peaceful",
+   "needs": [
+    "rest",
+    "growth"
+   ]
+  },
+  {
+   "id": "balanced",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "stability"
+   ]
+  },
+  {
+   "id": "present",
+   "family": "peaceful",
+   "needs": [
+    "presence",
+    "authenticity"
+   ]
+  },
+  {
+   "id": "revived",
+   "family": "peaceful",
+   "needs": [
+    "hope",
+    "rest"
+   ]
+  },
+  {
+   "id": "grounded",
+   "family": "peaceful",
+   "needs": [
+    "stability",
+    "clarity"
+   ]
+  },
+  {
+   "id": "harmonious",
+   "family": "peaceful",
+   "needs": [
+    "harmony",
+    "mutuality"
+   ]
+  },
+  {
+   "id": "cozy",
+   "family": "peaceful",
+   "needs": [
+    "warmth",
+    "safety"
+   ]
+  },
+  {
+   "id": "light",
+   "family": "peaceful",
+   "needs": [
+    "ease",
+    "freedom"
+   ]
+  },
+  {
+   "id": "free",
+   "family": "peaceful",
+   "needs": [
+    "freedom",
+    "choice"
+   ]
+  },
+  {
+   "id": "whole",
+   "family": "peaceful",
+   "needs": [
+    "integrity",
+    "acceptance"
+   ]
+  },
+  {
+   "id": "disrespected",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "irritated",
+    "resentful",
+    "disappointed"
+   ],
+   "needs": [
+    "respect",
+    "consideration",
+    "to be seen",
+    "fairness",
+    "to matter"
+   ]
+  },
+  {
+   "id": "ignored",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "frustrated",
+    "insecure"
+   ],
+   "needs": [
+    "to be seen",
+    "to be heard",
+    "to matter",
+    "inclusion",
+    "consideration"
+   ]
+  },
+  {
+   "id": "unappreciated",
+   "family": "faux",
+   "underlying": [
+    "disappointed",
+    "resentful",
+    "discouraged",
+    "hurt"
+   ],
+   "needs": [
+    "appreciation",
+    "to matter",
+    "contribution",
+    "mutuality",
+    "consideration"
+   ]
+  },
+  {
+   "id": "taken for granted",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "exhausted",
+    "disappointed",
+    "hurt"
+   ],
+   "needs": [
+    "appreciation",
+    "mutuality",
+    "fairness",
+    "consideration",
+    "rest"
+   ]
+  },
+  {
+   "id": "betrayed",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "furious",
+    "heartbroken",
+    "scared"
+   ],
+   "needs": [
+    "trust",
+    "honesty",
+    "integrity",
+    "safety",
+    "closeness"
+   ]
+  },
+  {
+   "id": "rejected",
+   "family": "faux",
+   "underlying": [
+    "hurt",
+    "lonely",
+    "insecure",
+    "heartbroken"
+   ],
+   "needs": [
+    "acceptance",
+    "belonging",
+    "love",
+    "to matter"
+   ]
+  },
+  {
+   "id": "abandoned",
+   "family": "faux",
+   "underlying": [
+    "scared",
+    "lonely",
+    "heartbroken",
+    "hopeless"
+   ],
+   "needs": [
+    "support",
+    "belonging",
+    "security",
+    "closeness"
+   ]
+  },
+  {
+   "id": "isolated",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "gloomy",
+    "scared",
+    "withdrawn"
+   ],
+   "needs": [
+    "companionship",
+    "belonging",
+    "closeness",
+    "support",
+    "inclusion"
+   ]
+  },
+  {
+   "id": "left out",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "disappointed",
+    "insecure"
+   ],
+   "needs": [
+    "inclusion",
+    "belonging",
+    "companionship",
+    "to matter"
+   ]
+  },
+  {
+   "id": "misunderstood",
+   "family": "faux",
+   "underlying": [
+    "frustrated",
+    "lonely",
+    "discouraged",
+    "confused"
+   ],
+   "needs": [
+    "understanding",
+    "to be heard",
+    "empathy",
+    "communication"
+   ]
+  },
+  {
+   "id": "unheard",
+   "family": "faux",
+   "underlying": [
+    "frustrated",
+    "lonely",
+    "hurt",
+    "discouraged"
+   ],
+   "needs": [
+    "to be heard",
+    "empathy",
+    "respect",
+    "to matter"
+   ]
+  },
+  {
+   "id": "invisible",
+   "family": "faux",
+   "underlying": [
+    "lonely",
+    "hurt",
+    "discouraged",
+    "insecure"
+   ],
+   "needs": [
+    "to be seen",
+    "to matter",
+    "appreciation",
+    "belonging"
+   ]
+  },
+  {
+   "id": "used",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "hurt",
+    "exhausted",
+    "suspicious"
+   ],
+   "needs": [
+    "mutuality",
+    "fairness",
+    "respect",
+    "honesty",
+    "consideration"
+   ]
+  },
+  {
+   "id": "manipulated",
+   "family": "faux",
+   "underlying": [
+    "suspicious",
+    "furious",
+    "confused",
+    "uneasy"
+   ],
+   "needs": [
+    "honesty",
+    "choice",
+    "freedom",
+    "trust",
+    "integrity"
+   ]
+  },
+  {
+   "id": "pressured",
+   "family": "faux",
+   "underlying": [
+    "stressed",
+    "anxious",
+    "overwhelmed",
+    "resentful"
+   ],
+   "needs": [
+    "choice",
+    "space",
+    "freedom",
+    "ease",
+    "respect"
+   ]
+  },
+  {
+   "id": "controlled",
+   "family": "faux",
+   "underlying": [
+    "resentful",
+    "frustrated",
+    "edgy",
+    "stressed"
+   ],
+   "needs": [
+    "freedom",
+    "choice",
+    "independence",
+    "respect",
+    "space"
+   ]
+  },
+  {
+   "id": "judged",
+   "family": "faux",
+   "underlying": [
+    "embarrassed",
+    "hurt",
+    "insecure",
+    "irritated"
+   ],
+   "needs": [
+    "acceptance",
+    "understanding",
+    "respect",
+    "empathy"
+   ]
+  },
+  {
+   "id": "attacked",
+   "family": "faux",
+   "underlying": [
+    "scared",
+    "furious",
+    "hurt",
+    "edgy"
+   ],
+   "needs": [
+    "safety",
+    "respect",
+    "consideration",
+    "harmony"
+   ]
+  },
+  {
+   "id": "let down",
+   "family": "faux",
+   "underlying": [
+    "disappointed",
+    "hurt",
+    "discouraged",
+    "resentful"
+   ],
+   "needs": [
+    "trust",
+    "support",
+    "consideration",
+    "mutuality"
+   ]
+  }
+ ],
+ "triggers": [
+  {
+   "phrases": [
+    "pissed off",
+    "pissed",
+    "mad",
+    "angry",
+    "fuming",
+    "livid",
+    "raging",
+    "puto",
+    "puta",
+    "bravo",
+    "brava",
+    "com raiva",
+    "puto da vida",
+    "puta da vida",
+    "bolado",
+    "bolada",
+    "p da vida",
+    "furioso",
+    "furiosa"
+   ],
+   "feelings": [
+    "irritated",
+    "frustrated",
+    "furious",
+    "resentful",
+    "disappointed",
+    "hurt",
+    "disrespected",
+    "unappreciated",
+    "taken for granted",
+    "betrayed"
+   ]
+  },
+  {
+   "phrases": [
+    "fed up",
+    "sick of it",
+    "over it",
+    "had enough",
+    "cansei",
+    "de saco cheio"
+   ],
+   "feelings": [
+    "exasperated",
+    "frustrated",
+    "resentful",
+    "exhausted",
+    "burnt out",
+    "discouraged",
+    "taken for granted",
+    "unheard",
+    "used"
+   ]
+  },
+  {
+   "phrases": [
+    "bugged",
+    "irritado",
+    "irritada",
+    "annoyed af",
+    "chato",
+    "chata",
+    "de mau humor",
+    "mal humorado",
+    "mal humorada"
+   ],
+   "feelings": [
+    "annoyed",
+    "irritated",
+    "frustrated",
+    "cranky",
+    "edgy",
+    "stressed",
+    "disrespected",
+    "bored"
+   ]
+  },
+  {
+   "phrases": [
+    "sad",
+    "down",
+    "blue",
+    "low",
+    "depressed",
+    "bummed",
+    "triste",
+    "pra baixo"
+   ],
+   "feelings": [
+    "disappointed",
+    "discouraged",
+    "hurt",
+    "lonely",
+    "gloomy",
+    "heartbroken",
+    "hopeless",
+    "melancholy",
+    "left out",
+    "rejected"
+   ]
+  },
+  {
+   "phrases": [
+    "upset",
+    "crushed",
+    "magoado",
+    "magoada",
+    "chateado",
+    "chateada"
+   ],
+   "feelings": [
+    "hurt",
+    "heartbroken",
+    "disappointed",
+    "sorrowful",
+    "furious",
+    "betrayed",
+    "rejected",
+    "misunderstood",
+    "disrespected"
+   ]
+  },
+  {
+   "phrases": [
+    "alone",
+    "sozinho",
+    "sozinha",
+    "no friends"
+   ],
+   "feelings": [
+    "lonely",
+    "isolated",
+    "left out",
+    "distant",
+    "withdrawn",
+    "sorrowful",
+    "invisible",
+    "abandoned",
+    "ignored"
+   ]
+  },
+  {
+   "phrases": [
+    "stressed out",
+    "swamped",
+    "drowning",
+    "too much",
+    "estressado",
+    "estressada",
+    "sobrecarregado",
+    "sobrecarregada"
+   ],
+   "feelings": [
+    "stressed",
+    "overwhelmed",
+    "frazzled",
+    "anxious",
+    "exhausted",
+    "pressured",
+    "cranky",
+    "restless",
+    "helpless"
+   ]
+  },
+  {
+   "phrases": [
+    "afraid",
+    "freaking out",
+    "panicking",
+    "on edge",
+    "ansioso",
+    "ansiosa",
+    "com medo",
+    "nervoso",
+    "nervosa"
+   ],
+   "feelings": [
+    "anxious",
+    "worried",
+    "nervous",
+    "scared",
+    "panicky",
+    "insecure",
+    "uneasy",
+    "overwhelmed",
+    "helpless"
+   ]
+  },
+  {
+   "phrases": [
+    "tired",
+    "drained",
+    "done",
+    "dead",
+    "cansado",
+    "cansada",
+    "exausto",
+    "exausta"
+   ],
+   "feelings": [
+    "exhausted",
+    "burnt out",
+    "depleted",
+    "weary",
+    "worn out",
+    "numb",
+    "apathetic",
+    "taken for granted",
+    "discouraged"
+   ]
+  },
+  {
+   "phrases": [
+    "meh",
+    "nothing",
+    "empty",
+    "whatever",
+    "blah",
+    "vazio",
+    "vazia",
+    "tanto faz",
+    "sei la"
+   ],
+   "feelings": [
+    "numb",
+    "apathetic",
+    "bored",
+    "detached",
+    "withdrawn",
+    "distant",
+    "gloomy",
+    "weary",
+    "lost"
+   ]
+  },
+  {
+   "phrases": [
+    "fine",
+    "ok",
+    "okay",
+    "alright",
+    "tudo bem",
+    "de boa",
+    "to de boa",
+    "normal"
+   ],
+   "feelings": [
+    "content",
+    "calm",
+    "numb",
+    "weary",
+    "withdrawn",
+    "detached",
+    "stressed",
+    "relieved"
+   ]
+  },
+  {
+   "phrases": [
+    "stuck",
+    "don't know",
+    "dont know",
+    "idk",
+    "unsure",
+    "mixed",
+    "confuso",
+    "confusa",
+    "perdido",
+    "perdida"
+   ],
+   "feelings": [
+    "confused",
+    "torn",
+    "lost",
+    "ambivalent",
+    "hesitant",
+    "puzzled",
+    "frustrated",
+    "overwhelmed"
+   ]
+  },
+  {
+   "phrases": [
+    "awkward",
+    "stupid",
+    "dumb",
+    "cringe",
+    "envergonhado",
+    "envergonhada",
+    "culpado",
+    "culpada"
+   ],
+   "feelings": [
+    "embarrassed",
+    "ashamed",
+    "guilty",
+    "self-conscious",
+    "insecure",
+    "fragile",
+    "judged",
+    "hurt"
+   ]
+  },
+  {
+   "phrases": [
+    "fomo",
+    "com ciúmes",
+    "ciumento",
+    "ciumenta",
+    "com inveja"
+   ],
+   "feelings": [
+    "jealous",
+    "envious",
+    "insecure",
+    "left out",
+    "lonely",
+    "resentful",
+    "scared"
+   ]
+  },
+  {
+   "phrases": [
+    "good",
+    "happy",
+    "great",
+    "amazing",
+    "awesome",
+    "stoked",
+    "feliz",
+    "bem",
+    "ótimo",
+    "otimo"
+   ],
+   "feelings": [
+    "grateful",
+    "excited",
+    "delighted",
+    "hopeful",
+    "proud",
+    "affectionate",
+    "relieved",
+    "content",
+    "amused",
+    "inspired",
+    "curious"
+   ]
+  },
+  {
+   "phrases": [
+    "chill",
+    "peaceful",
+    "zen",
+    "tranquilo",
+    "tranquila",
+    "calmo",
+    "calma",
+    "em paz"
+   ],
+   "feelings": [
+    "calm",
+    "relaxed",
+    "content",
+    "centered",
+    "relieved",
+    "trusting",
+    "tender",
+    "refreshed",
+    "fulfilled"
+   ]
+  }
+ ],
+ "feelingsPt": {
+  "annoyed": "incomodado|incomodada",
+  "irritated": "irritado|irritada",
+  "frustrated": "frustrado|frustrada",
+  "exasperated": "exasperado|exasperada",
+  "furious": "furioso|furiosa",
+  "resentful": "ressentido|ressentida",
+  "bitter": "amargurado|amargurada",
+  "outraged": "indignado|indignada",
+  "disappointed": "decepcionado|decepcionada",
+  "discouraged": "desanimado|desanimada",
+  "hurt": "magoado|magoada",
+  "heartbroken": "de coração partido",
+  "lonely": "solitário|solitária",
+  "gloomy": "abatido|abatida",
+  "hopeless": "sem esperança",
+  "sorrowful": "pesaroso|pesarosa",
+  "melancholy": "melancólico|melancólica",
+  "anxious": "ansioso|ansiosa",
+  "worried": "preocupado|preocupada",
+  "nervous": "nervoso|nervosa",
+  "scared": "com medo",
+  "insecure": "inseguro|insegura",
+  "uneasy": "inquieto|inquieta",
+  "panicky": "em pânico",
+  "suspicious": "desconfiado|desconfiada",
+  "stressed": "estressado|estressada",
+  "overwhelmed": "sobrecarregado|sobrecarregada",
+  "restless": "agitado|agitada",
+  "cranky": "rabugento|rabugenta",
+  "frazzled": "atordoado|atordoada",
+  "edgy": "tenso|tensa",
+  "distressed": "aflito|aflita",
+  "numb": "anestesiado|anestesiada",
+  "detached": "desligado|desligada",
+  "withdrawn": "retraído|retraída",
+  "bored": "entediado|entediada",
+  "apathetic": "apático|apática",
+  "distant": "distante",
+  "exhausted": "exausto|exausta",
+  "burnt out": "esgotado|esgotada",
+  "depleted": "sem energia",
+  "weary": "cansado|cansada",
+  "worn out": "acabado|acabada",
+  "confused": "confuso|confusa",
+  "torn": "dividido|dividida",
+  "lost": "perdido|perdida",
+  "ambivalent": "ambivalente",
+  "hesitant": "hesitante",
+  "puzzled": "intrigado|intrigada",
+  "embarrassed": "envergonhado|envergonhada",
+  "ashamed": "com vergonha",
+  "guilty": "culpado|culpada",
+  "self-conscious": "constrangido|constrangida",
+  "jealous": "com ciúmes",
+  "envious": "com inveja",
+  "fragile": "frágil",
+  "helpless": "impotente",
+  "grateful": "grato|grata",
+  "excited": "animado|animada",
+  "hopeful": "esperançoso|esperançosa",
+  "proud": "orgulhoso|orgulhosa",
+  "delighted": "encantado|encantada",
+  "affectionate": "carinhoso|carinhosa",
+  "calm": "calmo|calma",
+  "relieved": "aliviado|aliviada",
+  "content": "satisfeito|satisfeita",
+  "relaxed": "relaxado|relaxada",
+  "centered": "centrado|centrada",
+  "trusting": "confiante",
+  "disrespected": "desrespeitado|desrespeitada",
+  "ignored": "ignorado|ignorada",
+  "unappreciated": "desvalorizado|desvalorizada",
+  "taken for granted": "sem reconhecimento",
+  "betrayed": "traído|traída",
+  "rejected": "rejeitado|rejeitada",
+  "abandoned": "abandonado|abandonada",
+  "isolated": "isolado|isolada",
+  "left out": "excluído|excluída",
+  "misunderstood": "incompreendido|incompreendida",
+  "unheard": "não ouvido|não ouvida",
+  "invisible": "invisível",
+  "used": "usado|usada",
+  "manipulated": "manipulado|manipulada",
+  "pressured": "pressionado|pressionada",
+  "controlled": "controlado|controlada",
+  "judged": "julgado|julgada",
+  "attacked": "atacado|atacada",
+  "let down": "deixado na mão|deixada na mão",
+  "amused": "divertido|divertida",
+  "inspired": "inspirado|inspirada",
+  "curious": "curioso|curiosa",
+  "tender": "comovido|comovida",
+  "refreshed": "renovado|renovada",
+  "fulfilled": "realizado|realizada",
+  "happy": "feliz",
+  "glad": "contente",
+  "thrilled": "empolgado|empolgada",
+  "elated": "nas nuvens",
+  "ecstatic": "em êxtase",
+  "exuberant": "exuberante",
+  "radiant": "radiante",
+  "blissful": "pleno|plena",
+  "enthusiastic": "entusiasmado|entusiasmada",
+  "eager": "ávido|ávida",
+  "energetic": "cheio de energia|cheia de energia",
+  "lively": "vivaz",
+  "vibrant": "vibrante",
+  "passionate": "apaixonado|apaixonada",
+  "giddy": "eufórico|eufórica",
+  "amazed": "impressionado|impressionada",
+  "surprised": "surpreso|surpresa",
+  "awed": "maravilhado|maravilhada",
+  "optimistic": "otimista",
+  "encouraged": "encorajado|encorajada",
+  "confident": "seguro de si|segura de si",
+  "empowered": "fortalecido|fortalecida",
+  "interested": "interessado|interessada",
+  "fascinated": "fascinado|fascinada",
+  "engrossed": "absorto|absorta",
+  "compassionate": "compassivo|compassiva",
+  "friendly": "amigável",
+  "loving": "amoroso|amorosa",
+  "warm": "acolhedor|acolhedora",
+  "moved": "emocionado|emocionada",
+  "touched": "tocado|tocada",
+  "appreciative": "agradecido|agradecida",
+  "invigorated": "revigorado|revigorada",
+  "playful": "brincalhão|brincalhona",
+  "tickled": "achando graça",
+  "cheerful": "alegre",
+  "serene": "sereno|serena",
+  "tranquil": "tranquilo|tranquila",
+  "comfortable": "confortável",
+  "mellow": "suave",
+  "rested": "descansado|descansada",
+  "restored": "restaurado|restaurada",
+  "at ease": "à vontade",
+  "secure": "protegido|protegida",
+  "safe": "em segurança",
+  "open": "aberto|aberta",
+  "clear-headed": "lúcido|lúcida",
+  "quiet": "quieto|quieta",
+  "rejuvenated": "rejuvenescido|rejuvenescida",
+  "balanced": "equilibrado|equilibrada",
+  "present": "presente",
+  "revived": "reanimado|reanimada",
+  "grounded": "com os pés no chão",
+  "harmonious": "em harmonia",
+  "cozy": "aconchegado|aconchegada",
+  "light": "leve",
+  "free": "livre",
+  "whole": "inteiro|inteira"
+ },
+ "needsPt": {
+  "acceptance": "aceitação",
+  "affection": "afeto",
+  "appreciation": "valorização",
+  "belonging": "pertencimento",
+  "closeness": "proximidade",
+  "communication": "comunicação",
+  "companionship": "companhia",
+  "consideration": "consideração",
+  "cooperation": "cooperação",
+  "empathy": "empatia",
+  "inclusion": "inclusão",
+  "love": "amor",
+  "mutuality": "reciprocidade",
+  "reassurance": "acolhimento",
+  "respect": "respeito",
+  "security": "segurança",
+  "stability": "estabilidade",
+  "support": "apoio",
+  "to be heard": "ser ouvido|ser ouvida",
+  "to be seen": "ser visto|ser vista",
+  "to matter": "sentir que importo",
+  "trust": "confiança",
+  "understanding": "compreensão",
+  "warmth": "calor humano",
+  "food": "alimento",
+  "movement": "movimento",
+  "rest": "descanso",
+  "safety": "proteção",
+  "touch": "toque",
+  "authenticity": "autenticidade",
+  "honesty": "honestidade",
+  "integrity": "integridade",
+  "presence": "presença",
+  "fun": "diversão",
+  "joy": "alegria",
+  "humor": "humor",
+  "beauty": "beleza",
+  "ease": "leveza",
+  "fairness": "justiça",
+  "harmony": "harmonia",
+  "order": "ordem",
+  "space": "espaço",
+  "choice": "escolha",
+  "freedom": "liberdade",
+  "independence": "independência",
+  "spontaneity": "espontaneidade",
+  "clarity": "clareza",
+  "competence": "competência",
+  "contribution": "contribuição",
+  "creativity": "criatividade",
+  "effectiveness": "eficácia",
+  "growth": "crescimento",
+  "hope": "esperança",
+  "learning": "aprendizado",
+  "purpose": "propósito"
+ },
+ "needCategoriesPt": {
+  "Connection": "Conexão",
+  "Physical well-being": "Bem-estar físico",
+  "Honesty": "Honestidade",
+  "Play": "Diversão",
+  "Peace": "Paz",
+  "Autonomy": "Autonomia",
+  "Meaning": "Sentido"
+ }
+}
