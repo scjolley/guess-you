@@ -86,6 +86,6 @@ fonts; their licenses are in `design/fonts/`. This proposal has not been approve
 or applied to the game.
 
 Run `python3 scripts/preview.py --port 8001` and open
-http://127.0.0.1:8001/design/proof.html. Compare clean and softened serif treatments,
-try the handwritten input, and select a portrait to inspect the feeling card.
+http://127.0.0.1:8001/design/proof.html. Review the blur-to-clear Caslon title and Caveat entries, fold tiles backward,
+open a feeling, select a need, and edit the situation/request to build a sentence.
 The Guess button only previews the board; this page is an appearance proof.

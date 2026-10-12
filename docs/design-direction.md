@@ -70,3 +70,12 @@ names and revised thesis-informed copy. Kalam is shown in English/Portuguese
 alongside Caveat. Blunt by dabnotu (1001fonts.com/blunt-font.html) is reference
 only: listing says personal use, not commercial; no open license verified.
 No actual game changes. Naming in Portuguese remains unapproved.
+
+
+Proof 03: Sam authorized the next complete screen proposal. Caveat is the
+default for short handwritten entries; situation/request inputs and the resulting
+sentence use DM Sans. Font comparisons were removed from the main flow.
+Folding and opening feelings now have separate controls; needs can be selected
+and the sentence updates from editable situation/request fields. Six sample
+feelings remain; full matching and bilingual integration belong to the actual
+game implementation after creative approval. Original game unchanged.
