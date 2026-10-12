@@ -83,7 +83,7 @@ No photos were regenerated or replaced with new imagery.
 Run `python3 scripts/preview.py --port 8001` and open
 http://127.0.0.1:8001/design/proof.html.
 
-Proof 05 explores the October 12 journey: scroll introduction, four feeling
+Proof 06 explores the October 12 journey: scroll introduction, four feeling
 matches with See more, selected-feeling reflection, optional NVC prompts, and
 a closing check-in. It uses existing portraits and vocabulary, with proposed
 English copy. `design/journey.css` and `design/journey.js` hold presentation and
@@ -93,3 +93,23 @@ and existing image paths. Fonts and licenses are in `design/fonts/`.
 Reflections live only in page memory; Keep my reflection copies to the clipboard.
 The original game is unchanged. This is a creative approval proof, not a public
 release. Earlier designs remain recoverable in Git history.
+
+
+The opening now uses six moving cards and a short scroll into 76 distinct people.
+`design/feeling-language.js` adds 253 editorial everyday phrases to existing
+triggers; matches are possibilities, not diagnoses or fixed meanings.
+
+### Portrait approvals and comments
+
+Open `http://127.0.0.1:8001/design/background-review.html` using the preview
+server above. Each portrait supports Pending, Approve, Request changes, and a
+comment. Notes save to ignored `local-reviews/portrait-reviews.json` on this Mac;
+Codex can read them directly. Browser storage is a fallback and the page includes
+a JSON backup download. Notes are not pushed to GitHub. A static hosting service
+will only support the browser fallback unless a review backend is added.
+
+Review decisions do not trigger image generation. Shadow flags remain separate
+from human approvals. Game reflections still stay only in page memory.
+
+Validation: `node tests/journey-language.cjs` and
+`PYTHONDONTWRITEBYTECODE=1 python3 tests/test_review_validation.py`.

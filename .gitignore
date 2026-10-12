@@ -14,3 +14,6 @@ __pycache__/
 /website_references/
 /tex/*
 !/tex/site/
+
+# Personal portrait review decisions and notes remain on this Mac.
+/local-reviews/

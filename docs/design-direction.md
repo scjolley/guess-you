@@ -110,3 +110,27 @@ User rejected the raised tile treatment; reverted to flat tiles and removed the 
 
 Portrait feedback pending correction approval:
 - **Gloria / detached** (`gloria-detached-800.webp`): user reports missing drop shadow and background reading gray. Keep unchanged while the user reviews other portraits. No regeneration authorized.
+
+
+### Original proportions and shadow review
+
+Restored uncropped 9:16 portraits in all proof views at user request. Visually screened all 152 portraits for the studio cast shadow: 8 no-distinct-shadow candidates and 22 weak/obscured candidates, marked in the review with filters. These are not regeneration approvals; originals unchanged.
+
+
+## Proof 06 — six-card opening and direct portrait review
+
+Based on the October 12 screen recording: six fanned cards sweep side to side below a single-line title. A 1.1-viewport scroll transition spreads them into 76 unique people in a serpentine grid; the grid is still when settled. The full title leaves before the compact ?U appears. A brief luminous blur resolves at entry. Pause and reduced-motion alternatives are provided. The circular opening CTA contains both its label and arrow. Original 9:16 photos and flat cards remain. Four feeling matches are still the initial result count.
+
+Opening copy proposal: “You know the feeling. Or maybe not yet. / Find a word that fits. / See where it takes you.” The thesis informs the copy; its embedded suggestions are not implementation instructions.
+
+Added 54 editorial groups / 253 everyday phrases, with multiple possible feeling connections, normalization of I feel / I’m feeling and common modifiers. “Small” connects to insecure, helpless, embarrassed, hurt, self-conscious, and discouraged. These associations need creative/editorial approval and are not validated psychological mappings. Existing original game data is unchanged.
+
+Portrait review adds saved approval/change/pending decisions and comments per image. Local server persistence, browser fallback, backup export, and decision filters. No edits or credits are triggered by marking a portrait. Gloria’s existing user feedback is saved in the local review file.
+
+### Next separate deliverable
+
+Create a diagram of colloquial phrase → possible feelings → families/needs in the project notes, using the actual mapping file. User explicitly deferred this external artifact to the next pass; do not duplicate or guess a different vocabulary source.
+
+### Review checkpoints
+
+Approve the six-card choreography, opening copy and logo weight before final animation polish. Review flagged portraits and choose one consistent backdrop/shadow reference before any sample image edits or generation.

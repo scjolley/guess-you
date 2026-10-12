@@ -15,7 +15,9 @@
         211
       ],
       "corner_difference": 29,
-      "distance": 54.5
+      "distance": 54.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mayumi-pressured-800.webp",
@@ -25,7 +27,9 @@
         218
       ],
       "corner_difference": 2,
-      "distance": 40.8
+      "distance": 40.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "kai-weary-800.webp",
@@ -35,7 +39,9 @@
         216
       ],
       "corner_difference": 32,
-      "distance": 39.9
+      "distance": 39.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "yara-rejuvenated-800.webp",
@@ -45,7 +51,9 @@
         220
       ],
       "corner_difference": 11,
-      "distance": 34.2
+      "distance": 34.2,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "tayanna-comfortable-800.webp",
@@ -55,7 +63,9 @@
         255
       ],
       "corner_difference": 0,
-      "distance": 33.0
+      "distance": 33.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "fatima-safe-800.webp",
@@ -65,7 +75,9 @@
         220
       ],
       "corner_difference": 24,
-      "distance": 32.9
+      "distance": 32.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "priya-awed-800.webp",
@@ -75,7 +87,9 @@
         222
       ],
       "corner_difference": 17,
-      "distance": 32.5
+      "distance": 32.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "daniel-numb-800.webp",
@@ -85,7 +99,9 @@
         226
       ],
       "corner_difference": 5,
-      "distance": 30.7
+      "distance": 30.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ellie-ecstatic-800.webp",
@@ -95,7 +111,9 @@
         222
       ],
       "corner_difference": 17,
-      "distance": 30.7
+      "distance": 30.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "yara-annoyed-800.webp",
@@ -105,7 +123,9 @@
         223
       ],
       "corner_difference": 13,
-      "distance": 29.7
+      "distance": 29.7,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "camila-tickled-800.webp",
@@ -115,7 +135,9 @@
         222
       ],
       "corner_difference": 11,
-      "distance": 28.9
+      "distance": 28.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "minh-clear-headed-800.webp",
@@ -125,7 +147,9 @@
         225
       ],
       "corner_difference": 4,
-      "distance": 28.6
+      "distance": 28.6,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "duda-interested-800.webp",
@@ -135,7 +159,9 @@
         228
       ],
       "corner_difference": 17,
-      "distance": 27.9
+      "distance": 27.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ellie-bored-800.webp",
@@ -145,7 +171,9 @@
         224
       ],
       "corner_difference": 13,
-      "distance": 26.6
+      "distance": 26.6,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "camila-melancholy-800.webp",
@@ -155,7 +183,9 @@
         224
       ],
       "corner_difference": 12,
-      "distance": 26.0
+      "distance": 26.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "daniel-loving-800.webp",
@@ -165,7 +195,9 @@
         224
       ],
       "corner_difference": 4,
-      "distance": 26.0
+      "distance": 26.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "rafa-fulfilled-800.webp",
@@ -175,7 +207,9 @@
         224
       ],
       "corner_difference": 3,
-      "distance": 26.0
+      "distance": 26.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "brenda-fascinated-800.webp",
@@ -185,7 +219,9 @@
         224
       ],
       "corner_difference": 12,
-      "distance": 25.5
+      "distance": 25.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "taina-warm-800.webp",
@@ -195,7 +231,9 @@
         224
       ],
       "corner_difference": 20,
-      "distance": 24.8
+      "distance": 24.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "seu-hiro-outraged-800.webp",
@@ -205,7 +243,9 @@
         225
       ],
       "corner_difference": 6,
-      "distance": 24.3
+      "distance": 24.3,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "taina-depleted-800.webp",
@@ -215,7 +255,9 @@
         224
       ],
       "corner_difference": 13,
-      "distance": 23.2
+      "distance": 23.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "gloria-detached-800.webp",
@@ -225,7 +267,9 @@
         224
       ],
       "corner_difference": 2,
-      "distance": 23.1
+      "distance": 23.1,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "User flagged: missing drop shadow; background reads gray."
     },
     {
       "file": "dona-cida-stressed-800.webp",
@@ -235,7 +279,9 @@
         226
       ],
       "corner_difference": 7,
-      "distance": 22.0
+      "distance": 22.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "jun-helpless-800.webp",
@@ -245,7 +291,9 @@
         226
       ],
       "corner_difference": 17,
-      "distance": 22.0
+      "distance": 22.0,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "raimundo-grounded-800.webp",
@@ -255,7 +303,9 @@
         226
       ],
       "corner_difference": 25,
-      "distance": 22.0
+      "distance": 22.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "andres-exasperated-800.webp",
@@ -265,7 +315,9 @@
         227
       ],
       "corner_difference": 6,
-      "distance": 20.8
+      "distance": 20.8,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "fatima-self-conscious-800.webp",
@@ -275,7 +327,9 @@
         228
       ],
       "corner_difference": 17,
-      "distance": 18.5
+      "distance": 18.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "rafa-suspicious-800.webp",
@@ -285,7 +339,9 @@
         228
       ],
       "corner_difference": 7,
-      "distance": 18.5
+      "distance": 18.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "pedro-enthusiastic-800.webp",
@@ -295,7 +351,9 @@
         229
       ],
       "corner_difference": 18,
-      "distance": 18.0
+      "distance": 18.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ana-insecure-800.webp",
@@ -305,7 +363,9 @@
         248
       ],
       "corner_difference": 0,
-      "distance": 17.9
+      "distance": 17.9,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "malu-trusting-800.webp",
@@ -315,7 +375,9 @@
         230
       ],
       "corner_difference": 16,
-      "distance": 17.5
+      "distance": 17.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "pedro-hopeless-800.webp",
@@ -325,7 +387,9 @@
         230
       ],
       "corner_difference": 15,
-      "distance": 17.0
+      "distance": 17.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mayumi-invigorated-800.webp",
@@ -335,7 +399,9 @@
         230
       ],
       "corner_difference": 2,
-      "distance": 16.5
+      "distance": 16.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "elias-frazzled-800.webp",
@@ -345,7 +411,9 @@
         247
       ],
       "corner_difference": 21,
-      "distance": 16.3
+      "distance": 16.3,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "andres-amused-800.webp",
@@ -355,7 +423,9 @@
         228
       ],
       "corner_difference": 6,
-      "distance": 16.2
+      "distance": 16.2,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "ana-appreciative-800.webp",
@@ -365,7 +435,9 @@
         248
       ],
       "corner_difference": 3,
-      "distance": 15.1
+      "distance": 15.1,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "kaua-bitter-800.webp",
@@ -375,7 +447,9 @@
         246
       ],
       "corner_difference": 7,
-      "distance": 15.1
+      "distance": 15.1,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dev-quiet-800.webp",
@@ -385,7 +459,9 @@
         244
       ],
       "corner_difference": 2,
-      "distance": 14.7
+      "distance": 14.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "duda-burnt-out-800.webp",
@@ -395,7 +471,9 @@
         232
       ],
       "corner_difference": 13,
-      "distance": 14.7
+      "distance": 14.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "marta-playful-800.webp",
@@ -405,7 +483,9 @@
         231
       ],
       "corner_difference": 12,
-      "distance": 14.6
+      "distance": 14.6,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "neide-disappointed-800.webp",
@@ -415,7 +495,9 @@
         232
       ],
       "corner_difference": 10,
-      "distance": 14.1
+      "distance": 14.1,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "priya-betrayed-800.webp",
@@ -425,7 +507,9 @@
         230
       ],
       "corner_difference": 11,
-      "distance": 13.3
+      "distance": 13.3,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "liam-relaxed-800.webp",
@@ -435,7 +519,9 @@
         232
       ],
       "corner_difference": 3,
-      "distance": 12.8
+      "distance": 12.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "linh-glad-800.webp",
@@ -445,7 +531,9 @@
         246
       ],
       "corner_difference": 1,
-      "distance": 12.8
+      "distance": 12.8,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "samir-blissful-800.webp",
@@ -455,7 +543,9 @@
         230
       ],
       "corner_difference": 1,
-      "distance": 12.8
+      "distance": 12.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "sofia-isolated-800.webp",
@@ -465,7 +555,9 @@
         246
       ],
       "corner_difference": 2,
-      "distance": 12.8
+      "distance": 12.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mei-ignored-800.webp",
@@ -475,7 +567,9 @@
         232
       ],
       "corner_difference": 0,
-      "distance": 12.2
+      "distance": 12.2,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "caio-irritated-800.webp",
@@ -485,7 +579,9 @@
         244
       ],
       "corner_difference": 2,
-      "distance": 11.7
+      "distance": 11.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "kenji-judged-800.webp",
@@ -495,7 +591,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 11.7
+      "distance": 11.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mateo-hopeful-800.webp",
@@ -505,7 +603,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 11.7
+      "distance": 11.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ezequiel-embarrassed-800.webp",
@@ -515,7 +615,9 @@
         245
       ],
       "corner_difference": 3,
-      "distance": 11.0
+      "distance": 11.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "wagner-harmonious-800.webp",
@@ -525,7 +627,9 @@
         244
       ],
       "corner_difference": 2,
-      "distance": 11.0
+      "distance": 11.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "amina-envious-800.webp",
@@ -535,7 +639,9 @@
         232
       ],
       "corner_difference": 1,
-      "distance": 10.5
+      "distance": 10.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dalia-lonely-800.webp",
@@ -545,7 +651,9 @@
         245
       ],
       "corner_difference": 2,
-      "distance": 10.5
+      "distance": 10.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mei-touched-800.webp",
@@ -555,7 +663,9 @@
         232
       ],
       "corner_difference": 1,
-      "distance": 10.4
+      "distance": 10.4,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "rizwan-misunderstood-800.webp",
@@ -565,7 +675,9 @@
         243
       ],
       "corner_difference": 0,
-      "distance": 9.9
+      "distance": 9.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dona-cida-balanced-800.webp",
@@ -575,7 +687,9 @@
         233
       ],
       "corner_difference": 5,
-      "distance": 9.8
+      "distance": 9.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "kaua-surprised-800.webp",
@@ -585,7 +699,9 @@
         244
       ],
       "corner_difference": 9,
-      "distance": 9.4
+      "distance": 9.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "sofia-free-800.webp",
@@ -595,7 +711,9 @@
         234
       ],
       "corner_difference": 5,
-      "distance": 9.4
+      "distance": 9.4,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "walter-calm-800.webp",
@@ -605,7 +723,9 @@
         234
       ],
       "corner_difference": 3,
-      "distance": 9.4
+      "distance": 9.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "wellington-thrilled-800.webp",
@@ -615,7 +735,9 @@
         234
       ],
       "corner_difference": 8,
-      "distance": 9.4
+      "distance": 9.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "valentina-guilty-800.webp",
@@ -625,7 +747,9 @@
         241
       ],
       "corner_difference": 0,
-      "distance": 9.1
+      "distance": 9.1,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "bruno-empowered-800.webp",
@@ -635,7 +759,9 @@
         232
       ],
       "corner_difference": 14,
-      "distance": 8.8
+      "distance": 8.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "jefferson-exuberant-800.webp",
@@ -645,7 +771,9 @@
         234
       ],
       "corner_difference": 4,
-      "distance": 8.8
+      "distance": 8.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "joao-relieved-800.webp",
@@ -655,7 +783,9 @@
         244
       ],
       "corner_difference": 2,
-      "distance": 8.8
+      "distance": 8.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "wagner-let-down-800.webp",
@@ -665,7 +795,9 @@
         244
       ],
       "corner_difference": 0,
-      "distance": 8.8
+      "distance": 8.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "hugo-gloomy-800.webp",
@@ -675,7 +807,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 8.7
+      "distance": 8.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "nadia-ambivalent-800.webp",
@@ -685,7 +819,9 @@
         244
       ],
       "corner_difference": 0,
-      "distance": 8.7
+      "distance": 8.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "theo-unheard-800.webp",
@@ -695,7 +831,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 8.7
+      "distance": 8.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "tomas-abandoned-800.webp",
@@ -705,7 +843,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 8.7
+      "distance": 8.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "rodrigo-hurt-800.webp",
@@ -715,7 +855,9 @@
         245
       ],
       "corner_difference": 1,
-      "distance": 8.3
+      "distance": 8.3,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "arjun-used-800.webp",
@@ -725,7 +867,9 @@
         242
       ],
       "corner_difference": 2,
-      "distance": 8.2
+      "distance": 8.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "bruno-jealous-800.webp",
@@ -735,7 +879,9 @@
         232
       ],
       "corner_difference": 5,
-      "distance": 8.2
+      "distance": 8.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "seu-hiro-secure-800.webp",
@@ -745,7 +891,9 @@
         234
       ],
       "corner_difference": 3,
-      "distance": 8.2
+      "distance": 8.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "yasmin-torn-800.webp",
@@ -755,7 +903,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 8.2
+      "distance": 8.2,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "zainab-lively-800.webp",
@@ -765,7 +915,9 @@
         244
       ],
       "corner_difference": 1,
-      "distance": 8.2
+      "distance": 8.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "jun-passionate-800.webp",
@@ -775,7 +927,9 @@
         234
       ],
       "corner_difference": 15,
-      "distance": 7.8
+      "distance": 7.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "amara-worn-out-800.webp",
@@ -785,7 +939,9 @@
         240
       ],
       "corner_difference": 1,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "juma-distressed-800.webp",
@@ -795,7 +951,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "liam-attacked-800.webp",
@@ -805,7 +963,9 @@
         243
       ],
       "corner_difference": 1,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "marcus-puzzled-800.webp",
@@ -815,7 +975,9 @@
         242
       ],
       "corner_difference": 0,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "mateo-worried-800.webp",
@@ -825,7 +987,9 @@
         240
       ],
       "corner_difference": 1,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "winona-hesitant-800.webp",
@@ -835,7 +999,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "winona-open-800.webp",
@@ -845,7 +1011,9 @@
         242
       ],
       "corner_difference": 5,
-      "distance": 7.5
+      "distance": 7.5,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "jefferson-fragile-800.webp",
@@ -855,7 +1023,9 @@
         235
       ],
       "corner_difference": 4,
-      "distance": 7.1
+      "distance": 7.1,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "minh-sorrowful-800.webp",
@@ -865,7 +1035,9 @@
         243
       ],
       "corner_difference": 1,
-      "distance": 7.1
+      "distance": 7.1,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "bianca-engrossed-800.webp",
@@ -875,7 +1047,9 @@
         234
       ],
       "corner_difference": 1,
-      "distance": 6.9
+      "distance": 6.9,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "karim-compassionate-800.webp",
@@ -885,7 +1059,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.9
+      "distance": 6.9,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "karim-lost-800.webp",
@@ -895,7 +1071,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.9
+      "distance": 6.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "omar-cranky-800.webp",
@@ -905,7 +1083,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.9
+      "distance": 6.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "bianca-controlled-800.webp",
@@ -915,7 +1095,9 @@
         240
       ],
       "corner_difference": 3,
-      "distance": 6.7
+      "distance": 6.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "ji-woo-disrespected-800.webp",
@@ -925,7 +1107,9 @@
         243
       ],
       "corner_difference": 2,
-      "distance": 6.7
+      "distance": 6.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "neide-optimistic-800.webp",
@@ -935,7 +1119,9 @@
         237
       ],
       "corner_difference": 10,
-      "distance": 6.5
+      "distance": 6.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "arjun-centered-800.webp",
@@ -945,7 +1131,9 @@
         242
       ],
       "corner_difference": 3,
-      "distance": 6.4
+      "distance": 6.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ezequiel-confident-800.webp",
@@ -955,7 +1143,9 @@
         242
       ],
       "corner_difference": 7,
-      "distance": 6.4
+      "distance": 6.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "imani-edgy-800.webp",
@@ -965,7 +1155,9 @@
         237
       ],
       "corner_difference": 2,
-      "distance": 6.4
+      "distance": 6.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "juma-encouraged-800.webp",
@@ -975,7 +1167,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 6.2
+      "distance": 6.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "brenda-manipulated-800.webp",
@@ -985,7 +1179,9 @@
         236
       ],
       "corner_difference": 9,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dolores-frustrated-800.webp",
@@ -995,7 +1191,9 @@
         242
       ],
       "corner_difference": 3,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dolores-present-800.webp",
@@ -1005,7 +1203,9 @@
         242
       ],
       "corner_difference": 4,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "jordan-at-ease-800.webp",
@@ -1015,7 +1215,9 @@
         242
       ],
       "corner_difference": 4,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "keisha-confused-800.webp",
@@ -1025,7 +1227,9 @@
         234
       ],
       "corner_difference": 5,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "nour-exhausted-800.webp",
@@ -1035,7 +1239,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "reza-ashamed-800.webp",
@@ -1045,7 +1251,9 @@
         236
       ],
       "corner_difference": 1,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "theo-giddy-800.webp",
@@ -1055,7 +1263,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ubirata-scared-800.webp",
@@ -1065,7 +1275,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "yasmin-tender-800.webp",
@@ -1075,7 +1287,9 @@
         234
       ],
       "corner_difference": 1,
-      "distance": 6.0
+      "distance": 6.0,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "ji-woo-grateful-800.webp",
@@ -1085,7 +1299,9 @@
         242
       ],
       "corner_difference": 0,
-      "distance": 5.7
+      "distance": 5.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "nadia-moved-800.webp",
@@ -1095,7 +1311,9 @@
         242
       ],
       "corner_difference": 1,
-      "distance": 5.7
+      "distance": 5.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "rodrigo-radiant-800.webp",
@@ -1105,7 +1323,9 @@
         242
       ],
       "corner_difference": 2,
-      "distance": 5.7
+      "distance": 5.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "caio-tranquil-800.webp",
@@ -1115,7 +1335,9 @@
         242
       ],
       "corner_difference": 3,
-      "distance": 5.4
+      "distance": 5.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "luana-nervous-800.webp",
@@ -1125,7 +1347,9 @@
         242
       ],
       "corner_difference": 0,
-      "distance": 5.4
+      "distance": 5.4,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "marta-furious-800.webp",
@@ -1135,7 +1359,9 @@
         236
       ],
       "corner_difference": 10,
-      "distance": 5.4
+      "distance": 5.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "walter-uneasy-800.webp",
@@ -1145,7 +1371,9 @@
         242
       ],
       "corner_difference": 0,
-      "distance": 5.4
+      "distance": 5.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "dalia-elated-800.webp",
@@ -1155,7 +1383,9 @@
         236
       ],
       "corner_difference": 1,
-      "distance": 4.9
+      "distance": 4.9,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "dev-taken-for-granted-800.webp",
@@ -1165,7 +1395,9 @@
         240
       ],
       "corner_difference": 1,
-      "distance": 4.9
+      "distance": 4.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "joao-rejected-800.webp",
@@ -1175,7 +1407,9 @@
         236
       ],
       "corner_difference": 1,
-      "distance": 4.9
+      "distance": 4.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "omar-happy-800.webp",
@@ -1185,7 +1419,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 4.9
+      "distance": 4.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "reza-affectionate-800.webp",
@@ -1195,7 +1431,9 @@
         236
       ],
       "corner_difference": 1,
-      "distance": 4.9
+      "distance": 4.9,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "tayanna-panicky-800.webp",
@@ -1205,7 +1443,9 @@
         235
       ],
       "corner_difference": 5,
-      "distance": 4.7
+      "distance": 4.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "wellington-heartbroken-800.webp",
@@ -1215,7 +1455,9 @@
         238
       ],
       "corner_difference": 8,
-      "distance": 4.5
+      "distance": 4.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "elias-cozy-800.webp",
@@ -1225,7 +1467,9 @@
         240
       ],
       "corner_difference": 3,
-      "distance": 4.1
+      "distance": 4.1,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "hugo-delighted-800.webp",
@@ -1235,7 +1479,9 @@
         238
       ],
       "corner_difference": 3,
-      "distance": 4.0
+      "distance": 4.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "imani-excited-800.webp",
@@ -1245,7 +1491,9 @@
         241
       ],
       "corner_difference": 2,
-      "distance": 3.7
+      "distance": 3.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "linh-distant-800.webp",
@@ -1255,7 +1503,9 @@
         237
       ],
       "corner_difference": 2,
-      "distance": 3.7
+      "distance": 3.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "nour-revived-800.webp",
@@ -1265,7 +1515,9 @@
         241
       ],
       "corner_difference": 2,
-      "distance": 3.7
+      "distance": 3.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "raimundo-withdrawn-800.webp",
@@ -1275,7 +1527,9 @@
         241
       ],
       "corner_difference": 10,
-      "distance": 3.7
+      "distance": 3.7,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "valentina-proud-800.webp",
@@ -1285,7 +1539,9 @@
         235
       ],
       "corner_difference": 2,
-      "distance": 3.7
+      "distance": 3.7,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "rizwan-content-800.webp",
@@ -1295,7 +1551,9 @@
         235
       ],
       "corner_difference": 2,
-      "distance": 3.6
+      "distance": 3.6,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "amina-whole-800.webp",
@@ -1305,7 +1563,9 @@
         236
       ],
       "corner_difference": 1,
-      "distance": 3.5
+      "distance": 3.5,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "gloria-rested-800.webp",
@@ -1315,7 +1575,9 @@
         240
       ],
       "corner_difference": 7,
-      "distance": 3.5
+      "distance": 3.5,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "keoni-restored-800.webp",
@@ -1325,7 +1587,9 @@
         240
       ],
       "corner_difference": 3,
-      "distance": 3.0
+      "distance": 3.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "tomas-friendly-800.webp",
@@ -1335,7 +1599,9 @@
         236
       ],
       "corner_difference": 2,
-      "distance": 3.0
+      "distance": 3.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ubirata-cheerful-800.webp",
@@ -1345,7 +1611,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 3.0
+      "distance": 3.0,
+      "shadow_review": "no-distinct-shadow",
+      "shadow_note": "No distinct cast shadow visible on the backdrop; review for consistency."
     },
     {
       "file": "greta-curious-800.webp",
@@ -1355,7 +1623,9 @@
         240
       ],
       "corner_difference": 3,
-      "distance": 2.8
+      "distance": 2.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "malu-discouraged-800.webp",
@@ -1365,7 +1635,9 @@
         240
       ],
       "corner_difference": 9,
-      "distance": 2.8
+      "distance": 2.8,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "greta-left-out-800.webp",
@@ -1375,7 +1647,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 2.4
+      "distance": 2.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "river-apathetic-800.webp",
@@ -1385,7 +1659,9 @@
         239
       ],
       "corner_difference": 2,
-      "distance": 2.4
+      "distance": 2.4,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "luana-amazed-800.webp",
@@ -1395,7 +1671,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "weak-or-obscured",
+      "shadow_note": "Shadow is faint, tight to the silhouette, or obscured by hair/pose; compare before deciding."
     },
     {
       "file": "luiza-invisible-800.webp",
@@ -1405,7 +1683,9 @@
         238
       ],
       "corner_difference": 1,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "luiza-serene-800.webp",
@@ -1415,7 +1695,9 @@
         240
       ],
       "corner_difference": 2,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "marcus-refreshed-800.webp",
@@ -1425,7 +1707,9 @@
         236
       ],
       "corner_difference": 3,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "river-mellow-800.webp",
@@ -1435,7 +1719,9 @@
         238
       ],
       "corner_difference": 4,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "samir-unappreciated-800.webp",
@@ -1445,7 +1731,9 @@
         238
       ],
       "corner_difference": 2,
-      "distance": 2.2
+      "distance": 2.2,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ana-clara-restless-800.webp",
@@ -1455,7 +1743,9 @@
         238
       ],
       "corner_difference": 1,
-      "distance": 2.0
+      "distance": 2.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "ana-clara-vibrant-800.webp",
@@ -1465,7 +1755,9 @@
         238
       ],
       "corner_difference": 1,
-      "distance": 2.0
+      "distance": 2.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "kenji-light-800.webp",
@@ -1475,7 +1767,9 @@
         238
       ],
       "corner_difference": 0,
-      "distance": 2.0
+      "distance": 2.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "zainab-overwhelmed-800.webp",
@@ -1485,7 +1779,9 @@
         240
       ],
       "corner_difference": 1,
-      "distance": 2.0
+      "distance": 2.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "amara-eager-800.webp",
@@ -1495,7 +1791,9 @@
         237
       ],
       "corner_difference": 3,
-      "distance": 1.0
+      "distance": 1.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "jordan-anxious-800.webp",
@@ -1505,7 +1803,9 @@
         239
       ],
       "corner_difference": 7,
-      "distance": 1.0
+      "distance": 1.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "keisha-energetic-800.webp",
@@ -1515,7 +1815,9 @@
         239
       ],
       "corner_difference": 3,
-      "distance": 1.0
+      "distance": 1.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     },
     {
       "file": "keoni-resentful-800.webp",
@@ -1525,7 +1827,10 @@
         238
       ],
       "corner_difference": 5,
-      "distance": 0.0
+      "distance": 0.0,
+      "shadow_review": "not-flagged",
+      "shadow_note": ""
     }
-  ]
+  ],
+  "shadow_method": "Visual pass over all 152 uncropped exports. Flags are review candidates, not approved corrections. Hair and poses may hide existing shadows."
 }
