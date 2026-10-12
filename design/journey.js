@@ -27,4 +27,3 @@ $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(reflection(
 $('#goodbye').onclick=()=>{$('#farewell').hidden=false;$('#farewell').scrollIntoView({block:'center',behavior:reduce.matches?'auto':'smooth'})};
 
 document.querySelectorAll('.circle').forEach(el=>{if(el.textContent.trim()==='＋')return;const down=el.textContent.trim()==='↓';el.innerHTML=arrowSVG;if(down)el.classList.add('arrow-down');});
-$('#depthToggle').onclick=()=>{const on=document.body.classList.toggle('tile-depth');$('#depthToggle').setAttribute('aria-pressed',String(on));$('#depthToggle').textContent='Tile depth: '+(on?'on':'off');};

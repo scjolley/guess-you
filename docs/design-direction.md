@@ -102,3 +102,11 @@ Original playable game remains unchanged; previous proofs are in Git history.
 Single-line Guess you title in locally licensed Manrope, one opening sentence, and 24 distinct opaque portraits below the title. Softer input and round-stroked arrows. Portraits use a display-only 4:5 crop; source images remain unchanged. A Tile depth toggle compares shallow raised edges with flat cards. Optional deeper reflection and closing sections have return controls.
 
 Background review: design/background-review.html displays all 152 original portraits, ranked by corner-color distance from the set median as a screening aid, not an edit verdict. Backgrounds vary between white, gray and lavender, with differing shadows. User must review and choose a target before any image regeneration or Higgsfield credits are used. No portraits were edited.
+
+
+### Review decision — flat tiles and portrait comments
+
+User rejected the raised tile treatment; reverted to flat tiles and removed the comparison switch. Other proof refinements remain.
+
+Portrait feedback pending correction approval:
+- **Gloria / detached** (`gloria-detached-800.webp`): user reports missing drop shadow and background reading gray. Keep unchanged while the user reviews other portraits. No regeneration authorized.
