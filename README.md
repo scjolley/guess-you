@@ -83,19 +83,31 @@ No photos were regenerated or replaced with new imagery.
 Run `python3 scripts/preview.py --port 8001` and open
 http://127.0.0.1:8001/design/proof.html.
 
-Proof 06 explores the October 12 journey: scroll introduction, four feeling
+Proof 07 explores the October 12 journey: scroll introduction, four feeling
 matches with See more, selected-feeling reflection, optional NVC prompts, and
 a closing check-in. It uses existing portraits and vocabulary, with proposed
 English copy. `design/journey.css` and `design/journey.js` hold presentation and
 interactions; `design/journey-data.js` is derived from the original `data.json`
 and existing image paths. Fonts and licenses are in `design/fonts/`.
 
-Reflections live only in page memory; Keep my reflection copies to the clipboard.
+Reflections live only in page memory. Keep my reflection is available at every
+writing stage: copy, save a text file, open an email draft, or use device sharing
+when supported. The deeper prompts also assemble a sentence that can be copied.
 The original game is unchanged. This is a creative approval proof, not a public
 release. Earlier designs remain recoverable in Git history.
 
 
-The opening now uses six moving cards and a short scroll into 76 distinct people.
+The opening shows the title above six moving cards immediately, with a blur-to-clear
+title effect. Cards enter individually along the scroll path into complete rows:
+64 distinct people on desktop and 70 on mobile, drawn from 76 available people.
+Feeling results start at four and expand by four, without duplicate feelings.
+`design/feeling-descriptions.js` contains tentative, word-specific editorial copy
+for all 152 feelings.
+
+`design/resources.html` opens separately and includes US support and NVC resources.
+Set `PUBLIC_GUESS_YOU_URL` in `design/reflection-tools.js` when a public address is
+live; until then exported reflections include the NVC link and never localhost.
+No domain has been purchased.
 `design/feeling-language.js` adds 253 editorial everyday phrases to existing
 triggers; matches are possibilities, not diagnoses or fixed meanings.
 
@@ -111,5 +123,5 @@ will only support the browser fallback unless a review backend is added.
 Review decisions do not trigger image generation. Shadow flags remain separate
 from human approvals. Game reflections still stay only in page memory.
 
-Validation: `node tests/journey-language.cjs` and
+Validation: `node tests/journey-language.cjs`, `node tests/reflection-tools.cjs`, and
 `PYTHONDONTWRITEBYTECODE=1 python3 tests/test_review_validation.py`.

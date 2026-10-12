@@ -12,3 +12,11 @@ assert(!context.resolve('not happy').ids.includes('happy'));
 assert(context.resolve('happy and sad').ids.includes('torn'));
 assert.equal(context.resolve('nonsense xyz').ids.length,0);
 console.log('All 253 editorial phrases resolve; prefixes, modifiers, mixed feelings and negation checked.');
+
+vm.runInContext(source.slice(source.indexOf('function expandMatches('),source.indexOf('function search()'))+';this.expand=expandMatches;',context);
+for(const row of context.groups){const results=context.expand(row.feelings);assert.equal(results.length%4,0);assert(results.length>=8);assert.equal(new Set(results.map(f=>f.id)).size,results.length);}
+for(const f of D.feelings){const results=context.expand(context.resolve(f.id).ids);assert.equal(results.length%4,0,f.id);assert(results.length>=8,f.id);}
+assert(context.resolve('disappointment').ids.includes('disappointed'));
+const descriptions=vm.runInNewContext(fs.readFileSync('design/feeling-descriptions.js','utf8')+';feelingDescriptions');
+for(const f of D.feelings)assert(descriptions[f.id],f.id);
+console.log('All matches form full batches of four; all 152 descriptions present.');
