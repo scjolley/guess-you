@@ -62,3 +62,11 @@ and shows six existing portraits, standing tiles and a selected-feeling form.
 Desktop and mobile layouts and portrait selection were checked in the browser.
 Awaiting creative approval; actual game sources remain unchanged. Backward
 folding motion remains deferred for a dedicated interaction review.
+
+
+Proof 02: Sam authorized a separate revision with blur-to-clear title motion,
+backward tile folding, darker handwriting comparisons, removal of visible cast
+names and revised thesis-informed copy. Kalam is shown in English/Portuguese
+alongside Caveat. Blunt by dabnotu (1001fonts.com/blunt-font.html) is reference
+only: listing says personal use, not commercial; no open license verified.
+No actual game changes. Naming in Portuguese remains unapproved.
