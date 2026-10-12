@@ -98,7 +98,7 @@ release. Earlier designs remain recoverable in Git history.
 
 
 The opening begins with the centered title clearing from blur, then rising as
-the copy and six moving cards appear. The title sequence lasts 3.2 seconds,
+the copy and six moving cards appear. The title sequence lasts 3.8 seconds, with a gradual two-second blur-to-clear,
 including a clear-title pause; reduced-motion visitors skip the animation.
 Scrolling away permanently skips the intro animation for this page visit, so
 returning to the top never restarts it. Cards enter individually along the scroll path into complete rows:
