@@ -135,3 +135,8 @@ from human approvals. Game reflections still stay only in page memory.
 
 Validation: `node tests/journey-language.cjs`, `node tests/reflection-tools.cjs`, and
 `PYTHONDONTWRITEBYTECODE=1 python3 tests/test_review_validation.py`.
+
+Layout rhythm: section padding is 50px on desktop and 35px on mobile, with a
+tighter 18px transition into the first check-in. The title/subtitle gap is
+36px (32px on mobile). Header links appear alongside ?U after the large title
+leaves; Check in has no directional arrow.

@@ -81,3 +81,12 @@ main>.intro{margin-bottom:0;height:192svh}
 .closing-actions .keep-slot{margin:16px 0 0}
 .closing-actions #goodbye{order:0}
 .intro .scrollnote{width:175px;max-width:calc(100% - 40px);left:50%;right:auto;transform:translateX(-50%);font-size:10px;letter-spacing:0;white-space:nowrap}
+
+/* Consistent section rhythm, with navigation introduced alongside the compact logo. */
+:root{--section-space:50px;--title-copy-gap:36px}
+.intro h1{margin-bottom:var(--title-copy-gap)}
+main>section:not(.intro){padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.intro~.checkin{padding-top:18px}
+header nav{visibility:hidden;opacity:0;pointer-events:none}
+body.compact-logo header nav{visibility:visible;opacity:1;pointer-events:auto}
+@media(max-width:700px){:root{--section-space:35px;--title-copy-gap:32px}}
