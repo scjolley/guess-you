@@ -155,3 +155,10 @@ and capped at 500 unique entries. Storage restrictions do not block the journey.
 This local browser list is not shared across visitors or devices. Public aggregate
 collection requires a launch backend and an updated collection notice; none is
 silently enabled by this proof. The vocabulary is explicitly described as growing.
+
+### Future direction — V2/V3
+
+Explore a personal journal with an optional login and saved reflection history.
+This is a future product idea, not part of the current launch. The first version
+remains a website without accounts; the proposed guessyou.app domain leaves room
+for that evolution. Domain purchase and launch hosting are still pending.
