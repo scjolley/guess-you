@@ -1,5 +1,8 @@
 # Guess You / Adivinha Você
 
+Public launch preparation: [docs/launch.md](docs/launch.md). The Pages workflow
+is manual and has not been run; the current public website is not live yet.
+
 This workspace continues the existing Claude Code prototype. It is connected to
 https://github.com/scjolley/guess-you as the Git `origin` remote.
 
