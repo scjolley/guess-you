@@ -98,10 +98,15 @@ release. Earlier designs remain recoverable in Git history.
 
 
 The opening begins with the centered title clearing from blur, then rising as
-the copy and six moving cards appear. Cards enter individually along the scroll path into complete rows:
+the copy and six moving cards appear. The title sequence lasts 3.2 seconds,
+including a clear-title pause; reduced-motion visitors skip the animation. Cards enter individually along the scroll path into complete rows:
 64 distinct people on desktop and 70 on mobile, drawn from 76 available people.
-Section labels are omitted; shared action circles are 44px and centered with their
-labels. The deeper section leads directly to “How do you feel now?”.
+Section labels are omitted; shared action circles are 44px beside their labels.
+Button rules: pills for choices and check-in navigation; circular arrows for
+actions; smaller 14px Keep my reflection actions aligned to the right beneath
+reflection fields, only after a feeling is selected. Deeper actions align left,
+with the skip action on the right. Controls keep 44px minimum targets and visible
+keyboard focus. Resources disclosure remains left-aligned. The deeper section leads directly to “How do you feel now?”.
 Feeling results start at four and expand by four, without duplicate feelings.
 `design/feeling-descriptions.js` contains tentative, word-specific editorial copy
 for all 152 feelings.
