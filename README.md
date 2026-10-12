@@ -77,3 +77,15 @@ No photos were regenerated or replaced with new imagery.
   https://www.cnvc.org/store/feelings-and-needs-inventory
 - Add a doctype, language, character encoding, and mobile viewport around the
   existing document. Gameplay and design remain intact.
+
+## Separate design approval proof
+
+The proposed typography and layout live in `design/proof.html`, separate from the
+working game. It uses six existing cast portraits and self-hosted open-source
+fonts; their licenses are in `design/fonts/`. This proposal has not been approved
+or applied to the game.
+
+Run `python3 scripts/preview.py --port 8001` and open
+http://127.0.0.1:8001/design/proof.html. Compare clean and softened serif treatments,
+try the handwritten input, and select a portrait to inspect the feeling card.
+The Guess button only previews the board; this page is an appearance proof.

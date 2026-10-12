@@ -50,5 +50,15 @@ Fonts available: Libre Caslon Text Italic, DM Sans, Caveat.
 Six existing cast portraits were transferred for use in the proposal.
 The Starter-plan MCP tool limit stopped composition before editable layouts
 were created. The file is an in-progress asset staging file, not a finished proof.
-No subscription was purchased. Await Sam's choice of a browser draft or waiting
-for Figma tool access. Do not call this file a completed design.
+No subscription was purchased. Sam chose a separate browser design proof at no
+extra cost. Do not call this Figma file a completed design.
+
+## Browser proof status
+
+The proposal is in `design/proof.html`, served at
+http://127.0.0.1:8001/design/proof.html. It compares clean and softened serif,
+uses Libre Caslon Text Italic, DM Sans and Caveat with retained OFL licenses,
+and shows six existing portraits, standing tiles and a selected-feeling form.
+Desktop and mobile layouts and portrait selection were checked in the browser.
+Awaiting creative approval; actual game sources remain unchanged. Backward
+folding motion remains deferred for a dedicated interaction review.

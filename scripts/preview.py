@@ -1,4 +1,4 @@
-"""Serve only the public prototype and photo exports on this computer."""
+"""Serve the prototype, design proofs, and photo exports on this computer."""
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
@@ -16,7 +16,8 @@ class Preview(SimpleHTTPRequestHandler):
             self.path = '/guess-you.html'
         elif path != '/guess-you.html':
             file = (ROOT / path.lstrip('/')).resolve()
-            if not file.is_relative_to(ROOT / 'tex/site') or not file.is_file():
+            permitted = any(file.is_relative_to(ROOT / folder) for folder in ('tex/site', 'design'))
+            if not permitted or not file.is_file():
                 self.send_error(404)
                 return
         super().do_GET()
