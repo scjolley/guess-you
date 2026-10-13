@@ -17,3 +17,9 @@ __pycache__/
 
 # Personal portrait review decisions and notes remain on this Mac.
 /local-reviews/
+
+# Local Cloudflare tooling and credentials.
+node_modules/
+.wrangler/
+.dev.vars
+.env

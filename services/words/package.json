@@ -1,0 +1,1 @@
+{"name":"guess-you-words","private":true,"type":"module","scripts":{"test":"node --test worker.test.mjs","deploy":"wrangler deploy","review":"wrangler d1 execute guess-you-words --remote --command \"SELECT word, count FROM words ORDER BY count DESC, word ASC LIMIT 500\""},"devDependencies":{"wrangler":"^4.150.0"}}

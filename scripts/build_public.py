@@ -37,9 +37,9 @@ def main():
     for name in assets:
         shutil.copy2(ROOT / 'tex' / 'site' / name, dest / 'tex' / 'site' / name)
 
-    for name in ('journey.css', 'journey.js', 'portrait-loader.js', 'journey-data.js',
+    for name in ('journey.css', 'journey.js', 'portrait-layout.js', 'portrait-loader.js', 'journey-data.js',
                  'feeling-language.js', 'feeling-descriptions.js',
-                 'vocabulary-review.js', 'resources.html'):
+                 'vocabulary-review.js', 'word-collection.js', 'resources.html', 'about.html'):
         shutil.copy2(ROOT / 'design' / name, dest / 'design' / name)
     shutil.copytree(ROOT / 'design' / 'fonts', dest / 'design' / 'fonts')
 

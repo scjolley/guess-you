@@ -112,3 +112,11 @@ footer{gap:16px;align-items:baseline}
 .creator-credit{display:inline-block;color:var(--ink);font-size:13px;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
 .creator-credit:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 @media(max-width:700px){.footer-signature{gap:12px}.footer-signature p{font-size:12px}}
+
+/* Creator occupies the former About position. */
+footer>.creator-credit{margin:0 0 0 auto;white-space:nowrap}
+@media(max-width:700px){footer>.creator-credit{margin-left:auto}}
+
+#wordContribution{max-width:600px;margin:0 auto 32px;text-align:center}#wordContribution p{margin:8px 0}#wordContribution .textbutton{padding:4px 0 8px}
+
+footer{align-items:center}footer>.creator-credit{margin-top:0;line-height:1.5}

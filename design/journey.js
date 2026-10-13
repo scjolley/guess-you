@@ -12,9 +12,11 @@ const introFaces=['excited','annoyed','anxious','calm','disappointed','confused'
 const usedPeople=new Set(introFaces.map(personKey));
 const buckets=D.families.map(f=>feelings.filter(x=>x.family===f.id));
 for(let round=0;introFaces.length<76&&round<80;round++){for(const bucket of buckets){const f=bucket.find(x=>!usedPeople.has(personKey(x)));if(f){usedPeople.add(personKey(f));introFaces.push(f);}}}
-$('#portraitCloud').innerHTML=introFaces.map((f,i)=>`<div class="cloud-card" style="visibility:${i<6?'visible':'hidden'}"><img data-src="${portraitSrc(f.image.replace('-800.webp','-400.webp'))}" alt="" width="400" height="711" fetchpriority="${i<6?'high':'auto'}"></div>`).join('');
+$('#portraitCloud').innerHTML=introFaces.map((f,i)=>`<div class="cloud-card" data-family="${f.family}" style="visibility:${i<6?'visible':'hidden'}"><img data-src="${portraitSrc(f.image.replace('-800.webp','-400.webp'))}" alt="" width="400" height="711" fetchpriority="${i<6?'high':'auto'}"></div>`).join('');
 const hero=$('#hello'),sticky=$('.hero-sticky'),cards=[...document.querySelectorAll('.cloud-card')];
 let motionFrame=0,paused=false,lastProgress=-1,geometry=null;
+const portraitLayouts=new Map();
+function gridSlots(cols){if(!portraitLayouts.has(cols))portraitLayouts.set(cols,portraitGridSlots(introFaces,cols));return portraitLayouts.get(cols);}
 const motionVersion=new URLSearchParams(location.search).get('motion');
 const referenceMotion=motionVersion!=='original';
 let fanStart=performance.now()+3800,fanPausedAt=0;
@@ -30,7 +32,7 @@ function directionalFan(time,index){
  const right=(phase-4.2-(5-index)*.095)/1.65;
  const rock=t=>t>0&&t<1?Math.sin(t*Math.PI*2)*Math.sin(t*Math.PI):0;
  const tilt=-rock(left)+rock(right);
- return {shift:-.95*settle(left)+.95*settle(right),tilt:tilt*1.6,lift:-Math.abs(tilt)*2};
+ return {shift:.475-.95*settle(left)+.95*settle(right),tilt:tilt*1.6,lift:-Math.abs(tilt)*2};
 }
 function referenceFan(time,index){
  if(motionVersion==='pull')return directionalFan(time,index);
@@ -38,10 +40,10 @@ function referenceFan(time,index){
  return {shift:Math.sin(phase)*.48,tilt:Math.sin(phase+.35)*1.1,lift:Math.sin(phase)*2};
 }
 const clamp=n=>Math.max(0,Math.min(1,n)),ease=n=>n*n*(3-2*n);
-function measureHero(){const w=sticky.clientWidth,h=sticky.clientHeight,cols=w<700?10:16,count=Math.floor(cards.length/cols)*cols,rows=count/cols,gap=w<700?5:10;const gw=Math.min((w-36-(cols-1)*gap)/cols,(h*.72-(rows-1)*gap)/rows*9/16);geometry={w,h,cols,rows,count,gap,gw,gh:gw*16/9,fw:Math.min(w*.255,174,h*.18)};lastProgress=-1;}
-function paintHero(time=0){motionFrame=0;if(reduce.matches){const cols=sticky.clientWidth<700?10:16;cards.forEach((el,i)=>el.style.display=i<Math.floor(cards.length/cols)*cols?'block':'none');document.body.classList.toggle('compact-logo',$('.intro-copy').getBoundingClientRect().bottom<70);$('#pauseMotion').hidden=true;return;}if(!geometry)measureHero();const g=geometry;const rect=hero.getBoundingClientRect(),p=reduce.matches?1:clamp(-rect.top/Math.max(1,hero.offsetHeight-g.h));const progressChanged=Math.abs(p-lastProgress)>.0001;const sweep=paused||reduce.matches?0:Math.sin(time/2300)*.48;
+function measureHero(){const w=sticky.clientWidth,h=sticky.clientHeight,cols=w<=700?10:16,count=Math.floor(cards.length/cols)*cols,rows=count/cols,gap=w<=700?5:10;const gw=Math.min((w-36-(cols-1)*gap)/cols,(h*.72-(rows-1)*gap)/rows*9/16);geometry={w,h,cols,rows,count,gap,slots:gridSlots(cols),gw,gh:gw*16/9,fw:Math.min(w*.255,174,h*.18)};lastProgress=-1;}
+function paintHero(time=0){motionFrame=0;if(reduce.matches){const cols=sticky.clientWidth<=700?10:16,slots=gridSlots(cols);cards.forEach((el,i)=>{const slot=slots[i];el.style.display=slot>=0?'block':'none';el.style.gridRow=slot>=0?String(Math.floor(slot/cols)+1):'';el.style.gridColumn=slot>=0?String(slot%cols+1):'';});document.body.classList.toggle('compact-logo',$('.intro-copy').getBoundingClientRect().bottom<70);$('#pauseMotion').hidden=true;return;}if(!geometry)measureHero();const g=geometry;const rect=hero.getBoundingClientRect(),p=reduce.matches?1:clamp(-rect.top/Math.max(1,hero.offsetHeight-g.h));const progressChanged=Math.abs(p-lastProgress)>.0001;const sweep=paused||reduce.matches?0:Math.sin(time/2300)*.48;
  if(progressChanged){if(p>.01)document.body.classList.add('intro-scrolled');const copyFade=1-clamp(p/.25);$('.intro-copy').style.opacity=copyFade;$('.intro-copy').style.transform=`translateY(${-p*150}px)`;$('.hero-cta').style.opacity=copyFade;$('.hero-cta').style.visibility=p>.25?'hidden':'visible';$('.scrollnote').style.opacity=copyFade;document.body.classList.toggle('compact-logo',p>.3);$('#pauseMotion').hidden=p>.05||reduce.matches;}
- cards.forEach((el,i)=>{if(i>=g.count){el.style.display='none';return;}el.style.display='block';if(!progressChanged&&i>=6)return;const row=Math.floor(i/g.cols),column=row%2?g.cols-1-i%g.cols:i%g.cols;const tx=(g.w-(g.cols*g.gw+(g.cols-1)*g.gap))/2+column*(g.gw+g.gap),ty=(g.h-(g.rows*g.gh+(g.rows-1)*g.gap))/2+row*(g.gh+g.gap)+g.h*.07+10;let x,y,width,rotation;
+ cards.forEach((el,i)=>{if(i>=g.count){el.style.display='none';return;}el.style.display='block';if(!progressChanged&&i>=6)return;const row=Math.floor(g.slots[i]/g.cols),column=g.slots[i]%g.cols;const tx=(g.w-(g.cols*g.gw+(g.cols-1)*g.gap))/2+column*(g.gw+g.gap),ty=(g.h-(g.rows*g.gh+(g.rows-1)*g.gap))/2+row*(g.gh+g.gap)+g.h*.07+10;let x,y,width,rotation;
  if(i<6){const motion=referenceMotion?referenceFan(paused?fanPausedAt:time,i):{shift:sweep,tilt:0,lift:0};const slot=i-2.5+motion.shift;const fx=g.w/2+slot*g.fw*.77-g.fw/2,fy=g.h*.61+slot*slot*5-g.fw*16/9/2+motion.lift;const q=ease(clamp((p-i*.025)/.375));width=g.fw+(g.gw-g.fw)*q;x=fx+(tx-fx)*q;y=fy+(ty-fy)*q+Math.sin(q*Math.PI)*Math.sin(i*.8)*60;rotation=(slot*8+motion.tilt)*(1-q);el.style.visibility='visible';}
  else{const q=ease(clamp((p-.08-i/g.count*.29)/.12));el.style.visibility=q>0?'visible':'hidden';width=g.gw;const direction=row%2?-1:1;x=tx+direction*(1-q)*(g.w*.75);y=ty+(1-q)*g.h*.65;rotation=(1-q)*direction*18;}
  el.style.willChange=p>=.5?'auto':'transform';el.style.width=`${width}px`;el.style.transform=`translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
@@ -75,7 +77,7 @@ function expandMatches(ids){
  const all=[...new Set([...unique,...candidates,...feelings.filter(f=>adjacent.has(f.family)).map(f=>f.id)])];
  return all.slice(0,Math.min(24,Math.floor(all.length/4)*4)).map(id=>byId.get(id));
 }
-function search(){const q=$('#feelingInput').value.trim();const result=resolveWords(q);matches=expandMatches(result.ids);const found=matches.length>0;if(!found&&q)recordUnmatchedWord(normalizePhrase(q));if(!found)matches=['happy','frustrated','calm','hurt','excited','lonely','grateful','confused'].map(id=>byId.get(id)).filter(Boolean);limit=4;$('#results').hidden=false;$('#detail').hidden=true;$('#deep').hidden=true;$('#closing').hidden=true;$('#resultStatus').textContent=found?(result.phrase?'That can mean different things. Do any of these fit?':'Choose the word that feels closest.'):q?'Still finding the words? Try one of these, or another phrase.':'A few starting points. Pick what fits.';renderGrid();move('#results');}
+function search(){const q=$('#feelingInput').value.trim();const result=resolveWords(q);matches=expandMatches(result.ids);const found=matches.length>0;if(!found&&q&&!WORD_COLLECTION_ENDPOINT)recordUnmatchedWord(normalizePhrase(q));showWordContribution(normalizePhrase(q),found);if(!found)matches=['happy','frustrated','calm','hurt','excited','lonely','grateful','confused'].map(id=>byId.get(id)).filter(Boolean);limit=4;$('#results').hidden=false;$('#detail').hidden=true;$('#deep').hidden=true;$('#closing').hidden=true;$('#resultStatus').textContent=found?(result.phrase?'That can mean different things. Do any of these fit?':'Choose the word that feels closest.'):q?'Still finding the words? Try one of these, or another phrase.':'A few starting points. Pick what fits.';renderGrid();move('#results');}
 $('#feelingForm').addEventListener('submit',e=>{e.preventDefault();search()});
 function renderGrid(){const grid=$('#grid');grid.classList.toggle('expanded',limit>4);grid.replaceChildren(...matches.slice(0,limit).map(f=>{const b=document.createElement('button');b.className='feeling-card';b.setAttribute('aria-label',`Explore ${f.id}`);const img=document.createElement('img');img.src=portraitSrc(f.image);img.alt=`Portrait expressing ${f.id}`;const label=document.createElement('span');label.textContent=f.id;const arrow=document.createElement('i');arrow.innerHTML=arrowSVG;arrow.setAttribute('aria-hidden','true');label.append(arrow);b.append(img,label);b.onclick=()=>select(f);return b}));$('#more').hidden=limit>=matches.length;$('#more').setAttribute('aria-label','See four more feelings');}
 $('#more').onclick=()=>{limit+=4;renderGrid()};
