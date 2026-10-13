@@ -15,9 +15,25 @@ for(let round=0;introFaces.length<76&&round<80;round++){for(const bucket of buck
 $('#portraitCloud').innerHTML=introFaces.map((f,i)=>`<div class="cloud-card" style="visibility:${i<6?'visible':'hidden'}"><img src="${portraitSrc(f.image.replace('-800.webp','-400.webp'))}" alt="" loading="eager" fetchpriority="${i<6?'high':'low'}" decoding="async"></div>`).join('');
 const hero=$('#hello'),sticky=$('.hero-sticky'),cards=[...document.querySelectorAll('.cloud-card')];
 let motionFrame=0,paused=false,lastProgress=-1,geometry=null;
-const referenceMotion=new URLSearchParams(location.search).get('motion')!=='original';
+const motionVersion=new URLSearchParams(location.search).get('motion');
+const referenceMotion=motionVersion!=='original';
 let fanStart=performance.now()+3800,fanPausedAt=0;
+function directionalFan(time,index){
+ // The outer card leads each change of direction; followers catch up softly.
+ const phase=(Math.max(0,time-fanStart)/1000)%8;
+ const settle=t=>{
+  if(t<=0)return 0;if(t>=1)return 1;
+  if(t<.8){const u=t/.8;return 1.025*u*u*(3-2*u);}
+  const u=(t-.8)/.2;return 1+.025*(1-u*u*(3-2*u));
+ };
+ const left=(phase-.7-index*.095)/1.65;
+ const right=(phase-4.2-(5-index)*.095)/1.65;
+ const rock=t=>t>0&&t<1?Math.sin(t*Math.PI*2)*Math.sin(t*Math.PI):0;
+ const tilt=-rock(left)+rock(right);
+ return {shift:-.95*settle(left)+.95*settle(right),tilt:tilt*1.6,lift:-Math.abs(tilt)*2};
+}
 function referenceFan(time,index){
+ if(motionVersion==='pull')return directionalFan(time,index);
  const phase=Math.max(0,time-fanStart)/2300-(index-2.5)*.10;
  return {shift:Math.sin(phase)*.48,tilt:Math.sin(phase+.35)*1.1,lift:Math.sin(phase)*2};
 }
