@@ -120,3 +120,16 @@ footer>.creator-credit{margin:0 0 0 auto;white-space:nowrap}
 #wordContribution{max-width:600px;margin:0 auto 32px;text-align:center}#wordContribution p{margin:8px 0}#wordContribution .textbutton{padding:4px 0 8px}
 
 footer{align-items:center}footer>.creator-credit{margin-top:0;line-height:1.5}
+
+/* Mobile editorial line breaks and shared vector credit arrow. */
+.brand-emphasis{font-weight:600}
+#feelingInput{text-transform:lowercase}
+footer>.creator-credit{display:inline-flex;align-items:center;gap:5px}
+.credit-arrow{width:15px;height:15px;flex-shrink:0;transform:rotate(-45deg)}
+@media(max-width:700px){
+ .about-title>span{display:block}
+ .desktop-title-break{display:none}
+ .vocabulary-update{display:block}
+ footer{flex-direction:column;align-items:flex-start;gap:8px}
+ footer>.creator-credit{margin:0;min-height:44px}
+}
