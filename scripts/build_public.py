@@ -69,22 +69,21 @@ def main():
         canonical = html.escape(args.site_url + route, quote=True)
         return document.replace('</head>', f'<link rel="canonical" href="{canonical}"></head>')
 
-    def redirect_page(target):
-        # Keep old shared URLs useful, including their check-in anchors and motion previews.
+    def legacy_page(source, target):
+        # Serve the complete page at old URLs. Navigating back to / can loop
+        # when a visitor still has the original homepage redirect cached.
+        document = public_page(source, target.lstrip('/'))
         encoded = json.dumps(target)
-        return ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
-                '<meta name="viewport" content="width=device-width,initial-scale=1">'
-                '<title>Guess You</title>'
-                f'<script>location.replace({encoded}+location.search+location.hash);</script>'
-                f'<meta http-equiv="refresh" content="0; url={target}">'
-                f'</head><body><a href="{target}">Open Guess You</a></body></html>')
+        normalize_address = (f'<script>try{{history.replaceState(history.state,"",'
+                             f'{encoded}+location.search+location.hash);}}catch{{}}</script>')
+        return document.replace('</head>', normalize_address + '</head>')
 
     (dest / 'index.html').write_text(public_page('proof.html', ''))
     for name in ('about', 'resources'):
         (dest / name).mkdir()
         (dest / name / 'index.html').write_text(public_page(name + '.html', name + '/'))
     for old, target in [('proof', '/'), ('about', '/about/'), ('resources', '/resources/')]:
-        (dest / 'design' / (old + '.html')).write_text(redirect_page(target))
+        (dest / 'design' / (old + '.html')).write_text(legacy_page(old + '.html', target))
 
     (dest / '.nojekyll').touch()
     print(f'Built {len(assets)} display portraits and {len(list(dest.rglob("*")))} site paths in {dest}')

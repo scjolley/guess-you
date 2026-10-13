@@ -39,8 +39,12 @@ class PublicRoutes(unittest.TestCase):
                     if target.is_dir():
                         self.assertTrue((target / 'index.html').exists(), url)
             for name, target in [('proof', '/'), ('about', '/about/'), ('resources', '/resources/')]:
-                redirect = (build / 'design' / (name + '.html')).read_text()
-                self.assertIn('location.replace("' + target + '"+location.search+location.hash)', redirect)
+                legacy = (build / 'design' / (name + '.html')).read_text()
+                self.assertNotIn('http-equiv="refresh"', legacy)
+                self.assertNotIn('location.replace(', legacy)
+                self.assertIn('history.replaceState(history.state,"","' + target + '"+location.search+location.hash)', legacy)
+                self.assertIn('<main>', legacy)
+                self.assertIn('href="/design/', legacy)
             home = (build / 'index.html').read_text()
             self.assertIn('src="/design/journey.js?', home)
             self.assertIn('tabindex="-1" autofocus', home)
