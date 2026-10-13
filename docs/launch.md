@@ -12,24 +12,28 @@ page. Its artifact is about 21 MB. The original Claude prototype, master images,
 local review notes, and working files are excluded. The workflow has no push
 trigger, so preparing it does not publish the site.
 
-The site was published from `main` by GitHub Actions run 38420742949 on October
-13. The reviewed journey loaded at the GitHub Pages address, including its
-portraits and feeling selection. GitHub Pages is configured for `guessyou.app`.
+The site was published from `main` by GitHub Actions on October 13. The first
+run was 38420742949 and the custom-domain run was 38421666313. The reviewed
+journey is live at [https://guessyou.app/](https://guessyou.app/).
+The live browser loaded the journey, its portraits, feeling selection, and
+reflection dialog. The public reflection script contains the `guessyou.app`
+share URL; the original Claude prototype and review tools remain in the repo.
+The Resources page remains part of the published site.
+
+GitHub Pages has verified ownership of `guessyou.app`, approved a certificate
+for the apex and `www`, and enforces HTTPS. `www.guessyou.app` redirects to the
+apex. GitHub Actions is the publishing source and the workflow remains manual.
 At Porkbun, the apex ALIAS and `www` CNAME point to `scjolley.github.io`; the
-registrar's wildcard parking record was removed. The custom HTTPS certificate
-is pending. Shared reflections still contain the GitHub Pages address until
-HTTPS works at `guessyou.app` and the build is republished with that URL.
+registrar's wildcard parking record was replaced with the `www` record. A TXT
+record verifies ownership with GitHub; keep it in DNS.
 
 ## Launch sequence
 
-1. Wait for GitHub to issue the custom-domain certificate. Check both
-   `https://guessyou.app/` and `https://www.guessyou.app/` without bypassing
-   certificate validation; confirm the second redirects to the first.
-2. Once HTTPS works, run the manual Pages workflow again to publish the
-   prepared `https://guessyou.app/` share URL.
-3. Verify the final public address on desktop and mobile: opening animation,
-   four suggestions, search and See more, portrait loading, one moving Keep my
-   reflection control, copy/download/email drafts, Resources, and navigation.
+For future updates, commit and push the reviewed change to `main`, then run
+the manual `Publish Guess You` workflow. Check the workflow result and visit
+the live domain before considering the update published. Keep the public build
+limited to the reviewed journey and display-size assets. Portrait feedback can
+continue in the local background review without changing the public images.
 
 The public site has no account, server database, or collection of written
 reflections. Unmatched searches stay in each visitor's browser; the local

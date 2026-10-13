@@ -1,7 +1,7 @@
 # Guess You / Adivinha Você
 
-Public launch status and checklist: [docs/launch.md](docs/launch.md). The manual
-Pages workflow has published the reviewed site; custom-domain HTTPS is pending.
+The reviewed site is live at [guessyou.app](https://guessyou.app/). See
+[docs/launch.md](docs/launch.md) for the publishing setup and launch checks.
 
 This workspace continues the existing Claude Code prototype. It is connected to
 https://github.com/scjolley/guess-you as the Git `origin` remote.
@@ -164,5 +164,5 @@ silently enabled by this proof. The vocabulary is explicitly described as growin
 Explore a personal journal with an optional login and saved reflection history.
 This is a future product idea, not part of the current launch. The first version
 remains a website without accounts; the guessyou.app domain leaves room
-for that evolution. The domain has been purchased and the site is hosted on
-GitHub Pages; custom-domain HTTPS is pending.
+for that evolution. The site is hosted on GitHub Pages with HTTPS at
+`guessyou.app`.
