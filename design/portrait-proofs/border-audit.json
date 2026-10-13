@@ -1,0 +1,98 @@
+[
+  {
+    "name": "elias-cozy",
+    "trim_pixels": {
+      "left": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 32
+    },
+    "master_size": [
+      810,
+      1440
+    ],
+    "exports": {
+      "400": [
+        400,
+        711
+      ],
+      "800": [
+        800,
+        1422
+      ]
+    },
+    "changes": "Crop and resize only; no brightness, background, shadow, or subject edits."
+  },
+  {
+    "name": "elias-frazzled",
+    "trim_pixels": {
+      "left": 0,
+      "top": 44,
+      "right": 32,
+      "bottom": 42
+    },
+    "master_size": [
+      810,
+      1440
+    ],
+    "exports": {
+      "400": [
+        400,
+        711
+      ],
+      "800": [
+        800,
+        1422
+      ]
+    },
+    "changes": "Crop and resize only; no brightness, background, shadow, or subject edits."
+  },
+  {
+    "name": "keisha-confused",
+    "trim_pixels": {
+      "left": 20,
+      "top": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "master_size": [
+      810,
+      1440
+    ],
+    "exports": {
+      "400": [
+        400,
+        711
+      ],
+      "800": [
+        800,
+        1422
+      ]
+    },
+    "changes": "Crop and resize only; no brightness, background, shadow, or subject edits."
+  },
+  {
+    "name": "tayanna-comfortable",
+    "trim_pixels": {
+      "left": 39,
+      "top": 73,
+      "right": 33,
+      "bottom": 68
+    },
+    "master_size": [
+      810,
+      1440
+    ],
+    "exports": {
+      "400": [
+        400,
+        711
+      ],
+      "800": [
+        800,
+        1422
+      ]
+    },
+    "changes": "Crop and resize only; no brightness, background, shadow, or subject edits."
+  }
+]

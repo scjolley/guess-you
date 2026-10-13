@@ -103,3 +103,12 @@ header .mini{display:grid;place-items:center;min-width:44px;min-height:44px}
 header nav a,header>a:last-child{display:inline-flex;align-items:center;min-height:44px}
 .pill input{min-height:44px}
 summary{min-height:44px;padding:12px 0}
+
+/* Compact footer signature and credit; retain the original About placement. */
+footer{gap:16px;align-items:baseline}
+.footer-brand{max-width:680px}
+.footer-signature{display:flex;align-items:center;gap:16px}
+.footer-signature p{margin:0}
+.creator-credit{display:inline-block;color:var(--ink);font-size:13px;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
+.creator-credit:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media(max-width:700px){.footer-signature{gap:12px}.footer-signature p{font-size:12px}}
