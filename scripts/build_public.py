@@ -1,6 +1,7 @@
 """Build the reviewed journey as a minimal static GitHub Pages artifact."""
 from pathlib import Path
 import argparse
+import html
 import json
 import re
 import shutil
@@ -51,22 +52,40 @@ def main():
         'const PUBLIC_GUESS_YOU_URL = ' + json.dumps(args.site_url) + ';')
     (dest / 'design' / 'reflection-tools.js').write_text(reflection)
 
-    proof = (ROOT / 'design' / 'proof.html').read_text()
-    proof = proof.replace('PROOF / 07', '')
-    proof = proof.replace('About this proof', 'About Guess You')
-    proof = re.sub(r'English journey proposal using existing portraits and vocabulary\..*?Unmatched search words \(up to 80 characters\) are saved only in this browser for vocabulary review\.',
-        'Guess You is a space to find words for feelings and explore what matters. The portraits show fictional people created with AI. Your reflection stays in this page until you choose to save it, and is not stored after reload. Unmatched search words (up to 80 characters) are saved only in this browser to help you notice vocabulary gaps.', proof)
-    proof = re.sub(r'<a href="vocabulary-review.html".*?</a><br>', '', proof)
-    proof = re.sub(r'<a href="background-review.html".*?</a><br>', '', proof)
-    proof = re.sub(r'<a href="http://127\.0\.0\.1:8000/".*?</a>', '', proof)
-    (dest / 'design' / 'proof.html').write_text(proof)
+    def public_page(source, route):
+        document = (ROOT / 'design' / source).read_text().replace('PROOF / 07', '')
+        routes = {'proof.html': '/', 'about.html': '/about/', 'resources.html': '/resources/'}
+        def public_url(match):
+            attribute, value = match.groups()
+            for old, new in routes.items():
+                if value == old or value.startswith(old + '#') or value.startswith(old + '?'):
+                    value = new + value[len(old):]
+                    break
+            else:
+                if not value.startswith(('https:', 'http:', '/', '#', 'tel:', 'sms:', 'mailto:')):
+                    value = '/design/' + value
+            return f'{attribute}="{value}"'
+        document = re.sub(r'(src|href)="([^"\s]+)"', public_url, document)
+        canonical = html.escape(args.site_url + route, quote=True)
+        return document.replace('</head>', f'<link rel="canonical" href="{canonical}"></head>')
 
-    (dest / 'index.html').write_text(
-        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
-        '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<title>Guess You</title><meta http-equiv="refresh" content="0; url=design/proof.html">'
-        '<link rel="canonical" href="design/proof.html"></head><body>'
-        '<a href="design/proof.html">Open Guess You</a></body></html>')
+    def redirect_page(target):
+        # Keep old shared URLs useful, including their check-in anchors and motion previews.
+        encoded = json.dumps(target)
+        return ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                '<meta name="viewport" content="width=device-width,initial-scale=1">'
+                '<title>Guess You</title>'
+                f'<script>location.replace({encoded}+location.search+location.hash);</script>'
+                f'<meta http-equiv="refresh" content="0; url={target}">'
+                f'</head><body><a href="{target}">Open Guess You</a></body></html>')
+
+    (dest / 'index.html').write_text(public_page('proof.html', ''))
+    for name in ('about', 'resources'):
+        (dest / name).mkdir()
+        (dest / name / 'index.html').write_text(public_page(name + '.html', name + '/'))
+    for old, target in [('proof', '/'), ('about', '/about/'), ('resources', '/resources/')]:
+        (dest / 'design' / (old + '.html')).write_text(redirect_page(target))
+
     (dest / '.nojekyll').touch()
     print(f'Built {len(assets)} display portraits and {len(list(dest.rglob("*")))} site paths in {dest}')
 

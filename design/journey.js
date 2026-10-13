@@ -89,7 +89,7 @@ function updateCommunication(){const v=currentWords(),hasContent=!!(v.observatio
 async function copyText(text,status){try{await navigator.clipboard.writeText(text);status.textContent='Copied. Your words are ready to paste.';}catch{status.textContent='Copy is unavailable here. Select and copy the text below.';$('#shareText').value=text;$('#includeLinks').checked=false;if(!$('#shareDialog').open)$('#shareDialog').showModal();$('#shareStatus').textContent='Select and copy your words manually.';$('#shareText').select();}}
 
 let shareStage='detail';
-function openShare(stage){shareStage=stage;$('#shareText').value=reflectionText(currentWords(),stage);$('#shareStatus').textContent='';$('#publicLinkNote').textContent=PUBLIC_GUESS_YOU_URL?'': 'The Guess You website link will be added once the public site is live.';$('#nativeShare').hidden=typeof navigator.share!=='function';$('#shareDialog').showModal();}
+function openShare(stage){shareStage=stage;$('#shareText').value=reflectionText(currentWords(),stage);$('#shareStatus').textContent='';$('#publicLinkNote').textContent=PUBLIC_GUESS_YOU_URL?'': 'The Guess You website link will be added once the public site is live.';$('#nativeShare').hidden=typeof navigator.share!=='function';$('#shareDialog').showModal();$('#shareTitle').focus({preventScroll:true});}
 document.querySelectorAll('.keep-reflection').forEach(b=>b.onclick=()=>openShare(b.dataset.stage));
 $('#closeShare').onclick=()=>$('#shareDialog').close();
 function sharePayload(){return $('#includeLinks').checked?withSiteLink($('#shareText').value):$('#shareText').value;}
