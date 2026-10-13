@@ -136,3 +136,36 @@ footer>.creator-credit{display:inline-flex;align-items:center;gap:5px}
 
 /* These headings receive focus to announce a new view, not as controls. */
 h2[tabindex="-1"]:focus{outline:none}
+
+/* Tablet layouts: compact section rhythm and aligned reading/form columns. */
+@media (min-width:701px) and (max-width:1199px){
+ :root{--section-space:32px}
+ .detail-layout{align-items:start;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:32px;margin-top:24px}
+ .detail-copy h2{font-size:clamp(42px,5.5vw,56px);margin-bottom:24px}
+ .description{font-size:18px;margin-bottom:24px}
+ .blocks{gap:24px;margin:32px 0}
+ .blocks>div{min-width:0;padding-top:20px}
+ .blocks label{font-size:21px;min-height:3em}
+ .blocks p{min-height:3em}
+ .close-section{margin-bottom:16px}
+ footer{margin-top:32px;padding-top:32px;padding-bottom:32px;gap:24px}
+ .about-page main,.resources-page main{padding:120px 32px 40px}
+ .about-page main>p{font-size:18px}
+ .about-page .about-grid,.resources-page .resource-grid{gap:24px;margin:32px 0 40px}
+ .about-page .about-card,.resources-page .resource-card{padding:24px}
+ .resources-page .resource-intro+.lead{margin-bottom:40px}
+ .resources-page .resource-card{display:flex;flex-direction:column;min-width:0}
+ .resources-page .resource-card h3{min-height:3em;line-height:1.5}
+ .resources-page .resource-card>p:first-of-type{flex:1;margin-top:0}
+ .resources-page .resource-actions{min-height:138px}
+ .resources-page .resource-actions .small{margin-bottom:0}
+ .resources-page .resource-card a{overflow-wrap:anywhere}
+ .resources-page .resource-card>a:last-child{margin-top:auto;padding-top:7px}
+}
+@media (min-width:701px) and (max-width:1199px) and (orientation:portrait){
+ .blocks{grid-template-columns:1fr;gap:28px}
+ .blocks label,.blocks p{min-height:0}
+}
+@media (min-width:1000px) and (max-width:1199px) and (orientation:landscape){
+ .blocks label{min-height:1.5em}
+}

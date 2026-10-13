@@ -1,3 +1,9 @@
+// Portrait screens get a taller board; landscape screens get a wider board.
+// Both use complete rows and an even number of portraits.
+function portraitGridColumns(width, height) {
+ return width <= 700 || height > width ? 10 : 16;
+}
+
 // Keep the six opening portraits, then separate matching families on both axes.
 // Slots are physical row-major positions, independent of animation/DOM order.
 function portraitGridSlots(faces, columns) {

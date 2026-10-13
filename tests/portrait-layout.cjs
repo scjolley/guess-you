@@ -18,3 +18,11 @@ for(const cols of [10,16]){
  assert.deepEqual(slots,ctx.layout(ctx.faces,cols),'Stable across resize');
  console.log(`${cols} columns: ${count} unique portraits, full rows, no matching families touching.`);
 }
+
+for(const [width,height,expected] of [[390,844,10],[768,1024,10],[1024,768,16],[820,1180,10],[1180,820,16],[1024,1366,10],[1366,1024,16]]){
+ assert.equal(ctx.portraitGridColumns(width,height),expected,`${width}×${height}`);
+ const slots=ctx.layout(ctx.faces,expected).filter(n=>n>=0);
+ assert.equal(slots.length%expected,0,'No incomplete row after rotation');
+ assert.equal(slots.length%2,0,'Even portrait count');
+}
+console.log('Portrait and landscape rotation preserve full rows and even counts.');
