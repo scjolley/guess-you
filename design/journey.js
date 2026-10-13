@@ -12,7 +12,7 @@ const introFaces=['excited','annoyed','anxious','calm','disappointed','confused'
 const usedPeople=new Set(introFaces.map(personKey));
 const buckets=D.families.map(f=>feelings.filter(x=>x.family===f.id));
 for(let round=0;introFaces.length<76&&round<80;round++){for(const bucket of buckets){const f=bucket.find(x=>!usedPeople.has(personKey(x)));if(f){usedPeople.add(personKey(f));introFaces.push(f);}}}
-$('#portraitCloud').innerHTML=introFaces.map((f,i)=>`<div class="cloud-card" style="visibility:${i<6?'visible':'hidden'}"><img src="${portraitSrc(f.image.replace('-800.webp','-400.webp'))}" alt="" loading="eager" fetchpriority="${i<6?'high':'low'}" decoding="async"></div>`).join('');
+$('#portraitCloud').innerHTML=introFaces.map((f,i)=>`<div class="cloud-card" style="visibility:${i<6?'visible':'hidden'}"><img data-src="${portraitSrc(f.image.replace('-800.webp','-400.webp'))}" alt="" width="400" height="711" fetchpriority="${i<6?'high':'auto'}"></div>`).join('');
 const hero=$('#hello'),sticky=$('.hero-sticky'),cards=[...document.querySelectorAll('.cloud-card')];
 let motionFrame=0,paused=false,lastProgress=-1,geometry=null;
 const motionVersion=new URLSearchParams(location.search).get('motion');
@@ -44,12 +44,13 @@ function paintHero(time=0){motionFrame=0;if(reduce.matches){const cols=sticky.cl
  cards.forEach((el,i)=>{if(i>=g.count){el.style.display='none';return;}el.style.display='block';if(!progressChanged&&i>=6)return;const row=Math.floor(i/g.cols),column=row%2?g.cols-1-i%g.cols:i%g.cols;const tx=(g.w-(g.cols*g.gw+(g.cols-1)*g.gap))/2+column*(g.gw+g.gap),ty=(g.h-(g.rows*g.gh+(g.rows-1)*g.gap))/2+row*(g.gh+g.gap)+g.h*.07+10;let x,y,width,rotation;
  if(i<6){const motion=referenceMotion?referenceFan(paused?fanPausedAt:time,i):{shift:sweep,tilt:0,lift:0};const slot=i-2.5+motion.shift;const fx=g.w/2+slot*g.fw*.77-g.fw/2,fy=g.h*.61+slot*slot*5-g.fw*16/9/2+motion.lift;const q=ease(clamp((p-i*.025)/.375));width=g.fw+(g.gw-g.fw)*q;x=fx+(tx-fx)*q;y=fy+(ty-fy)*q+Math.sin(q*Math.PI)*Math.sin(i*.8)*60;rotation=(slot*8+motion.tilt)*(1-q);el.style.visibility='visible';}
  else{const q=ease(clamp((p-.08-i/g.count*.29)/.12));el.style.visibility=q>0?'visible':'hidden';width=g.gw;const direction=row%2?-1:1;x=tx+direction*(1-q)*(g.w*.75);y=ty+(1-q)*g.h*.65;rotation=(1-q)*direction*18;}
- el.style.width=`${width}px`;el.style.transform=`translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
+ el.style.willChange=p>=.5?'auto':'transform';el.style.width=`${width}px`;el.style.transform=`translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
  });lastProgress=p;if(!paused&&!reduce.matches&&p<.86&&rect.bottom>0&&rect.top<g.h&&!document.hidden)motionFrame=requestAnimationFrame(paintHero);
 }
 function requestMotion(){if(!motionFrame)motionFrame=requestAnimationFrame(paintHero);}
 addEventListener('scroll',requestMotion,{passive:true});addEventListener('resize',()=>{measureHero();requestMotion()});document.addEventListener('visibilitychange',requestMotion);reduce.addEventListener('change',requestMotion);
 $('#pauseMotion').onclick=()=>{if(paused)fanStart+=performance.now()-fanPausedAt;else fanPausedAt=performance.now();paused=!paused;$('#pauseMotion').textContent=paused?'Play motion':'Pause motion';$('#pauseMotion').setAttribute('aria-pressed',String(paused));requestMotion()};requestMotion();
+loadPortraits(cards.map(card=>card.querySelector('img')),{onReady:()=>{lastProgress=-1;requestMotion();}});
 function syncKeepReflection(){
  const stage=!$('#closing').hidden?'closing':!$('#deep').hidden?'deep':!$('#detail').hidden?'detail':null;
  const button=$('.keep-reflection');
