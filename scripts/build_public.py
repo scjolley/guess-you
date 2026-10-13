@@ -6,7 +6,7 @@ import re
 import shutil
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_URL = 'https://scjolley.github.io/guess-you/'
+DEFAULT_URL = 'https://guessyou.app/'
 
 
 def main():

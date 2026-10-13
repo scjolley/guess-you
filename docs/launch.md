@@ -1,7 +1,7 @@
 # Guess You launch
 
-Launch target: Tuesday, October 13, 2026 (America/New_York). The domain owner
-and exact launch time still need confirmation. Do not publish early.
+Launch target: Tuesday, October 13, 2026, by end of day (America/New_York).
+Sam owns `guessyou.app` at Porkbun.
 
 ## Prepared path
 
@@ -12,27 +12,24 @@ page. Its artifact is about 21 MB. The original Claude prototype, master images,
 local review notes, and working files are excluded. The workflow has no push
 trigger, so preparing it does not publish the site.
 
-The first public address can be `https://scjolley.github.io/guess-you/`.
-Buying `guessyou.app` is separate. The launch can proceed at the GitHub address
-if domain checkout or DNS is still pending. The exported reflection uses the
-working public address; update it when the custom domain works.
+The site was published from `main` by GitHub Actions run 38420742949 on October
+13. The reviewed journey loaded at the GitHub Pages address, including its
+portraits and feeling selection. GitHub Pages is configured for `guessyou.app`.
+At Porkbun, the apex ALIAS and `www` CNAME point to `scjolley.github.io`; the
+registrar's wildcard parking record was removed. The custom HTTPS certificate
+is pending. Shared reflections still contain the GitHub Pages address until
+HTTPS works at `guessyou.app` and the build is republished with that URL.
 
 ## Launch sequence
 
-1. Confirm the final approved feeling vocabulary and launch time with Sam.
-2. Confirm `main` is clean and run `python3 scripts/build_public.py` into an
-   empty temporary directory. Check the result in a browser and run the tests.
-3. Enable GitHub Pages with GitHub Actions as the publishing source for this
-   repository. The Pages site does not exist yet.
-4. Run the manual `Publish Guess You` workflow at the agreed time. Check that
-   the workflow succeeds, then open the public HTTPS URL on desktop and mobile.
-5. Test: opening animation, four suggestions, search and See more, portrait
-   loading, one moving Keep my reflection control, copy/download/email drafts,
-   Resources, and a clean return to the top.
-6. Once Sam owns `guessyou.app`, verify the domain in GitHub, set it as the Pages
-   custom domain, configure the registrar's DNS records using GitHub's current
-   instructions, and wait for HTTPS to work. Update the exported website link
-   to the custom domain and republish. A `.app` address requires HTTPS.
+1. Wait for GitHub to issue the custom-domain certificate. Check both
+   `https://guessyou.app/` and `https://www.guessyou.app/` without bypassing
+   certificate validation; confirm the second redirects to the first.
+2. Once HTTPS works, run the manual Pages workflow again to publish the
+   prepared `https://guessyou.app/` share URL.
+3. Verify the final public address on desktop and mobile: opening animation,
+   four suggestions, search and See more, portrait loading, one moving Keep my
+   reflection control, copy/download/email drafts, Resources, and navigation.
 
 The public site has no account, server database, or collection of written
 reflections. Unmatched searches stay in each visitor's browser; the local
