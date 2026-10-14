@@ -26,3 +26,17 @@ for(const [width,height,expected] of [[390,844,10],[768,1024,10],[1024,768,16],[
  assert.equal(slots.length%2,0,'Even portrait count');
 }
 console.log('Portrait and landscape rotation preserve full rows and even counts.');
+
+for(const [top,bottom,preferred] of [[235,470,108],[210,420,100],[260,580,135]]){
+ const fan=ctx.fitOpeningFan(preferred,top,bottom);
+ for(let slot=-3;slot<=3;slot+=.05){
+  for(const tilt of [-1.6,1.6]){
+   const angle=(slot*8+tilt)*Math.PI/180;
+   const halfHeight=fan.width*(Math.abs(Math.cos(angle))*8/9+Math.abs(Math.sin(angle))*.5);
+   assert.ok(fan.center+slot*slot*5-2-halfHeight>=top-.001,'Fan stays below subtitle throughout sway');
+   assert.ok(fan.center+slot*slot*5+2+halfHeight<=bottom+.001,'Fan stays above CTA throughout sway');
+  }
+ }
+ assert.ok(fan.width<=preferred);
+}
+console.log('Opening fan clears text and CTA throughout its full movement.');

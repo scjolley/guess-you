@@ -36,3 +36,11 @@ function portraitGridSlots(faces, columns) {
  if(!place(Math.min(6,count)))throw Error('Unable to separate portrait families');
  return slots;
 }
+
+// Reserve the full sway/rotation envelope between the subtitle and CTA.
+function fitOpeningFan(preferredWidth, top, bottom) {
+ const halfHeightFactor=Math.hypot(8/9,.5);
+ const topMotion=2,bottomMotion=47;
+ const width=Math.max(1,Math.min(preferredWidth,(bottom-top-topMotion-bottomMotion)/(2*halfHeightFactor)));
+ return {width,center:(top+bottom+topMotion-bottomMotion)/2};
+}

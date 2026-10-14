@@ -14,7 +14,7 @@ main>.intro{height:210svh;max-width:none;padding:0;overflow:visible;text-align:c
 @media(prefers-reduced-motion:reduce){main>.intro{height:auto}.hero-sticky{position:relative;height:auto;min-height:0;padding:130px 18px 40px}.intro-copy{position:static;opacity:1!important;transform:none!important}.intro .portrait-stage{position:relative;height:auto;margin:35px auto}.intro #portraitCloud{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:5px;padding:0;align-content:center}.intro .cloud-card{transform:none!important;position:static;width:auto!important;visibility:visible!important;will-change:auto}.hero-cta{position:relative;left:auto;bottom:auto;margin:30px auto 0;transform:none;opacity:1!important;visibility:visible!important}.intro .scrollnote{display:none}}
 /* Proof 07: a breath before the cards, complete rows, keeping words at each step. */
 header nav{display:flex;gap:26px;align-items:center;font-size:14px}header nav a{padding:10px 0}.hero-cta{width:auto;min-width:205px;height:62px;padding:0 25px;border-radius:99px;flex-direction:row;gap:24px;font-size:18px}.hero-cta .circle{width:25px;height:25px}.arrow-down svg{rotate:90deg}.action:hover .circle{transform:translateX(4px)}.intro h1{animation:title-breath 3.8s cubic-bezier(.2,.6,.2,1) both}.intro-copy>p:not(.eyebrow){max-width:640px;font-size:clamp(16px,1.65vw,21px);animation:copy-arrival .65s 1.5s both}.intro #portraitCloud,.hero-cta,.intro .scrollnote,.motion-control{animation:after-breath 1.65s step-end both}.intro-scrolled .intro h1,.intro-scrolled .intro-copy>p,.intro-scrolled .intro #portraitCloud,.intro-scrolled .hero-cta,.intro-scrolled .intro .scrollnote{animation:none}.closing-input{border:0;background:#f6f6f3;border-radius:24px;padding:20px 24px}.closing-input:focus-visible{outline:1px solid #9b9e95}.keep-reflection{display:block;margin-top:22px}.communication{padding:28px;background:#f5f6f1;border-radius:24px;margin:25px 0}.communication h3{margin-top:0}.communication p{font-size:20px;line-height:1.55;white-space:pre-wrap}.communication span{font-size:13px;margin-left:15px}button:disabled{cursor:default;opacity:.45}dialog{border:0;border-radius:26px;padding:32px;max-width:650px;width:calc(100% - 30px);max-height:90svh;color:var(--ink);box-shadow:0 20px 90px #0002}dialog::backdrop{background:#16191655;backdrop-filter:blur(4px)}dialog h2{font-size:34px;margin:18px 0}dialog>p{font-size:15px}dialog textarea{font-size:16px;min-height:180px;line-height:1.6}.share-close{display:block;margin-left:auto}.include-links{display:flex;gap:10px;margin-top:20px;font-size:14px}.share-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.share-actions button{border:0;border-radius:99px;padding:12px 22px;background:var(--accent)}.share-actions button:first-child{background:var(--ink);color:white}#shareStatus{min-height:24px}#sentenceStatus{display:block;margin-left:0}#detail .keep-reflection{font-size:14px}
-@keyframes title-breath{0%{transform:translateY(calc(37svh - .5em));filter:blur(18px);opacity:.2}40%{transform:translateY(calc(37svh - .5em));filter:blur(0);opacity:1}100%{transform:translateY(0);filter:blur(0);opacity:1}}@keyframes copy-arrival{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes after-breath{from{visibility:hidden}to{visibility:visible}}
+@keyframes title-breath{0%{transform:translateY(calc(var(--title-travel,37svh) - .5em));filter:blur(18px);opacity:.2}40%{transform:translateY(calc(var(--title-travel,37svh) - .5em));filter:blur(0);opacity:1}100%{transform:translateY(0);filter:blur(0);opacity:1}}@keyframes copy-arrival{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes after-breath{from{visibility:hidden}to{visibility:visible}}
 @media(max-width:700px){header nav{gap:18px;font-size:13px}.intro-copy>p:not(.eyebrow){max-width:355px;font-size:16px;line-height:1.4}.hero-cta{width:auto;min-width:180px;height:56px;font-size:16px;bottom:8%}.communication{padding:22px}.communication p{font-size:18px}dialog{padding:24px}dialog h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.intro #portraitCloud{grid-template-columns:repeat(16,1fr)}}
 @media(prefers-reduced-motion:reduce) and (max-width:700px){.intro #portraitCloud{grid-template-columns:repeat(10,1fr)}}
@@ -41,8 +41,8 @@ main>.intro{margin-bottom:0;height:192svh}
 .intro #portraitCloud{animation:none}
 .hero-cta,.intro .scrollnote,.motion-control{animation:after-breath 3.8s step-end both}
 @keyframes title-breath{
-  0%{transform:translateY(calc(37svh - .5em));filter:blur(18px);opacity:.2;animation-timing-function:cubic-bezier(.45,0,.55,1)}
-  52%,66.3%{transform:translateY(calc(37svh - .5em));filter:blur(0);opacity:1}
+  0%{transform:translateY(calc(var(--title-travel,37svh) - .5em));filter:blur(18px);opacity:.2;animation-timing-function:cubic-bezier(.45,0,.55,1)}
+  52%,66.3%{transform:translateY(calc(var(--title-travel,37svh) - .5em));filter:blur(0);opacity:1}
   100%{transform:translateY(0);filter:blur(0);opacity:1}
 }
 @keyframes portraits-enter{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -169,3 +169,18 @@ h2[tabindex="-1"]:focus{outline:none}
 @media (min-width:1000px) and (max-width:1199px) and (orientation:landscape){
  .blocks label{min-height:1.5em}
 }
+
+/* Short landscape tablets must fit the opening below browser chrome. */
+@media (min-width:701px) and (max-height:760px) and (orientation:landscape) and (prefers-reduced-motion:no-preference){
+ .intro-copy{top:6%;--title-travel:44svh}
+ .intro h1{font-size:clamp(72px,16svh,112px);margin-bottom:24px}
+}
+
+/* The header has no visible controls until the opening has scrolled away. */
+.journey-page:not(.compact-logo) header{background:transparent;backdrop-filter:none;pointer-events:none}
+
+/* Link arrows use the footer credit's vector, never a font/emoji glyph. */
+.link-arrow{display:inline-block;width:15px;height:15px;vertical-align:-2px;flex-shrink:0}
+.link-arrow.arrow-back{transform:rotate(180deg)}
+
+.circle svg,.feeling-card i svg{width:24px;height:24px}
